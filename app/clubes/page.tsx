@@ -16,14 +16,14 @@ export default function ClubesLanding() {
     courts: ''
   });
 
-  const handleInputChange = (e) => {
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
     setFormData({
       ...formData,
       [e.target.name]: e.target.value
     });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     // Aquí iría la lógica para enviar el formulario
     console.log('Form submitted:', formData);
@@ -82,7 +82,7 @@ export default function ClubesLanding() {
                 className="inline-block"
               >
                 <button 
-                  onClick={() => document.getElementById('demo-form').scrollIntoView({ behavior: 'smooth' })}
+                  onClick={() => document.getElementById('demo-form')?.scrollIntoView({ behavior: 'smooth' })}
                   className="px-8 py-4 bg-[#E3FD72] text-black font-bold rounded-lg text-xl font-display hover:bg-[#d5ed62] transition-colors"
                 >
                   QUIERO MI DEMO GRATIS AHORA ⬇️
@@ -518,7 +518,7 @@ export default function ClubesLanding() {
               <motion.button
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                onClick={() => document.getElementById('demo-form').scrollIntoView({ behavior: 'smooth' })}
+                onClick={() => document.getElementById('demo-form')?.scrollIntoView({ behavior: 'smooth' })}
                 className="px-12 py-6 bg-[#E3FD72] text-black font-bold rounded-lg text-2xl font-display hover:bg-[#d5ed62] transition-colors"
               >
                 QUIERO MI MÓDULO GRATIS 🎁
