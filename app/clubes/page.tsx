@@ -122,12 +122,12 @@ export default function ClubesLanding() {
               </div>
 
               <h1 className="text-5xl sm:text-6xl md:text-7xl font-bold text-white mb-6 font-display leading-tight">
-                Tu club está perdiendo dinero, tiempo
-                <span className="block text-red-400 mt-2">
-                  y oportunidades
+                Aumenta tus ganancias y
+                <span className="block text-[#E3FD72] mt-2">
+                  reduce costos
                 </span>
                 <span className="block text-gray-400 text-2xl md:text-3xl mt-4 font-normal">
-                  porque no tienes el control total de tus operaciones
+                  con Padelyzer, la IA para clubs de padel
                 </span>
               </h1>
 
@@ -138,19 +138,19 @@ export default function ClubesLanding() {
 
               <div className="flex flex-col sm:flex-row gap-6 justify-center mb-16">
                 <motion.button
-                  whileHover={{ scale: 1.05 }}
+                  whileHover={{ scale: 1.08 }}
                   whileTap={{ scale: 0.95 }}
                   onClick={() => document.getElementById('demo-form')?.scrollIntoView({ behavior: 'smooth' })}
-                  className="px-8 py-4 bg-[#E3FD72] text-black font-bold rounded-lg text-lg font-display hover:bg-[#d5ed62] transition-colors"
+                  className="px-10 py-5 bg-gradient-to-r from-green-500 to-green-600 text-white font-bold rounded-xl text-xl font-display hover:from-green-600 hover:to-green-700 transition-all shadow-lg shadow-green-500/30 border-2 border-green-400"
                 >
-                  Empezar Prueba Gratuita
+                  🚀 RESERVA TU DEMO GRATIS AHORA
                 </motion.button>
                 <motion.button
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
-                  className="px-8 py-4 border-2 border-[#E3FD72] text-[#E3FD72] hover:bg-[#E3FD72] hover:text-black transition-all font-bold text-lg rounded-lg"
+                  className="px-8 py-5 border-2 border-white text-white hover:bg-white hover:text-black transition-all font-bold text-lg rounded-xl backdrop-blur-sm"
                 >
-                  Ver Demo en Vivo
+                  📹 Ver Demo en Vivo
                 </motion.button>
               </div>
 
@@ -325,19 +325,25 @@ export default function ClubesLanding() {
                       <p className="text-gray-400">Para siempre • Sin letra pequeña</p>
                     </div>
 
-                    {/* Timer */}
-                    <div className="grid grid-cols-4 gap-4 mb-8">
-                      {[
-                        { number: '15', label: 'DÍAS' },
-                        { number: '08', label: 'HORAS' },
-                        { number: '42', label: 'MIN' },
-                        { number: '16', label: 'SEG' },
-                      ].map((time, index) => (
-                        <div key={index} className="text-center bg-[#E3FD72]/10 border border-[#E3FD72]/30 rounded-lg p-3">
-                          <div className="text-2xl font-bold text-[#E3FD72] font-display">{time.number}</div>
-                          <div className="text-gray-400 text-xs uppercase tracking-wider">{time.label}</div>
-                        </div>
-                      ))}
+                    {/* Urgent Timer */}
+                    <div className="bg-red-500/20 border-2 border-red-500/50 rounded-xl p-4 mb-6">
+                      <div className="text-center mb-3">
+                        <div className="text-red-400 font-bold text-sm uppercase tracking-wider mb-2">⚠️ ÚLTIMA OPORTUNIDAD</div>
+                        <div className="text-white font-bold text-lg">Después del 15 de agosto, el módulo costará $2,997/mes</div>
+                      </div>
+                      <div className="grid grid-cols-4 gap-3">
+                        {[
+                          { number: '15', label: 'DÍAS' },
+                          { number: '08', label: 'HORAS' },
+                          { number: '42', label: 'MIN' },
+                          { number: '16', label: 'SEG' },
+                        ].map((time, index) => (
+                          <div key={index} className="text-center bg-red-500/30 border border-red-500/50 rounded-lg p-3">
+                            <div className="text-3xl font-bold text-red-300 font-display animate-pulse">{time.number}</div>
+                            <div className="text-gray-300 text-xs uppercase tracking-wider">{time.label}</div>
+                          </div>
+                        ))}
+                      </div>
                     </div>
 
                     {/* Value Comparison */}
@@ -756,19 +762,22 @@ export default function ClubesLanding() {
               viewport={{ once: true }}
               className="text-center mb-12"
             >
-              <div className="flex items-center justify-center gap-3 mb-6">
-                <svg className="w-10 h-10 text-red-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 18.657A8 8 0 016.343 7.343S7 9 9 10c0-2 .5-5 2.986-7C14 5 16.09 5.777 17.656 7.343A7.975 7.975 0 0120 13a7.975 7.975 0 01-2.343 5.657z" />
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9.879 16.121A3 3 0 1012.015 11L11 14H9c0 .768.293 1.536.879 2.121z" />
-                </svg>
-                <h2 className="text-4xl md:text-5xl font-bold text-white font-display">
+              <div className="bg-red-500/20 border-2 border-red-500/50 rounded-2xl p-6 mb-8">
+                <div className="flex items-center justify-center gap-3 mb-4">
+                  <div className="w-4 h-4 bg-red-500 rounded-full animate-ping"></div>
+                  <span className="text-red-400 font-bold text-xl uppercase tracking-wider">⚠️ ALERTA CRÍTICA ⚠️</span>
+                  <div className="w-4 h-4 bg-red-500 rounded-full animate-ping"></div>
+                </div>
+                <h2 className="text-4xl md:text-5xl font-bold text-white font-display mb-4">
                   ÚLTIMAS 72 HORAS - MÓDULO GRATIS
                 </h2>
+                <div className="bg-black/30 rounded-xl p-4">
+                  <p className="text-xl text-gray-200 max-w-3xl mx-auto">
+                    Después del 15 de agosto, el módulo de reservas costará $2,997/mes. 
+                    <span className="text-red-300 font-bold text-2xl block mt-2">🔥 En esta fase beta lo obtienes GRATIS para siempre</span>
+                  </p>
+                </div>
               </div>
-              <p className="text-xl text-gray-300 max-w-3xl mx-auto">
-                Después del 15 de agosto, el módulo de reservas costará $2,997/mes. 
-                <span className="text-red-400 font-bold">En esta fase beta lo obtienes GRATIS para siempre.</span>
-              </p>
             </motion.div>
 
             <div className="grid lg:grid-cols-2 gap-16 items-center">
@@ -826,89 +835,58 @@ export default function ClubesLanding() {
                     🎯 RESERVA TU DEMO GRATIS
                   </h3>
 
-                  <form onSubmit={handleSubmit} className="space-y-4">
-                    <input
-                      type="text"
-                      name="clubName"
-                      placeholder="Nombre de tu club"
-                      value={formData.clubName}
-                      onChange={handleInputChange}
-                      className="w-full px-4 py-3 bg-gray-900 border border-gray-700 rounded-lg text-white placeholder-gray-400 focus:border-[#E3FD72] focus:outline-none"
-                      required
-                    />
+                  <form onSubmit={handleSubmit} className="space-y-5">
+                    <div className="text-center mb-4">
+                      <p className="text-green-400 font-bold text-sm">✅ Solo 2 campos - 30 segundos</p>
+                    </div>
                     
                     <input
                       type="text"
                       name="ownerName"
-                      placeholder="Tu nombre completo"
+                      placeholder="🧑‍💼 Tu nombre completo"
                       value={formData.ownerName}
                       onChange={handleInputChange}
-                      className="w-full px-4 py-3 bg-gray-900 border border-gray-700 rounded-lg text-white placeholder-gray-400 focus:border-[#E3FD72] focus:outline-none"
+                      className="w-full px-6 py-4 bg-gray-900 border-2 border-gray-700 rounded-xl text-white placeholder-gray-400 focus:border-green-500 focus:outline-none text-lg transition-all"
                       required
                     />
 
                     <input
                       type="email"
                       name="email"
-                      placeholder="Email"
+                      placeholder="📧 Tu email"
                       value={formData.email}
                       onChange={handleInputChange}
-                      className="w-full px-4 py-3 bg-gray-900 border border-gray-700 rounded-lg text-white placeholder-gray-400 focus:border-[#E3FD72] focus:outline-none"
+                      className="w-full px-6 py-4 bg-gray-900 border-2 border-gray-700 rounded-xl text-white placeholder-gray-400 focus:border-green-500 focus:outline-none text-lg transition-all"
                       required
                     />
-
-                    <input
-                      type="tel"
-                      name="phone"
-                      placeholder="Teléfono"
-                      value={formData.phone}
-                      onChange={handleInputChange}
-                      className="w-full px-4 py-3 bg-gray-900 border border-gray-700 rounded-lg text-white placeholder-gray-400 focus:border-[#E3FD72] focus:outline-none"
-                      required
-                    />
-
-                    <select
-                      name="courts"
-                      value={formData.courts}
-                      onChange={handleInputChange}
-                      className="w-full px-4 py-3 bg-gray-900 border border-gray-700 rounded-lg text-white focus:border-[#E3FD72] focus:outline-none"
-                      required
-                    >
-                      <option value="">¿Cuántas canchas tienes?</option>
-                      <option value="2-4">2-4 canchas</option>
-                      <option value="5-8">5-8 canchas</option>
-                      <option value="9-12">9-12 canchas</option>
-                      <option value="12+">Más de 12 canchas</option>
-                    </select>
 
                     <motion.button
-                      whileHover={{ scale: 1.02 }}
+                      whileHover={{ scale: 1.03 }}
                       whileTap={{ scale: 0.98 }}
                       type="submit"
-                      className="w-full py-4 bg-[#E3FD72] text-black font-bold rounded-lg text-lg font-display hover:bg-[#d5ed62] transition-colors"
+                      className="w-full py-5 bg-gradient-to-r from-green-500 to-green-600 text-white font-bold rounded-xl text-xl font-display hover:from-green-600 hover:to-green-700 transition-all shadow-lg shadow-green-500/40 border-2 border-green-400"
                     >
-                      AGENDAR MI DEMO AHORA
+                      🚀 AGENDAR MI DEMO AHORA (GRATIS)
                     </motion.button>
                   </form>
 
-                  <div className="text-center text-gray-400 text-sm mt-4 space-y-1">
-                    <div className="flex items-center justify-center gap-2">
-                      <svg className="w-4 h-4 text-[#E3FD72]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                      </svg>
-                      <span>Demo en vivo de 15 minutos</span>
-                    </div>
-                    <div className="flex items-center justify-center gap-2">
-                      <svg className="w-4 h-4 text-[#E3FD72]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                      </svg>
-                      <span>Sin compromiso</span>
-                    </div>
-                    <div className="flex items-center justify-center gap-2">
-                      <svg className="w-4 h-4 text-[#E3FD72]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                      </svg>
-                      <span>Respuesta inmediata</span>
+                  <div className="bg-green-500/10 border border-green-500/30 rounded-xl p-4 mt-6">
+                    <div className="text-center space-y-2">
+                      <div className="grid grid-cols-3 gap-4 text-sm">
+                        <div className="flex flex-col items-center">
+                          <div className="text-green-400 text-2xl mb-1">⏱️</div>
+                          <span className="text-green-300 font-medium">15 minutos</span>
+                        </div>
+                        <div className="flex flex-col items-center">
+                          <div className="text-green-400 text-2xl mb-1">🆓</div>
+                          <span className="text-green-300 font-medium">Sin compromiso</span>
+                        </div>
+                        <div className="flex flex-col items-center">
+                          <div className="text-green-400 text-2xl mb-1">⚡</div>
+                          <span className="text-green-300 font-medium">Respuesta hoy</span>
+                        </div>
+                      </div>
+                      <div className="text-gray-400 text-xs mt-3">🔒 Tus datos están seguros - No spam</div>
                     </div>
                   </div>
                 </div>
@@ -966,9 +944,9 @@ export default function ClubesLanding() {
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
                 onClick={() => document.getElementById('demo-form')?.scrollIntoView({ behavior: 'smooth' })}
-                className="px-12 py-6 bg-[#E3FD72] text-black font-bold rounded-lg text-2xl font-display hover:bg-[#d5ed62] transition-colors"
+                className="px-12 py-6 bg-gradient-to-r from-green-500 to-green-600 text-white font-bold rounded-xl text-2xl font-display hover:from-green-600 hover:to-green-700 transition-all shadow-lg shadow-green-500/40 border-2 border-green-400"
               >
-                QUIERO MI MÓDULO GRATIS
+                🚀 QUIERO MI MÓDULO GRATIS
               </motion.button>
             </motion.div>
           </div>
