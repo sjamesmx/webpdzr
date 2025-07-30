@@ -55,7 +55,7 @@ export default function Header() {
               <button className="text-sm text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors">
                 Iniciar Sesión
               </button>
-              <button className="text-sm bg-gray-900 dark:bg-white text-white dark:text-black px-4 py-2 rounded-lg hover:bg-gray-800 dark:hover:bg-gray-100 transition-colors">
+              <button className="text-sm bg-[#E3FD72] text-black px-4 py-2 rounded-lg hover:bg-[#d5ed62] transition-colors font-medium">
                 Descargar
               </button>
             </div>
