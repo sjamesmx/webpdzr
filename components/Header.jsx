@@ -38,13 +38,19 @@ export default function Header() {
           {/* Logo */}
           <div className="flex items-center">
             <a href="/" className="flex items-center">
-              {/* Logo Icon */}
-              <div className="w-10 h-10 bg-black dark:bg-white rounded-lg flex items-center justify-center mr-3">
-                <svg className="w-6 h-6 text-white dark:text-black" viewBox="0 0 24 24" fill="currentColor">
-                  <path d="M12,2 L14,7 L19,7 L15,11 L17,16 L12,13 L7,16 L9,11 L5,7 L10,7 Z"/>
-                </svg>
-              </div>
-              <span className="text-2xl font-bold text-black dark:text-white">Padelyzer</span>
+              {/* Padelyzer Logo */}
+              <svg className="h-8 w-auto mr-3" viewBox="0 0 120 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                {/* Padel Ball Icon */}
+                <circle cx="20" cy="20" r="18" stroke="#E3FD72" strokeWidth="2"/>
+                <path d="M20 2 Q20 20 20 38 M2 20 Q20 20 38 20" stroke="#E3FD72" strokeWidth="1.5"/>
+                <circle cx="14" cy="14" r="1.5" fill="#E3FD72"/>
+                <circle cx="26" cy="14" r="1.5" fill="#E3FD72"/>
+                <circle cx="14" cy="26" r="1.5" fill="#E3FD72"/>
+                <circle cx="26" cy="26" r="1.5" fill="#E3FD72"/>
+              </svg>
+              <span className="text-2xl font-bold text-black dark:text-white">
+                Padelyzer
+              </span>
             </a>
           </div>
           
