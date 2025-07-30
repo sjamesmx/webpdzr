@@ -5,6 +5,8 @@ import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import { motion } from 'framer-motion';
 import { useState } from 'react';
+import { Canvas } from '@react-three/fiber';
+import { OrbitControls, Box, Sphere } from '@react-three/drei';
 
 export default function ClubesLanding() {
   // Force deployment update
@@ -33,58 +35,129 @@ export default function ClubesLanding() {
     <div className="min-h-screen bg-black">
       <Header />
       <main>
-        {/* Hero Section with 3D */}
+        {/* Hero Section with Three.js */}
         <section className="relative min-h-screen flex items-center justify-center px-6 overflow-hidden">
+          {/* 3D Background */}
           <div className="absolute inset-0 z-0">
-            <div className="absolute inset-0 bg-gradient-to-br from-[#E3FD72]/20 via-black to-black" />
-            <div className="absolute top-20 left-20 w-64 h-64 bg-[#E3FD72]/10 rounded-full blur-3xl animate-pulse" />
-            <div className="absolute bottom-20 right-20 w-96 h-96 bg-[#E3FD72]/5 rounded-full blur-3xl animate-pulse delay-1000" />
-            <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] border border-[#E3FD72]/20 rounded-full animate-spin" style={{animationDuration: '20s'}} />
+            <Canvas camera={{ position: [0, 0, 10], fov: 75 }}>
+              <ambientLight intensity={0.4} />
+              <pointLight position={[10, 10, 10]} intensity={1} />
+              <pointLight position={[-10, -10, -10]} intensity={0.5} color="#E3FD72" />
+              
+              {/* Multiple rotating cubes */}
+              <Box args={[2, 2, 2]} position={[3, 2, 0]} rotation={[0, 0, 0]}>
+                <meshStandardMaterial color="#E3FD72" wireframe />
+              </Box>
+              
+              <Box args={[1.5, 1.5, 1.5]} position={[-3, -1, 0]} rotation={[0, 0, 0]}>
+                <meshStandardMaterial color="#E3FD72" wireframe />
+              </Box>
+
+              <Box args={[3, 3, 3]} position={[0, 0, -5]} rotation={[0, 0, 0]}>
+                <meshStandardMaterial color="#E3FD72" wireframe opacity={0.3} transparent />
+              </Box>
+              
+              <OrbitControls enableZoom={false} autoRotate autoRotateSpeed={1} enablePan={false} enableRotate={false} />
+              <fog attach="fog" args={['#000000', 8, 30]} />
+            </Canvas>
           </div>
 
-          <div className="relative z-10 max-w-5xl mx-auto text-center">
+          {/* Grid overlay */}
+          <div className="absolute inset-0 z-5 opacity-20">
+            <div 
+              className="w-full h-full"
+              style={{
+                backgroundImage: `
+                  linear-gradient(rgba(227, 253, 114, 0.1) 1px, transparent 1px),
+                  linear-gradient(90deg, rgba(227, 253, 114, 0.1) 1px, transparent 1px)
+                `,
+                backgroundSize: '50px 50px',
+                animation: 'grid-move 20s linear infinite'
+              }}
+            />
+          </div>
+
+          <div className="relative z-10 max-w-6xl mx-auto text-center">
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8 }}
             >
               <div className="inline-flex items-center gap-2 px-6 py-3 bg-[#E3FD72]/10 backdrop-blur-sm rounded-full border border-[#E3FD72]/20 mb-8">
+                <div className="w-2 h-2 bg-[#E3FD72] rounded-full animate-pulse" />
                 <span className="text-[#E3FD72] text-sm font-medium uppercase tracking-wider">
                   Software para Clubes
                 </span>
               </div>
 
-              <h1 className="text-5xl sm:text-6xl md:text-7xl font-bold text-white mb-6 font-display">
+              <h1 className="text-5xl sm:text-6xl md:text-7xl font-bold text-white mb-6 font-display leading-tight">
                 El software que tu club
-                <span className="block text-[#E3FD72]">
+                <span className="block text-[#E3FD72] mt-2">
                   siempre soñó
                 </span>
               </h1>
 
-              <p className="text-xl md:text-2xl text-gray-400 mb-12 max-w-3xl mx-auto">
+              <p className="text-xl md:text-2xl text-gray-400 mb-12 max-w-4xl mx-auto leading-relaxed">
                 Gestión integral, sin comisiones, con IA. Digitaliza tu club en minutos, 
                 no en meses. Sin costos ocultos, sin sorpresas.
               </p>
 
-              <div className="flex flex-col sm:flex-row gap-6 justify-center">
+              <div className="flex flex-col sm:flex-row gap-6 justify-center mb-16">
                 <motion.button
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
                   onClick={() => document.getElementById('demo-form')?.scrollIntoView({ behavior: 'smooth' })}
-                  className="px-8 py-4 bg-[#E3FD72] text-black font-bold rounded-lg text-lg font-display"
+                  className="px-8 py-4 bg-[#E3FD72] text-black font-bold rounded-lg text-lg font-display hover:bg-[#d5ed62] transition-colors"
                 >
                   Empezar Prueba Gratuita
                 </motion.button>
                 <motion.button
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
-                  className="px-8 py-4 border-2 border-[#E3FD72] text-[#E3FD72] rounded-lg font-bold text-lg"
+                  className="px-8 py-4 border-2 border-[#E3FD72] text-[#E3FD72] hover:bg-[#E3FD72] hover:text-black transition-all font-bold text-lg rounded-lg"
                 >
                   Ver Demo en Vivo
                 </motion.button>
               </div>
+
+              {/* Stats Section */}
+              <motion.div
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: 0.3 }}
+                className="grid grid-cols-2 md:grid-cols-4 gap-8 max-w-4xl mx-auto"
+              >
+                {[
+                  { number: '$0', label: 'Comisiones mensuales' },
+                  { number: '24/7', label: 'Soporte disponible' },
+                  { number: '100%', label: 'Datos seguros' },
+                  { number: '∞', label: 'Actualizaciones gratis' },
+                ].map((stat, index) => (
+                  <motion.div
+                    key={index}
+                    initial={{ opacity: 0, scale: 0.5 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    transition={{ duration: 0.5, delay: 0.5 + index * 0.1 }}
+                    className="text-center"
+                  >
+                    <div className="text-3xl md:text-4xl font-bold text-[#E3FD72] mb-2 font-display">
+                      {stat.number}
+                    </div>
+                    <div className="text-gray-400 uppercase tracking-wider text-sm">
+                      {stat.label}
+                    </div>
+                  </motion.div>
+                ))}
+              </motion.div>
             </motion.div>
           </div>
+
+          <style jsx>{`
+            @keyframes grid-move {
+              0% { transform: translate(0, 0); }
+              100% { transform: translate(50px, 50px); }
+            }
+          `}</style>
         </section>
 
         {/* Landing Page - ATTENTION */}
