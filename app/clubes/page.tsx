@@ -39,56 +39,73 @@ export default function ClubesLanding() {
         <section className="relative min-h-screen flex items-center justify-center px-6 overflow-hidden">
           {/* 3D Padel Courts Background */}
           <div className="absolute inset-0 z-0">
-            <Canvas camera={{ position: [0, 0, 10], fov: 75 }}>
+            <Canvas camera={{ position: [0, 8, 0], fov: 60, up: [0, 0, -1] }}>
               <ambientLight intensity={0.4} />
               <pointLight position={[10, 10, 10]} intensity={1} />
               <pointLight position={[-10, -10, -10]} intensity={0.5} color="#E3FD72" />
               
-              {/* Padel Court 1 - Main */}
-              <Box args={[6, 0.1, 4]} position={[0, 0, 0]}>
+              {/* Padel Court 1 - Top View */}
+              <Box args={[6, 0.05, 4]} position={[0, 0, 0]}>
                 <meshStandardMaterial color="#E3FD72" wireframe />
               </Box>
               
-              {/* Net */}
-              <Box args={[0.1, 1, 4]} position={[0, 0.5, 0]}>
-                <meshStandardMaterial color="#E3FD72" wireframe opacity={0.8} transparent />
+              {/* Court lines - Service boxes */}
+              <Box args={[6, 0.02, 0.05]} position={[0, 0.02, 0]}>
+                <meshStandardMaterial color="#E3FD72" />
               </Box>
               
-              {/* Side walls */}
-              <Box args={[0.1, 2, 4]} position={[3, 1, 0]}>
-                <meshStandardMaterial color="#E3FD72" wireframe opacity={0.3} transparent />
+              {/* Side lines */}
+              <Box args={[0.05, 0.02, 4]} position={[3, 0.02, 0]}>
+                <meshStandardMaterial color="#E3FD72" />
               </Box>
-              <Box args={[0.1, 2, 4]} position={[-3, 1, 0]}>
-                <meshStandardMaterial color="#E3FD72" wireframe opacity={0.3} transparent />
-              </Box>
-              
-              {/* Back walls */}
-              <Box args={[6, 2, 0.1]} position={[0, 1, 2]}>
-                <meshStandardMaterial color="#E3FD72" wireframe opacity={0.2} transparent />
-              </Box>
-              <Box args={[6, 2, 0.1]} position={[0, 1, -2]}>
-                <meshStandardMaterial color="#E3FD72" wireframe opacity={0.2} transparent />
+              <Box args={[0.05, 0.02, 4]} position={[-3, 0.02, 0]}>
+                <meshStandardMaterial color="#E3FD72" />
               </Box>
               
-              {/* Padel Court 2 - Background */}
-              <Box args={[4, 0.1, 3]} position={[8, 0, -3]} rotation={[0, 0.3, 0]}>
+              {/* Back lines */}
+              <Box args={[6, 0.02, 0.05]} position={[0, 0.02, 2]}>
+                <meshStandardMaterial color="#E3FD72" />
+              </Box>
+              <Box args={[6, 0.02, 0.05]} position={[0, 0.02, -2]}>
+                <meshStandardMaterial color="#E3FD72" />
+              </Box>
+              
+              {/* Service lines */}
+              <Box args={[3, 0.02, 0.05]} position={[1.5, 0.02, 1]}>
+                <meshStandardMaterial color="#E3FD72" opacity={0.8} transparent />
+              </Box>
+              <Box args={[3, 0.02, 0.05]} position={[-1.5, 0.02, 1]}>
+                <meshStandardMaterial color="#E3FD72" opacity={0.8} transparent />
+              </Box>
+              <Box args={[3, 0.02, 0.05]} position={[1.5, 0.02, -1]}>
+                <meshStandardMaterial color="#E3FD72" opacity={0.8} transparent />
+              </Box>
+              <Box args={[3, 0.02, 0.05]} position={[-1.5, 0.02, -1]}>
+                <meshStandardMaterial color="#E3FD72" opacity={0.8} transparent />
+              </Box>
+              
+              {/* Padel Court 2 - Background smaller */}
+              <Box args={[3, 0.03, 2]} position={[6, 0, -4]} rotation={[0, 0.2, 0]}>
                 <meshStandardMaterial color="#E3FD72" wireframe opacity={0.4} transparent />
               </Box>
               
-              {/* Padel Court 3 - Background */}
-              <Box args={[4, 0.1, 3]} position={[-8, 0, -2]} rotation={[0, -0.3, 0]}>
+              {/* Padel Court 3 - Background smaller */}
+              <Box args={[3, 0.03, 2]} position={[-6, 0, -4]} rotation={[0, -0.2, 0]}>
                 <meshStandardMaterial color="#E3FD72" wireframe opacity={0.4} transparent />
               </Box>
               
-              {/* Floating elements */}
-              <Sphere args={[0.3]} position={[4, 3, 1]}>
-                <meshStandardMaterial color="#E3FD72" wireframe />
+              {/* Floating padel balls */}
+              <Sphere args={[0.15]} position={[2, 1, 0.5]}>
+                <meshStandardMaterial color="#E3FD72" />
               </Sphere>
-              <Sphere args={[0.2]} position={[-4, 2, -1]}>
-                <meshStandardMaterial color="#E3FD72" wireframe opacity={0.6} transparent />
+              <Sphere args={[0.15]} position={[-2, 1.5, -0.5]}>
+                <meshStandardMaterial color="#E3FD72" opacity={0.8} transparent />
+              </Sphere>
+              <Sphere args={[0.12]} position={[0, 2, 1]}>
+                <meshStandardMaterial color="#E3FD72" opacity={0.6} transparent />
               </Sphere>
               
-              <OrbitControls enableZoom={false} autoRotate autoRotateSpeed={0.5} enablePan={false} enableRotate={false} />
+              <OrbitControls enableZoom={false} autoRotate autoRotateSpeed={0.3} enablePan={false} enableRotate={false} />
               <fog attach="fog" args={['#000000', 8, 30]} />
             </Canvas>
           </div>
@@ -122,15 +139,18 @@ export default function ClubesLanding() {
               </div>
 
               <h1 className="text-5xl sm:text-6xl md:text-7xl font-bold text-white mb-6 font-display leading-tight">
-                El software que tu club
-                <span className="block text-[#E3FD72] mt-2">
-                  siempre soñó
+                Tu club está perdiendo dinero, tiempo
+                <span className="block text-red-400 mt-2">
+                  y oportunidades
+                </span>
+                <span className="block text-gray-400 text-2xl md:text-3xl mt-4 font-normal">
+                  porque no tienes el control total de tus operaciones
                 </span>
               </h1>
 
-              <p className="text-xl md:text-2xl text-gray-400 mb-12 max-w-4xl mx-auto leading-relaxed">
-                Gestión integral, sin comisiones, con IA. Digitaliza tu club en minutos, 
-                no en meses. Sin costos ocultos, sin sorpresas.
+              <p className="text-xl md:text-2xl text-gray-300 mb-12 max-w-4xl mx-auto leading-relaxed">
+                El software que trabaja para ti, simple, poderoso y automático. 
+                Sin costos ocultos, sin sorpresas.
               </p>
 
               <div className="flex flex-col sm:flex-row gap-6 justify-center mb-16">
@@ -225,8 +245,8 @@ export default function ClubesLanding() {
               </h2>
               
               <p className="text-xl text-gray-300 max-w-4xl mx-auto leading-relaxed">
-                Las plataformas como Playtomic están <span className="text-red-400 font-bold">robándote el 20%</span> de cada reserva. 
-                Un club promedio pierde <span className="text-red-400 font-bold text-2xl">$4,200 mensuales</span> solo en comisiones.
+                Hay plataformas que quieren tomar <span className="text-red-400 font-bold">hasta el 20%</span> de cada reserva de tu club. 
+                Podrías perder hasta <span className="text-red-400 font-bold text-2xl">$4,200</span> sólo en comisiones.
               </p>
             </motion.div>
 
@@ -567,47 +587,77 @@ export default function ClubesLanding() {
               </p>
             </motion.div>
 
-            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
               {[
+                {
+                  icon: (
+                    <svg className="w-12 h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
+                    </svg>
+                  ),
+                  title: 'Módulo Clientes',
+                  benefit: 'Trato único',
+                  description: 'Conoce a tu cliente, conoce sus estadísticas y dales un trato único.'
+                },
+                {
+                  icon: (
+                    <svg className="w-12 h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                    </svg>
+                  ),
+                  title: 'Módulo de Reserva Poderoso',
+                  benefit: 'Súper sencillo',
+                  description: 'Reserva múltiples canchas de forma sencilla, divide la cuenta entre los jugadores.'
+                },
+                {
+                  icon: (
+                    <svg className="w-12 h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z" />
+                    </svg>
+                  ),
+                  title: 'Módulo de Torneos',
+                  benefit: '+500 participantes',
+                  description: 'Organiza torneos de +500 participantes de forma automática.'
+                },
+                {
+                  icon: (
+                    <svg className="w-12 h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" />
+                    </svg>
+                  ),
+                  title: 'Ligas',
+                  benefit: 'IA automática',
+                  description: 'Organiza ligas de forma automática con el poder de la IA.'
+                },
+                {
+                  icon: (
+                    <svg className="w-12 h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
+                    </svg>
+                  ),
+                  title: 'Clases',
+                  benefit: 'Gestión completa',
+                  description: 'Gestiona tus profesores y sesiones de forma eficiente.'
+                },
                 {
                   icon: (
                     <svg className="w-12 h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
                     </svg>
                   ),
-                  title: '$0 Comisiones',
-                  benefit: 'Para siempre',
-                  description: 'Tu club, tus ingresos. Sin intermediarios.'
+                  title: 'Finanzas',
+                  benefit: 'Rentabilidad clara',
+                  description: 'Administra claramente tus ingresos y gastos y vive la rentabilidad de tu negocio.'
                 },
                 {
                   icon: (
                     <svg className="w-12 h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z" />
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
                     </svg>
                   ),
-                  title: 'App de Padelyzer',
-                  benefit: 'Con tu marca',
-                  description: 'iOS y Android. Tus colores, tu logo, powered by Padelyzer.'
-                },
-                {
-                  icon: (
-                    <svg className="w-12 h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
-                    </svg>
-                  ),
-                  title: '+30% Ocupación',
-                  benefit: 'Garantizado',
-                  description: 'O te devolvemos tu dinero + $10,000.'
-                },
-                {
-                  icon: (
-                    <svg className="w-12 h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
-                    </svg>
-                  ),
-                  title: 'IA Predictiva',
-                  benefit: 'Datos reales',
-                  description: 'Saber cuándo estará lleno tu club.'
+                  title: 'Módulo BI',
+                  benefit: 'Insights sorprendentes',
+                  description: 'Encuentra insights sorprendentes de tu club con análisis avanzados.'
                 }
               ].map((feature, index) => (
                 <motion.div
@@ -616,7 +666,7 @@ export default function ClubesLanding() {
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.6, delay: index * 0.1 }}
                   viewport={{ once: true }}
-                  className="bg-gray-900/50 backdrop-blur-sm border border-[#E3FD72]/30 rounded-3xl p-8 text-center hover:border-[#E3FD72]/50 transition-all"
+                  className="bg-gray-900/50 backdrop-blur-sm border border-[#E3FD72]/30 rounded-3xl p-6 text-center hover:border-[#E3FD72]/50 transition-all group"
                 >
                   <div className="text-[#E3FD72] mb-4 flex justify-center">{feature.icon}</div>
                   <h3 className="text-xl font-bold text-white mb-2 font-display">
@@ -631,61 +681,87 @@ export default function ClubesLanding() {
                 </motion.div>
               ))}
             </div>
-          </div>
-        </section>
 
-        {/* Social Proof - CREDIBILITY */}
-        <section className="py-32 px-6 bg-black">
-          <div className="max-w-6xl mx-auto">
+            {/* Statistics Section - How the system improves your club */}
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8 }}
+              transition={{ duration: 0.8, delay: 0.5 }}
               viewport={{ once: true }}
-              className="text-center mb-16"
+              className="mt-20"
             >
-              <h2 className="text-4xl font-bold text-white mb-12 font-display">
-                Lo que dicen los pioneros
-              </h2>
+              <div className="text-center mb-12">
+                <h3 className="text-3xl md:text-4xl font-bold text-white mb-4 font-display">
+                  Cómo el sistema mejora tu club
+                </h3>
+                <p className="text-xl text-gray-400 max-w-3xl mx-auto">
+                  Resultados reales que puedes esperar en los primeros 90 días
+                </p>
+              </div>
 
-              <div className="grid md:grid-cols-2 gap-8">
-                <div className="bg-gray-900/50 border border-[#E3FD72]/30 rounded-3xl p-8">
-                  <div className="flex items-center mb-6">
-                    <div className="w-16 h-16 bg-[#E3FD72]/20 rounded-full flex items-center justify-center mr-4">
-                      <span className="text-2xl">👨‍💼</span>
+              <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+                {[
+                  {
+                    metric: '+47%',
+                    description: 'Incremento en ocupación promedio',
+                    icon: (
+                      <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
+                      </svg>
+                    )
+                  },
+                  {
+                    metric: '$35,964',
+                    description: 'Ahorro anual eliminando comisiones',
+                    icon: (
+                      <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                      </svg>
+                    )
+                  },
+                  {
+                    metric: '73%',
+                    description: 'Menos tiempo en tareas administrativas',
+                    icon: (
+                      <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                      </svg>
+                    )
+                  },
+                  {
+                    metric: '89%',
+                    description: 'Satisfacción de socios mejorada',
+                    icon: (
+                      <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14.828 14.828a4 4 0 01-5.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                      </svg>
+                    )
+                  }
+                ].map((stat, index) => (
+                  <motion.div
+                    key={index}
+                    initial={{ opacity: 0, scale: 0.8 }}
+                    whileInView={{ opacity: 1, scale: 1 }}
+                    transition={{ duration: 0.5, delay: index * 0.1 }}
+                    viewport={{ once: true }}
+                    className="bg-gradient-to-br from-[#E3FD72]/10 to-[#E3FD72]/5 backdrop-blur-sm border border-[#E3FD72]/30 rounded-2xl p-6 text-center hover:border-[#E3FD72]/50 transition-all group"
+                  >
+                    <div className="text-[#E3FD72] mb-4 flex justify-center group-hover:scale-110 transition-transform">
+                      {stat.icon}
                     </div>
-                    <div>
-                      <h4 className="text-white font-bold">Roberto Martínez</h4>
-                      <p className="text-gray-400">Dueño, Club Hacienda</p>
+                    <div className="text-4xl font-bold text-[#E3FD72] mb-2 font-display">
+                      {stat.metric}
                     </div>
-                  </div>
-                  <p className="text-gray-300 italic text-lg">
-                    "En 2 meses recuperé lo que Playtomic me robó en un año. 
-                    Mis socios están felices y yo duermo tranquilo. 
-                    <span className="text-[#E3FD72] font-bold">$67,000 extras en el primer trimestre.</span>"
-                  </p>
-                </div>
-
-                <div className="bg-gray-900/50 border border-[#E3FD72]/30 rounded-3xl p-8">
-                  <div className="flex items-center mb-6">
-                    <div className="w-16 h-16 bg-[#E3FD72]/20 rounded-full flex items-center justify-center mr-4">
-                      <span className="text-2xl">👩‍💼</span>
-                    </div>
-                    <div>
-                      <h4 className="text-white font-bold">Ana García</h4>
-                      <p className="text-gray-400">Directora, Padel Elite</p>
-                    </div>
-                  </div>
-                  <p className="text-gray-300 italic text-lg">
-                    "La diferencia es brutal. Antes luchaba por llenar canchas, 
-                    ahora tengo lista de espera. 
-                    <span className="text-[#E3FD72] font-bold">43% más ocupación en 6 semanas.</span>"
-                  </p>
-                </div>
+                    <p className="text-gray-300 text-sm leading-relaxed">
+                      {stat.description}
+                    </p>
+                  </motion.div>
+                ))}
               </div>
             </motion.div>
           </div>
         </section>
+
 
         {/* Urgency & Form - CALL TO ACTION */}
         <section id="demo-form" className="py-32 px-6 bg-gradient-to-br from-[#E3FD72]/20 via-black to-black">
