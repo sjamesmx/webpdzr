@@ -14,10 +14,10 @@ export default function Header() {
   }, []);
 
   const navigation = [
-    { name: 'Características', href: '#features' },
-    { name: 'Pricing', href: '#pricing' },
-    { name: 'Docs', href: '/docs' },
-    { name: 'Blog', href: '/blog' }
+    { name: 'Para Clubes', href: '/clubes' },
+    { name: 'Para Jugadores', href: '/jugadores' },
+    { name: 'Filosofía', href: '/#philosophy' },
+    { name: 'Pricing', href: '/#pricing' }
   ];
 
   return (

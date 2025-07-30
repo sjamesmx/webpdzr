@@ -10,7 +10,7 @@ export default function Philosophy() {
   const isInView = useInView(ref, { once: true, amount: 0.3 });
 
   return (
-    <section ref={ref} className="py-32 px-6 bg-gray-950 relative overflow-hidden">
+    <section ref={ref} id="philosophy" className="py-32 px-6 bg-gray-950 relative overflow-hidden">
       {/* Animated Background */}
       <div className="absolute inset-0">
         <motion.div

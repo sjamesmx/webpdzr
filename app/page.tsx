@@ -12,7 +12,7 @@ const HeroNew = dynamic(() => import('@/components/HeroNew'), {
   loading: () => <div className="min-h-screen bg-black" />
 });
 const FeaturesNew = dynamic(() => import('@/components/FeaturesNew'), { ssr: false });
-const Comparison = dynamic(() => import('@/components/Comparison'), { ssr: false });
+const Vision = dynamic(() => import('@/components/Vision'), { ssr: false });
 
 export default function Home() {
   return (
@@ -21,8 +21,8 @@ export default function Home() {
       <main>
         <HeroNew />
         <Philosophy />
+        <Vision />
         <FeaturesNew />
-        <Comparison />
         <PricingSection />
       </main>
       <Footer />
