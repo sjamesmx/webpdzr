@@ -33,7 +33,61 @@ export default function ClubesLanding() {
     <div className="min-h-screen bg-black">
       <Header />
       <main>
-        {/* Hero Section - ATTENTION */}
+        {/* Hero Section with 3D */}
+        <section className="relative min-h-screen flex items-center justify-center px-6 overflow-hidden">
+          <div className="absolute inset-0 z-0">
+            <div className="absolute inset-0 bg-gradient-to-br from-[#E3FD72]/20 via-black to-black" />
+            <div className="absolute top-20 left-20 w-64 h-64 bg-[#E3FD72]/10 rounded-full blur-3xl animate-pulse" />
+            <div className="absolute bottom-20 right-20 w-96 h-96 bg-[#E3FD72]/5 rounded-full blur-3xl animate-pulse delay-1000" />
+            <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] border border-[#E3FD72]/20 rounded-full animate-spin" style={{animationDuration: '20s'}} />
+          </div>
+
+          <div className="relative z-10 max-w-5xl mx-auto text-center">
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8 }}
+            >
+              <div className="inline-flex items-center gap-2 px-6 py-3 bg-[#E3FD72]/10 backdrop-blur-sm rounded-full border border-[#E3FD72]/20 mb-8">
+                <span className="text-[#E3FD72] text-sm font-medium uppercase tracking-wider">
+                  Software para Clubes
+                </span>
+              </div>
+
+              <h1 className="text-5xl sm:text-6xl md:text-7xl font-bold text-white mb-6 font-display">
+                El software que tu club
+                <span className="block text-[#E3FD72]">
+                  siempre soñó
+                </span>
+              </h1>
+
+              <p className="text-xl md:text-2xl text-gray-400 mb-12 max-w-3xl mx-auto">
+                Gestión integral, sin comisiones, con IA. Digitaliza tu club en minutos, 
+                no en meses. Sin costos ocultos, sin sorpresas.
+              </p>
+
+              <div className="flex flex-col sm:flex-row gap-6 justify-center">
+                <motion.button
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                  onClick={() => document.getElementById('demo-form')?.scrollIntoView({ behavior: 'smooth' })}
+                  className="px-8 py-4 bg-[#E3FD72] text-black font-bold rounded-lg text-lg font-display"
+                >
+                  Empezar Prueba Gratuita
+                </motion.button>
+                <motion.button
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                  className="px-8 py-4 border-2 border-[#E3FD72] text-[#E3FD72] rounded-lg font-bold text-lg"
+                >
+                  Ver Demo en Vivo
+                </motion.button>
+              </div>
+            </motion.div>
+          </div>
+        </section>
+
+        {/* Landing Page - ATTENTION */}
         <section className="relative min-h-screen flex items-center justify-center px-6 overflow-hidden">
           <div className="absolute inset-0 bg-gradient-to-br from-[#E3FD72]/20 via-black to-black" />
           <div className="absolute inset-0">
@@ -49,9 +103,14 @@ export default function ClubesLanding() {
               transition={{ duration: 0.8 }}
             >
               <div className="bg-red-500/20 border border-red-500/50 rounded-2xl p-6 mb-8">
-                <h2 className="text-2xl font-bold text-red-400 mb-4 font-display">
-                  🚨 ALERTA: ¿Tu club está perdiendo $50,000+ al año?
-                </h2>
+                <div className="flex items-center gap-3 mb-4">
+                  <svg className="w-8 h-8 text-red-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-2.5L13.732 4c-.77-.833-1.964-.833-2.732 0L4.082 16.5c-.77.833.192 2.5 1.732 2.5z" />
+                  </svg>
+                  <h2 className="text-2xl font-bold text-red-400 font-display">
+                    ALERTA: ¿Tu club está perdiendo $50,000+ al año?
+                  </h2>
+                </div>
                 <p className="text-gray-300 text-lg">
                   Las plataformas como Playtomic te roban el 20% de cada reserva. 
                   Un club promedio pierde <span className="text-red-400 font-bold">$4,200 mensuales</span> solo en comisiones.
@@ -71,7 +130,12 @@ export default function ClubesLanding() {
               </p>
 
               <div className="bg-[#E3FD72]/10 border border-[#E3FD72]/30 rounded-2xl p-6 mb-8">
-                <h3 className="text-xl font-bold text-[#E3FD72] mb-3">🎯 GARANTÍA 30 DÍAS:</h3>
+                <div className="flex items-center gap-3 mb-3">
+                  <svg className="w-6 h-6 text-[#E3FD72]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                  </svg>
+                  <h3 className="text-xl font-bold text-[#E3FD72] font-display">GARANTÍA 30 DÍAS:</h3>
+                </div>
                 <p className="text-gray-300">
                   Si no aumentas tu ocupación 30% en el primer mes, te devolvemos tu dinero + $10,000 por las molestias.
                 </p>
@@ -85,7 +149,7 @@ export default function ClubesLanding() {
                   onClick={() => document.getElementById('demo-form')?.scrollIntoView({ behavior: 'smooth' })}
                   className="px-8 py-4 bg-[#E3FD72] text-black font-bold rounded-lg text-xl font-display hover:bg-[#d5ed62] transition-colors"
                 >
-                  QUIERO MI DEMO GRATIS AHORA ⬇️
+                  QUIERO MI DEMO GRATIS AHORA
                 </button>
               </motion.div>
             </motion.div>
@@ -98,9 +162,14 @@ export default function ClubesLanding() {
               className="lg:text-center"
             >
               <div className="bg-black/80 backdrop-blur-xl border border-[#E3FD72]/30 rounded-3xl p-8">
-                <h3 className="text-2xl font-bold text-white mb-6 font-display">
-                  🎁 OFERTA DE LANZAMIENTO
-                </h3>
+                <div className="flex items-center justify-center gap-3 mb-6">
+                  <svg className="w-8 h-8 text-[#E3FD72]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v13m0-13V6a2 2 0 112 0v1m0 0V6a2 2 0 112 0v1m0 0V9a2 2 0 00-2 2v5a2 2 0 002 2v1M7 4V2a2 2 0 012-2h6a2 2 0 012 2v2" />
+                  </svg>
+                  <h3 className="text-2xl font-bold text-white font-display">
+                    OFERTA DE LANZAMIENTO
+                  </h3>
+                </div>
                 
                 <div className="text-center mb-6">
                   <div className="text-5xl font-bold text-[#E3FD72] font-display mb-2">GRATIS</div>
@@ -152,23 +221,35 @@ export default function ClubesLanding() {
               viewport={{ once: true }}
             >
               <h2 className="text-4xl md:text-5xl font-bold text-white mb-12 font-display">
-                ¿Te suena familiar? 👇
+                ¿Te suena familiar?
               </h2>
 
               <div className="grid md:grid-cols-3 gap-8 mb-16">
                 {[
                   {
-                    icon: '💸',
+                    icon: (
+                      <svg className="w-16 h-16" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                      </svg>
+                    ),
                     title: 'Comisiones que te matan',
                     pain: 'Playtomic se lleva $4,200 mensuales de TU trabajo. En un año son $50,400 que deberían estar en tu bolsillo.'
                   },
                   {
-                    icon: '😤',
+                    icon: (
+                      <svg className="w-16 h-16" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                      </svg>
+                    ),
                     title: 'Sistema complicado',
                     pain: 'Tus socios se quejan del sistema. Reservar es un dolor de cabeza. Pierdes clientes por fricciones.'
                   },
                   {
-                    icon: '📉',
+                    icon: (
+                      <svg className="w-16 h-16" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M13 17h8m0 0V9m0 8l-8-8-4 4-6-6" />
+                      </svg>
+                    ),
                     title: 'Sin control real',
                     pain: 'No sabes cuándo está lleno tu club. No puedes predecir ingresos. Tomas decisiones a ciegas.'
                   }
@@ -181,7 +262,7 @@ export default function ClubesLanding() {
                     viewport={{ once: true }}
                     className="bg-red-900/30 border border-red-500/30 rounded-3xl p-8"
                   >
-                    <div className="text-6xl mb-4">{problem.icon}</div>
+                    <div className="text-red-400 mb-4 flex justify-center">{problem.icon}</div>
                     <h3 className="text-xl font-bold text-white mb-4 font-display">
                       {problem.title}
                     </h3>
@@ -229,25 +310,41 @@ export default function ClubesLanding() {
             <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
               {[
                 {
-                  icon: '💰',
+                  icon: (
+                    <svg className="w-12 h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>
+                  ),
                   title: '$0 Comisiones',
                   benefit: 'Para siempre',
                   description: 'Tu club, tus ingresos. Sin intermediarios.'
                 },
                 {
-                  icon: '📱',
-                  title: 'App Propia',
+                  icon: (
+                    <svg className="w-12 h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z" />
+                    </svg>
+                  ),
+                  title: 'App de Padelyzer',
                   benefit: 'Con tu marca',
-                  description: 'iOS y Android. Tus colores, tu logo.'
+                  description: 'iOS y Android. Tus colores, tu logo, powered by Padelyzer.'
                 },
                 {
-                  icon: '🎯',
+                  icon: (
+                    <svg className="w-12 h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
+                    </svg>
+                  ),
                   title: '+30% Ocupación',
                   benefit: 'Garantizado',
                   description: 'O te devolvemos tu dinero + $10,000.'
                 },
                 {
-                  icon: '🧠',
+                  icon: (
+                    <svg className="w-12 h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
+                    </svg>
+                  ),
                   title: 'IA Predictiva',
                   benefit: 'Datos reales',
                   description: 'Saber cuándo estará lleno tu club.'
@@ -261,7 +358,7 @@ export default function ClubesLanding() {
                   viewport={{ once: true }}
                   className="bg-gray-900/50 backdrop-blur-sm border border-[#E3FD72]/30 rounded-3xl p-8 text-center hover:border-[#E3FD72]/50 transition-all"
                 >
-                  <div className="text-5xl mb-4">{feature.icon}</div>
+                  <div className="text-[#E3FD72] mb-4 flex justify-center">{feature.icon}</div>
                   <h3 className="text-xl font-bold text-white mb-2 font-display">
                     {feature.title}
                   </h3>
@@ -340,9 +437,15 @@ export default function ClubesLanding() {
               viewport={{ once: true }}
               className="text-center mb-12"
             >
-              <h2 className="text-4xl md:text-5xl font-bold text-white mb-6 font-display">
-                🔥 ÚLTIMAS 72 HORAS - MÓDULO GRATIS
-              </h2>
+              <div className="flex items-center justify-center gap-3 mb-6">
+                <svg className="w-10 h-10 text-red-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 18.657A8 8 0 016.343 7.343S7 9 9 10c0-2 .5-5 2.986-7C14 5 16.09 5.777 17.656 7.343A7.975 7.975 0 0120 13a7.975 7.975 0 01-2.343 5.657z" />
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9.879 16.121A3 3 0 1012.015 11L11 14H9c0 .768.293 1.536.879 2.121z" />
+                </svg>
+                <h2 className="text-4xl md:text-5xl font-bold text-white font-display">
+                  ÚLTIMAS 72 HORAS - MÓDULO GRATIS
+                </h2>
+              </div>
               <p className="text-xl text-gray-300 max-w-3xl mx-auto">
                 Después del 15 de agosto, el módulo de reservas costará $2,997/mes. 
                 <span className="text-red-400 font-bold">En esta fase beta lo obtienes GRATIS para siempre.</span>
@@ -465,15 +568,30 @@ export default function ClubesLanding() {
                       type="submit"
                       className="w-full py-4 bg-[#E3FD72] text-black font-bold rounded-lg text-lg font-display hover:bg-[#d5ed62] transition-colors"
                     >
-                      🚀 AGENDAR MI DEMO AHORA
+                      AGENDAR MI DEMO AHORA
                     </motion.button>
                   </form>
 
-                  <p className="text-center text-gray-400 text-sm mt-4">
-                    ⚡ Demo en vivo de 15 minutos<br/>
-                    ⚡ Sin compromiso<br/>
-                    ⚡ Respuesta inmediata
-                  </p>
+                  <div className="text-center text-gray-400 text-sm mt-4 space-y-1">
+                    <div className="flex items-center justify-center gap-2">
+                      <svg className="w-4 h-4 text-[#E3FD72]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                      </svg>
+                      <span>Demo en vivo de 15 minutos</span>
+                    </div>
+                    <div className="flex items-center justify-center gap-2">
+                      <svg className="w-4 h-4 text-[#E3FD72]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                      </svg>
+                      <span>Sin compromiso</span>
+                    </div>
+                    <div className="flex items-center justify-center gap-2">
+                      <svg className="w-4 h-4 text-[#E3FD72]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                      </svg>
+                      <span>Respuesta inmediata</span>
+                    </div>
+                  </div>
                 </div>
               </motion.div>
             </div>
@@ -495,7 +613,12 @@ export default function ClubesLanding() {
               
               <div className="grid md:grid-cols-2 gap-8 mb-12">
                 <div className="bg-red-900/30 border border-red-500/50 rounded-3xl p-8">
-                  <h3 className="text-xl font-bold text-red-400 mb-4">❌ Esperar</h3>
+                  <div className="flex items-center gap-3 mb-4">
+                    <svg className="w-6 h-6 text-red-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                    </svg>
+                    <h3 className="text-xl font-bold text-red-400">Esperar</h3>
+                  </div>
                   <ul className="text-gray-300 space-y-2">
                     <li>• Pagar $2,997/mes por reservas después</li>
                     <li>• Seguir perdiendo en comisiones</li>
@@ -505,7 +628,12 @@ export default function ClubesLanding() {
                 </div>
 
                 <div className="bg-[#E3FD72]/10 border border-[#E3FD72]/50 rounded-3xl p-8">
-                  <h3 className="text-xl font-bold text-[#E3FD72] mb-4">✅ Aprovechar ahora</h3>
+                  <div className="flex items-center gap-3 mb-4">
+                    <svg className="w-6 h-6 text-[#E3FD72]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                    </svg>
+                    <h3 className="text-xl font-bold text-[#E3FD72]">Aprovechar ahora</h3>
+                  </div>
                   <ul className="text-gray-300 space-y-2">
                     <li>• Módulo de reservas GRATIS para siempre</li>
                     <li>• Eliminar comisiones inmediatamente</li>
@@ -521,7 +649,7 @@ export default function ClubesLanding() {
                 onClick={() => document.getElementById('demo-form')?.scrollIntoView({ behavior: 'smooth' })}
                 className="px-12 py-6 bg-[#E3FD72] text-black font-bold rounded-lg text-2xl font-display hover:bg-[#d5ed62] transition-colors"
               >
-                QUIERO MI MÓDULO GRATIS 🎁
+                QUIERO MI MÓDULO GRATIS
               </motion.button>
             </motion.div>
           </div>
