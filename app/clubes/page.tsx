@@ -65,8 +65,8 @@ export default function ClubesLanding() {
               </h1>
 
               <p className="text-xl text-gray-300 mb-8 leading-relaxed">
-                Solo 4 clubes en Puebla tendrán acceso a nuestro software revolucionario. 
-                <span className="text-[#E3FD72] font-bold">Precio fundador hasta el 15 de agosto.</span>
+                Oferta de lanzamiento: obtén el módulo de reservas completamente GRATIS para siempre. 
+                <span className="text-[#E3FD72] font-bold">Solo válido hasta el 15 de agosto.</span>
               </p>
 
               <div className="bg-[#E3FD72]/10 border border-[#E3FD72]/30 rounded-2xl p-6 mb-8">
@@ -98,9 +98,15 @@ export default function ClubesLanding() {
             >
               <div className="bg-black/80 backdrop-blur-xl border border-[#E3FD72]/30 rounded-3xl p-8">
                 <h3 className="text-2xl font-bold text-white mb-6 font-display">
-                  ⏰ Solo quedan 3 lugares disponibles
+                  🎁 OFERTA DE LANZAMIENTO
                 </h3>
                 
+                <div className="text-center mb-6">
+                  <div className="text-5xl font-bold text-[#E3FD72] font-display mb-2">GRATIS</div>
+                  <p className="text-gray-300 text-lg">Módulo de Reservas</p>
+                  <p className="text-gray-400">Para siempre</p>
+                </div>
+
                 <div className="grid grid-cols-4 gap-4 mb-8">
                   <div className="text-center">
                     <div className="text-3xl font-bold text-[#E3FD72] font-display">15</div>
@@ -120,14 +126,14 @@ export default function ClubesLanding() {
                   </div>
                 </div>
 
-                <div className="space-y-4">
-                  <div className="flex items-center gap-3">
-                    <div className="w-3 h-3 bg-red-500 rounded-full animate-pulse" />
-                    <span className="text-gray-300">Club Hacienda San José - RESERVADO</span>
+                <div className="bg-[#E3FD72]/10 border border-[#E3FD72]/30 rounded-2xl p-4">
+                  <div className="flex items-center justify-between">
+                    <span className="text-gray-300">Valor normal:</span>
+                    <span className="text-2xl text-gray-400 line-through">$2,997/mes</span>
                   </div>
-                  <div className="flex items-center gap-3">
-                    <div className="w-3 h-3 bg-[#E3FD72] rounded-full animate-pulse" />
-                    <span className="text-gray-300">3 lugares restantes</span>
+                  <div className="flex items-center justify-between mt-2">
+                    <span className="text-white font-bold">Tu precio:</span>
+                    <span className="text-3xl font-bold text-[#E3FD72]">$0</span>
                   </div>
                 </div>
               </div>
@@ -334,11 +340,11 @@ export default function ClubesLanding() {
               className="text-center mb-12"
             >
               <h2 className="text-4xl md:text-5xl font-bold text-white mb-6 font-display">
-                🔥 ÚLTIMAS 72 HORAS - PRECIO FUNDADOR
+                🔥 ÚLTIMAS 72 HORAS - MÓDULO GRATIS
               </h2>
               <p className="text-xl text-gray-300 max-w-3xl mx-auto">
-                Después del 15 de agosto, el precio sube 300%. Los pioneros pagan solo $2,997/mes. 
-                <span className="text-red-400 font-bold">Después será $8,997/mes.</span>
+                Después del 15 de agosto, el módulo de reservas costará $2,997/mes. 
+                <span className="text-red-400 font-bold">En esta fase beta lo obtienes GRATIS para siempre.</span>
               </p>
             </motion.div>
 
@@ -356,11 +362,11 @@ export default function ClubesLanding() {
 
                 <div className="space-y-4 mb-8">
                   {[
-                    { item: 'Software completo sin comisiones', value: '$50,400/año' },
+                    { item: 'Módulo de Reservas SIN comisiones', value: '$35,964/año' },
                     { item: 'App móvil con tu marca', value: '$45,000' },
                     { item: 'Instalación y migración completa', value: '$15,000' },
-                    { item: 'Soporte 24/7 por 1 año', value: '$24,000' },
-                    { item: 'IA predictiva y analytics', value: '$18,000' },
+                    { item: 'Soporte 24/7 durante beta', value: '$24,000' },
+                    { item: 'Actualizaciones gratuitas', value: '$18,000' },
                     { item: 'Garantía 30 días + $10k', value: 'Sin precio' }
                   ].map((benefit, index) => (
                     <div key={index} className="flex justify-between items-center bg-gray-900/50 rounded-lg p-4">
@@ -373,12 +379,15 @@ export default function ClubesLanding() {
                 <div className="bg-[#E3FD72]/10 border border-[#E3FD72]/30 rounded-2xl p-6">
                   <div className="flex justify-between items-center mb-2">
                     <span className="text-xl text-gray-300">Valor total:</span>
-                    <span className="text-2xl text-gray-400 line-through">$152,400</span>
+                    <span className="text-2xl text-gray-400 line-through">$137,964</span>
                   </div>
                   <div className="flex justify-between items-center">
-                    <span className="text-2xl font-bold text-white">Tu precio fundador:</span>
-                    <span className="text-3xl font-bold text-[#E3FD72]">$2,997/mes</span>
+                    <span className="text-2xl font-bold text-white">Tu precio en beta:</span>
+                    <span className="text-4xl font-bold text-[#E3FD72]">GRATIS</span>
                   </div>
+                  <p className="text-center text-gray-400 text-sm mt-3">
+                    Solo pagas módulos adicionales si los necesitas
+                  </p>
                 </div>
               </motion.div>
 
@@ -480,27 +489,27 @@ export default function ClubesLanding() {
               viewport={{ once: true }}
             >
               <h2 className="text-3xl md:text-4xl font-bold text-white mb-6 font-display">
-                Solo 3 lugares disponibles. ¿Cuál eliges?
+                La oferta termina en 15 días. ¿Cuál eliges?
               </h2>
               
               <div className="grid md:grid-cols-2 gap-8 mb-12">
                 <div className="bg-red-900/30 border border-red-500/50 rounded-3xl p-8">
-                  <h3 className="text-xl font-bold text-red-400 mb-4">❌ Seguir igual</h3>
+                  <h3 className="text-xl font-bold text-red-400 mb-4">❌ Esperar</h3>
                   <ul className="text-gray-300 space-y-2">
-                    <li>• Perder $50,400 anuales en comisiones</li>
-                    <li>• Ver cómo la competencia te supera</li>
-                    <li>• Socios frustrados con el sistema</li>
-                    <li>• Decisiones sin datos reales</li>
+                    <li>• Pagar $2,997/mes por reservas después</li>
+                    <li>• Seguir perdiendo en comisiones</li>
+                    <li>• Ver la competencia adelantarse</li>
+                    <li>• Perder la oportunidad GRATIS</li>
                   </ul>
                 </div>
 
                 <div className="bg-[#E3FD72]/10 border border-[#E3FD72]/50 rounded-3xl p-8">
-                  <h3 className="text-xl font-bold text-[#E3FD72] mb-4">✅ Ser pionero</h3>
+                  <h3 className="text-xl font-bold text-[#E3FD72] mb-4">✅ Aprovechar ahora</h3>
                   <ul className="text-gray-300 space-y-2">
-                    <li>• Ahorrar $50,400 en comisiones</li>
-                    <li>• Liderar tu mercado local</li>
-                    <li>• Socios felices y leales</li>
-                    <li>• Club optimizado con IA</li>
+                    <li>• Módulo de reservas GRATIS para siempre</li>
+                    <li>• Eliminar comisiones inmediatamente</li>
+                    <li>• Ser pionero en tu mercado</li>
+                    <li>• Ahorrar $35,964 anuales</li>
                   </ul>
                 </div>
               </div>
@@ -511,7 +520,7 @@ export default function ClubesLanding() {
                 onClick={() => document.getElementById('demo-form').scrollIntoView({ behavior: 'smooth' })}
                 className="px-12 py-6 bg-[#E3FD72] text-black font-bold rounded-lg text-2xl font-display hover:bg-[#d5ed62] transition-colors"
               >
-                QUIERO SER PIONERO 🚀
+                QUIERO MI MÓDULO GRATIS 🎁
               </motion.button>
             </motion.div>
           </div>
