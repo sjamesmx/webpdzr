@@ -12,6 +12,10 @@ module.exports = {
         primary: '#E3FD72',
         'primary-dark': '#d5ed62',
       },
+      fontFamily: {
+        'sans': ['var(--font-outfit)', 'system-ui', '-apple-system', 'sans-serif'],
+        'display': ['Clash Display', 'system-ui', 'sans-serif'],
+      },
       animation: {
         'fade-in': 'fadeIn 0.5s ease-in-out',
         'slide-up': 'slideUp 0.5s ease-out',

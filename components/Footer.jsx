@@ -47,7 +47,7 @@ export default function Footer() {
         <div className="grid grid-cols-2 md:grid-cols-5 gap-8">
           {/* Logo Column */}
           <div className="col-span-2 md:col-span-1">
-            <a href="/" className="text-xl font-semibold text-gray-900 dark:text-white">
+            <a href="/" className="text-xl font-semibold text-gray-900 dark:text-white font-display">
               Padelyzer
             </a>
             <p className="mt-4 text-sm text-gray-600 dark:text-gray-400">

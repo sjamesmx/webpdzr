@@ -29,7 +29,7 @@ export default function Header() {
           {/* Logo */}
           <div className="flex items-center">
             <a href="/" className="flex items-center">
-              <span className="text-xl font-semibold text-gray-900 dark:text-white">
+              <span className="text-xl font-semibold text-gray-900 dark:text-white font-display tracking-tight">
                 Padelyzer
               </span>
             </a>

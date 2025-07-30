@@ -6,7 +6,7 @@ export default function Hero() {
 
       <div className="max-w-6xl mx-auto text-center">
         {/* Main heading */}
-        <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-medium text-gray-900 dark:text-white mb-6 leading-tight">
+        <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-gray-900 dark:text-white mb-6 leading-tight font-display">
           La plataforma definitiva para
           <br />
           <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-cyan-600">
@@ -15,7 +15,7 @@ export default function Hero() {
         </h1>
 
         {/* Subtitle */}
-        <p className="text-lg sm:text-xl text-gray-600 dark:text-gray-400 mb-10 max-w-3xl mx-auto">
+        <p className="text-lg sm:text-xl text-gray-600 dark:text-gray-400 mb-10 max-w-3xl mx-auto font-normal">
           Padelyzer combina IA avanzada, computer vision y analítica para transformar cómo 
           juegas y gestionas el padel. Sin comisiones, sin trucos.
         </p>
@@ -36,7 +36,7 @@ export default function Hero() {
             <div className="aspect-video flex items-center justify-center">
               <div className="text-center p-12">
                 <div className="text-6xl mb-4">🎾</div>
-                <h3 className="text-2xl font-semibold text-gray-900 dark:text-white mb-2">
+                <h3 className="text-2xl font-semibold text-gray-900 dark:text-white mb-2 font-display">
                   Análisis Inteligente de Padel
                 </h3>
                 <p className="text-gray-600 dark:text-gray-400">

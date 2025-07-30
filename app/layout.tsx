@@ -1,8 +1,13 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Inter, Outfit } from "next/font/google";
 import "./globals.css";
 
-const inter = Inter({ subsets: ["latin"] });
+// Body font - Outfit is modern and pairs well with Clash Display
+const outfit = Outfit({ 
+  subsets: ["latin"],
+  variable: '--font-outfit',
+  display: 'swap',
+});
 
 export const metadata: Metadata = {
   title: "Padelyzer - La revolución del padel con IA",
@@ -29,7 +34,13 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="es" className="dark">
-      <body className={`${inter.className} antialiased`}>
+      <head>
+        <link 
+          href="https://api.fontshare.com/v2/css?f[]=clash-display@200,300,400,500,600,700,1&display=swap"
+          rel="stylesheet"
+        />
+      </head>
+      <body className={`${outfit.variable} font-sans antialiased`}>
         {children}
       </body>
     </html>

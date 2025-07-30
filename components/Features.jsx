@@ -46,7 +46,7 @@ export default function Features() {
       <div className="max-w-6xl mx-auto">
         {/* Section Header */}
         <div className="text-center mb-16">
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-medium text-gray-900 dark:text-white mb-4">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-4 font-display">
             Características que marcan la diferencia
           </h2>
           <p className="text-lg text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
@@ -59,7 +59,7 @@ export default function Features() {
           {/* Feature 1 - AI Analysis */}
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div>
-              <h3 className="text-2xl sm:text-3xl font-semibold text-gray-900 dark:text-white mb-4">
+              <h3 className="text-2xl sm:text-3xl font-semibold text-gray-900 dark:text-white mb-4 font-display">
                 Análisis con IA de última generación
               </h3>
               <p className="text-gray-600 dark:text-gray-400 mb-6">
@@ -92,7 +92,7 @@ export default function Features() {
               <div className="rounded-2xl overflow-hidden bg-gradient-to-br from-blue-100 to-cyan-100 dark:from-blue-900 dark:to-cyan-900 p-8">
                 <div className="text-center">
                   <div className="text-6xl mb-4">🤖</div>
-                  <div className="text-4xl font-bold text-gray-900 dark:text-white mb-2">15+</div>
+                  <div className="text-4xl font-bold text-gray-900 dark:text-white mb-2 font-display">15+</div>
                   <div className="text-gray-600 dark:text-gray-400">Golpes analizados con IA</div>
                 </div>
               </div>
@@ -105,13 +105,13 @@ export default function Features() {
               <div className="rounded-2xl overflow-hidden bg-gradient-to-br from-green-100 to-emerald-100 dark:from-green-900 dark:to-emerald-900 p-8">
                 <div className="text-center">
                   <div className="text-6xl mb-4">💰</div>
-                  <div className="text-4xl font-bold text-gray-900 dark:text-white mb-2">0€</div>
+                  <div className="text-4xl font-bold text-gray-900 dark:text-white mb-2 font-display">0€</div>
                   <div className="text-gray-600 dark:text-gray-400">Comisiones por reserva</div>
                 </div>
               </div>
             </div>
             <div className="order-1 md:order-2">
-              <h3 className="text-2xl sm:text-3xl font-semibold text-gray-900 dark:text-white mb-4">
+              <h3 className="text-2xl sm:text-3xl font-semibold text-gray-900 dark:text-white mb-4 font-display">
                 Gestión de clubes sin comisiones
               </h3>
               <p className="text-gray-600 dark:text-gray-400 mb-6">
@@ -145,7 +145,7 @@ export default function Features() {
           {/* Feature 3 - Complete Suite */}
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div>
-              <h3 className="text-2xl sm:text-3xl font-semibold text-gray-900 dark:text-white mb-4">
+              <h3 className="text-2xl sm:text-3xl font-semibold text-gray-900 dark:text-white mb-4 font-display">
                 Suite completa para profesionales
               </h3>
               <p className="text-gray-600 dark:text-gray-400 mb-6">
@@ -155,19 +155,19 @@ export default function Features() {
               </p>
               <div className="grid grid-cols-2 gap-4">
                 <div className="text-center p-4 bg-gray-100 dark:bg-gray-800 rounded-lg">
-                  <div className="text-2xl font-bold text-gray-900 dark:text-white">1000+</div>
+                  <div className="text-2xl font-bold text-gray-900 dark:text-white font-display">1000+</div>
                   <div className="text-sm text-gray-600 dark:text-gray-400">Jugadores en torneos</div>
                 </div>
                 <div className="text-center p-4 bg-gray-100 dark:bg-gray-800 rounded-lg">
-                  <div className="text-2xl font-bold text-gray-900 dark:text-white">200+</div>
+                  <div className="text-2xl font-bold text-gray-900 dark:text-white font-display">200+</div>
                   <div className="text-sm text-gray-600 dark:text-gray-400">Usuarios en ligas</div>
                 </div>
                 <div className="text-center p-4 bg-gray-100 dark:bg-gray-800 rounded-lg">
-                  <div className="text-2xl font-bold text-gray-900 dark:text-white">24/7</div>
+                  <div className="text-2xl font-bold text-gray-900 dark:text-white font-display">24/7</div>
                   <div className="text-sm text-gray-600 dark:text-gray-400">Analytics en tiempo real</div>
                 </div>
                 <div className="text-center p-4 bg-gray-100 dark:bg-gray-800 rounded-lg">
-                  <div className="text-2xl font-bold text-gray-900 dark:text-white">100%</div>
+                  <div className="text-2xl font-bold text-gray-900 dark:text-white font-display">100%</div>
                   <div className="text-sm text-gray-600 dark:text-gray-400">Datos precisos</div>
                 </div>
               </div>
@@ -176,7 +176,7 @@ export default function Features() {
               <div className="rounded-2xl overflow-hidden bg-gradient-to-br from-purple-100 to-pink-100 dark:from-purple-900 dark:to-pink-900 p-8">
                 <div className="text-center">
                   <div className="text-6xl mb-4">📊</div>
-                  <div className="text-lg font-semibold text-gray-900 dark:text-white mb-2">Business Intelligence</div>
+                  <div className="text-lg font-semibold text-gray-900 dark:text-white mb-2 font-display">Business Intelligence</div>
                   <div className="text-gray-600 dark:text-gray-400">Decisiones basadas en datos</div>
                 </div>
               </div>

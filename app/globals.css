@@ -6,6 +6,7 @@
   :root {
     --background: 0 0% 100%;
     --foreground: 0 0% 3.9%;
+    --font-outfit: 'Outfit', sans-serif;
   }
 
   .dark {
@@ -15,9 +16,18 @@
 }
 
 body {
-  font-family: -apple-system, BlinkMacSystemFont, 'Inter', 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  font-family: var(--font-outfit);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+/* Typography classes */
+.font-display {
+  font-family: 'Clash Display', sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6, .heading {
+  font-family: 'Clash Display', sans-serif;
 }
 
 * {

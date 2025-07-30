@@ -113,7 +113,7 @@ export default function PricingSection() {
       <div className="max-w-6xl mx-auto">
         {/* Section Header */}
         <div className="text-center mb-16">
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-medium text-gray-900 dark:text-white mb-4">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-4 font-display">
             Precios transparentes, sin sorpresas
           </h2>
           <p className="text-lg text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
@@ -167,9 +167,9 @@ export default function PricingSection() {
                   </div>
                 )}
                 
-                <h3 className="text-2xl font-bold mb-2">{plan.name}</h3>
+                <h3 className="text-2xl font-bold mb-2 font-display">{plan.name}</h3>
                 <div className="mb-4">
-                  <span className="text-4xl font-bold">{plan.price}</span>
+                  <span className="text-4xl font-bold font-display">{plan.price}</span>
                   {plan.period && <span className="text-lg">{plan.period}</span>}
                 </div>
                 <p className={`mb-6 ${plan.highlight ? 'text-black/80' : 'text-gray-600 dark:text-gray-400'}`}>
@@ -219,9 +219,9 @@ export default function PricingSection() {
                       : 'bg-gray-50 dark:bg-gray-900 text-gray-900 dark:text-white border border-gray-200 dark:border-gray-800'
                   }`}
                 >
-                  <h3 className="text-xl font-bold mb-2">{module.name}</h3>
+                  <h3 className="text-xl font-bold mb-2 font-display">{module.name}</h3>
                   <div className="mb-3">
-                    <span className="text-3xl font-bold">{module.price}</span>
+                    <span className="text-3xl font-bold font-display">{module.price}</span>
                     {module.period && <span className="text-sm">{module.period}</span>}
                   </div>
                   <p className={`text-sm mb-4 ${
