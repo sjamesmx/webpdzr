@@ -192,6 +192,111 @@ export default function ClubesPage() {
           </div>
         </section>
 
+        {/* StoryBrand Section - Club Transformation */}
+        <section className="py-32 px-6 bg-gray-950 relative overflow-hidden">
+          <div className="absolute inset-0">
+            <div className="absolute inset-0 bg-gradient-to-br from-red-500/10 via-transparent to-transparent" />
+          </div>
+          
+          <div className="relative z-10 max-w-6xl mx-auto">
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8 }}
+              viewport={{ once: true }}
+              className="text-center mb-16"
+            >
+              <h2 className="text-4xl md:text-5xl font-bold text-white mb-6 font-display">
+                De club vacío a potencia regional
+              </h2>
+            </motion.div>
+
+            <div className="grid lg:grid-cols-2 gap-16 items-center mb-20">
+              {/* El Enemigo */}
+              <motion.div
+                initial={{ opacity: 0, x: -50 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.8 }}
+                viewport={{ once: true }}
+                className="relative"
+              >
+                <div className="absolute inset-0 bg-gradient-to-r from-red-500/20 to-transparent rounded-3xl blur-xl" />
+                <div className="relative bg-gray-900/50 backdrop-blur-sm border border-red-500/30 rounded-3xl p-8">
+                  <div className="text-red-400 mb-6">
+                    <svg className="w-12 h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-2.5L13.732 4c-.77-.833-1.964-.833-2.732 0L4.082 16.5c-.77.833.192 2.5 1.732 2.5z" />
+                    </svg>
+                  </div>
+                  <h3 className="text-2xl font-bold text-white mb-4 font-display">
+                    El Enemigo de Tu Éxito
+                  </h3>
+                  <p className="text-gray-300 text-lg leading-relaxed">
+                    Las plataformas de reservas son parásitos. Te cobran por TU trabajo, complican a TUS socios, 
+                    y te hacen dependiente. Por eso el <span className="text-red-400 font-bold">70% de clubes apenas sobrevive</span>.
+                  </p>
+                </div>
+              </motion.div>
+
+              {/* Tu Club Transformado */}
+              <motion.div
+                initial={{ opacity: 0, x: 50 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.8 }}
+                viewport={{ once: true }}
+                className="relative"
+              >
+                <div className="absolute inset-0 bg-gradient-to-r from-[#E3FD72]/20 to-transparent rounded-3xl blur-xl" />
+                <div className="relative bg-gray-900/50 backdrop-blur-sm border border-[#E3FD72]/30 rounded-3xl p-8">
+                  <div className="text-[#E3FD72] mb-6">
+                    <svg className="w-12 h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z" />
+                    </svg>
+                  </div>
+                  <h3 className="text-2xl font-bold text-white mb-4 font-display">
+                    Tu Club Transformado
+                  </h3>
+                  <p className="text-gray-300 text-lg leading-relaxed">
+                    Imagina tu club lleno cada noche. Socios felices reservando sin fricciones. 
+                    Torneos de 1000+ jugadores funcionando solos. Decisiones basadas en datos reales. 
+                    <span className="text-[#E3FD72] font-bold block mt-2">Y todo ese dinero de comisiones, en tu bolsillo.</span>
+                  </p>
+                </div>
+              </motion.div>
+            </div>
+
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8 }}
+              viewport={{ once: true }}
+              className="text-center bg-black/50 backdrop-blur-xl rounded-3xl border border-[#E3FD72]/30 p-8"
+            >
+              <h3 className="text-2xl font-bold text-white mb-4 font-display">
+                Solo 4 clubes serán pioneros en Puebla
+              </h3>
+              <p className="text-xl text-gray-400 mb-8">
+                Precio fundador hasta 15/08/25. Agenda tu demo hoy.
+              </p>
+              <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                <motion.button
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                  className="px-8 py-4 bg-[#E3FD72] text-black font-bold rounded-lg text-lg font-display"
+                >
+                  Agendar Demo Ahora
+                </motion.button>
+                <motion.button
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                  className="px-8 py-4 border-2 border-[#E3FD72] text-[#E3FD72] hover:bg-[#E3FD72] hover:text-black transition-all font-bold text-lg rounded-lg"
+                >
+                  Ver Casos de Éxito
+                </motion.button>
+              </div>
+            </motion.div>
+          </div>
+        </section>
+
         {/* Stats Section */}
         <section className="py-20 px-6 bg-black">
           <div className="max-w-6xl mx-auto">
