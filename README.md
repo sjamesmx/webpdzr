@@ -1,36 +1,94 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Padelyzer Website
 
-## Getting Started
+Este es el sitio web oficial de Padelyzer, la primera plataforma que combina IA, computer vision y ciencia para revolucionar cómo juegas y gestionas el padel.
 
-First, run the development server:
+## 🚀 Características
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+- **Diseño moderno**: Basado en el diseño crypto con colores negro, blanco y #E3FD72
+- **Dark/Light mode**: Soporte completo para temas claro y oscuro
+- **Responsive**: Diseño adaptable para móviles, tablets y desktop
+- **Componentes modulares**: Arquitectura basada en componentes reutilizables
+- **SEO optimizado**: Meta tags y estructura optimizada para motores de búsqueda
+
+## 🛠️ Stack Tecnológico
+
+- **Next.js 15**: Framework de React con App Router
+- **TypeScript**: Type safety y mejor DX
+- **Tailwind CSS**: Estilos utilitarios y diseño responsive
+- **React**: UI reactiva y componentes
+
+## 📦 Estructura del Proyecto
+
+```
+padelyzer-website/
+├── app/
+│   ├── globals.css      # Estilos globales y configuración de Tailwind
+│   ├── layout.tsx       # Layout principal con metadata SEO
+│   └── page.tsx         # Página principal con todos los componentes
+├── components/
+│   ├── Header.jsx       # Navegación con theme toggle
+│   ├── Hero.jsx         # Sección hero con CTAs diferenciados
+│   ├── Features.jsx     # Características y comparación con competencia
+│   ├── PricingSection.jsx # Precios para jugadores y clubes
+│   ├── CTASection.jsx   # Call to action con FOMO strategy
+│   ├── Footer.jsx       # Footer completo con newsletter
+│   ├── Button.jsx       # Componente de botón reutilizable
+│   ├── Card.jsx         # Componente de tarjeta
+│   └── ThemeProvider.jsx # Context para manejo de temas
+└── public/              # Assets estáticos
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 🎨 Sistema de Diseño
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### Colores
+- **Primary**: #E3FD72 (lime/neon yellow)
+- **Primary Dark**: #d5ed62
+- **Background Light**: #ffffff
+- **Background Dark**: #000000
+- **Text Light**: #171717
+- **Text Dark**: #ffffff
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### Tipografía
+- **Font Family**: Inter (Google Fonts)
+- **Headings**: Bold, con tamaños responsive
+- **Body**: Regular, optimizado para lectura
 
-## Learn More
+## 🚀 Cómo ejecutar
 
-To learn more about Next.js, take a look at the following resources:
+1. Instalar dependencias:
+```bash
+npm install
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+2. Ejecutar en modo desarrollo:
+```bash
+npm run dev
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+3. Abrir [http://localhost:3000](http://localhost:3000)
 
-## Deploy on Vercel
+## 📱 Secciones del Sitio
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+1. **Header**: Navegación sticky con theme toggle
+2. **Hero**: Mensaje principal con CTAs diferenciados para clubes y jugadores
+3. **Features**: 6 características principales y tabla comparativa
+4. **Pricing**: Planes separados para jugadores (Free, Pro, Star) y módulos para clubes
+5. **CTA**: Beta exclusiva con estrategia FOMO (4 clubes en Puebla)
+6. **Footer**: Links completos y formulario de newsletter
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## 🎯 Próximos Pasos
+
+- [ ] Implementar formularios funcionales
+- [ ] Conectar con backend/API
+- [ ] Añadir animaciones y transiciones
+- [ ] Optimizar imágenes y assets
+- [ ] Implementar analytics
+- [ ] Crear páginas adicionales (blog, tecnología, etc.)
+
+## 🤝 Contribuir
+
+Este proyecto está en beta privada. Para más información sobre cómo contribuir, contactar al equipo de desarrollo.
+
+---
+
+🎾 Hecho con amor para revolucionar el padel en México
