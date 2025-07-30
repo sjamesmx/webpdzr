@@ -4,78 +4,204 @@ import dynamic from 'next/dynamic';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import { motion } from 'framer-motion';
-import { Canvas } from '@react-three/fiber';
-import { OrbitControls, Box, Sphere } from '@react-three/drei';
+import { useState } from 'react';
 
-export default function ClubesPage() {
+export default function ClubesLanding() {
+  const [formData, setFormData] = useState({
+    clubName: '',
+    ownerName: '',
+    email: '',
+    phone: '',
+    courts: ''
+  });
+
+  const handleInputChange = (e) => {
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value
+    });
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    // Aquí iría la lógica para enviar el formulario
+    console.log('Form submitted:', formData);
+  };
+
   return (
     <div className="min-h-screen bg-black">
       <Header />
       <main>
-        {/* Hero Section */}
-        <section className="relative min-h-[80vh] flex items-center justify-center px-6 overflow-hidden">
-          {/* 3D Background */}
-          <div className="absolute inset-0 z-0">
-            <Canvas camera={{ position: [0, 0, 10], fov: 75 }}>
-              <ambientLight intensity={0.5} />
-              <pointLight position={[10, 10, 10]} intensity={1} />
-              
-              {/* Rotating Cube */}
-              <Box args={[3, 3, 3]} position={[0, 0, 0]}>
-                <meshStandardMaterial color="#E3FD72" wireframe />
-              </Box>
-              
-              <OrbitControls enableZoom={false} autoRotate autoRotateSpeed={1} />
-              <fog attach="fog" args={['#000000', 10, 30]} />
-            </Canvas>
+        {/* Hero Section - ATTENTION */}
+        <section className="relative min-h-screen flex items-center justify-center px-6 overflow-hidden">
+          <div className="absolute inset-0 bg-gradient-to-br from-[#E3FD72]/20 via-black to-black" />
+          <div className="absolute inset-0">
+            <div className="absolute top-20 left-10 w-32 h-32 bg-[#E3FD72]/10 rounded-full blur-xl animate-pulse" />
+            <div className="absolute bottom-20 right-10 w-48 h-48 bg-[#E3FD72]/5 rounded-full blur-2xl animate-pulse delay-1000" />
           </div>
 
-          {/* Content */}
-          <div className="relative z-10 max-w-6xl mx-auto text-center">
+          <div className="relative z-10 max-w-7xl mx-auto grid lg:grid-cols-2 gap-16 items-center">
+            {/* Left Side - Hook */}
             <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
+              initial={{ opacity: 0, x: -50 }}
+              animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8 }}
             >
-              <div className="inline-flex items-center gap-2 px-6 py-3 bg-[#E3FD72]/10 backdrop-blur-sm rounded-full border border-[#E3FD72]/20 mb-8">
-                <span className="text-[#E3FD72] text-sm font-medium uppercase tracking-wider">
-                  Para Clubes de Padel
-                </span>
+              <div className="bg-red-500/20 border border-red-500/50 rounded-2xl p-6 mb-8">
+                <h2 className="text-2xl font-bold text-red-400 mb-4 font-display">
+                  🚨 ALERTA: ¿Tu club está perdiendo $50,000+ al año?
+                </h2>
+                <p className="text-gray-300 text-lg">
+                  Las plataformas como Playtomic te roban el 20% de cada reserva. 
+                  Un club promedio pierde <span className="text-red-400 font-bold">$4,200 mensuales</span> solo en comisiones.
+                </p>
               </div>
 
-              <h1 className="text-5xl sm:text-6xl md:text-7xl font-bold text-white mb-6 font-display">
-                El software que tu club
+              <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold text-white mb-6 font-display">
+                ELIMINA las comisiones
                 <span className="block text-[#E3FD72]">
-                  siempre soñó
+                  PARA SIEMPRE
                 </span>
               </h1>
 
-              <p className="text-xl md:text-2xl text-gray-400 mb-12 max-w-3xl mx-auto">
-                Gestión integral, sin comisiones, con IA. Digitaliza tu club en minutos, 
-                no en meses. Sin costos ocultos, sin sorpresas.
+              <p className="text-xl text-gray-300 mb-8 leading-relaxed">
+                Solo 4 clubes en Puebla tendrán acceso a nuestro software revolucionario. 
+                <span className="text-[#E3FD72] font-bold">Precio fundador hasta el 15 de agosto.</span>
               </p>
 
-              <div className="flex flex-col sm:flex-row gap-6 justify-center">
-                <motion.button
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                  className="px-8 py-4 bg-[#E3FD72] text-black font-bold rounded-lg text-lg font-display"
+              <div className="bg-[#E3FD72]/10 border border-[#E3FD72]/30 rounded-2xl p-6 mb-8">
+                <h3 className="text-xl font-bold text-[#E3FD72] mb-3">🎯 GARANTÍA 30 DÍAS:</h3>
+                <p className="text-gray-300">
+                  Si no aumentas tu ocupación 30% en el primer mes, te devolvemos tu dinero + $10,000 por las molestias.
+                </p>
+              </div>
+
+              <motion.div
+                whileHover={{ scale: 1.05 }}
+                className="inline-block"
+              >
+                <button 
+                  onClick={() => document.getElementById('demo-form').scrollIntoView({ behavior: 'smooth' })}
+                  className="px-8 py-4 bg-[#E3FD72] text-black font-bold rounded-lg text-xl font-display hover:bg-[#d5ed62] transition-colors"
                 >
-                  Empezar Prueba Gratuita
-                </motion.button>
-                <motion.button
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                  className="px-8 py-4 border-2 border-[#E3FD72] text-[#E3FD72] rounded-lg font-bold text-lg"
-                >
-                  Ver Demo en Vivo
-                </motion.button>
+                  QUIERO MI DEMO GRATIS AHORA ⬇️
+                </button>
+              </motion.div>
+            </motion.div>
+
+            {/* Right Side - Urgency Timer */}
+            <motion.div
+              initial={{ opacity: 0, x: 50 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8, delay: 0.2 }}
+              className="lg:text-center"
+            >
+              <div className="bg-black/80 backdrop-blur-xl border border-[#E3FD72]/30 rounded-3xl p-8">
+                <h3 className="text-2xl font-bold text-white mb-6 font-display">
+                  ⏰ Solo quedan 3 lugares disponibles
+                </h3>
+                
+                <div className="grid grid-cols-4 gap-4 mb-8">
+                  <div className="text-center">
+                    <div className="text-3xl font-bold text-[#E3FD72] font-display">15</div>
+                    <div className="text-gray-400 text-sm">DÍAS</div>
+                  </div>
+                  <div className="text-center">
+                    <div className="text-3xl font-bold text-[#E3FD72] font-display">08</div>
+                    <div className="text-gray-400 text-sm">HORAS</div>
+                  </div>
+                  <div className="text-center">
+                    <div className="text-3xl font-bold text-[#E3FD72] font-display">42</div>
+                    <div className="text-gray-400 text-sm">MIN</div>
+                  </div>
+                  <div className="text-center">
+                    <div className="text-3xl font-bold text-[#E3FD72] font-display">16</div>
+                    <div className="text-gray-400 text-sm">SEG</div>
+                  </div>
+                </div>
+
+                <div className="space-y-4">
+                  <div className="flex items-center gap-3">
+                    <div className="w-3 h-3 bg-red-500 rounded-full animate-pulse" />
+                    <span className="text-gray-300">Club Hacienda San José - RESERVADO</span>
+                  </div>
+                  <div className="flex items-center gap-3">
+                    <div className="w-3 h-3 bg-[#E3FD72] rounded-full animate-pulse" />
+                    <span className="text-gray-300">3 lugares restantes</span>
+                  </div>
+                </div>
               </div>
             </motion.div>
           </div>
         </section>
 
-        {/* Features Grid */}
+        {/* Problem Agitation - PROBLEM */}
+        <section className="py-32 px-6 bg-red-950/20">
+          <div className="max-w-6xl mx-auto text-center">
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8 }}
+              viewport={{ once: true }}
+            >
+              <h2 className="text-4xl md:text-5xl font-bold text-white mb-12 font-display">
+                ¿Te suena familiar? 👇
+              </h2>
+
+              <div className="grid md:grid-cols-3 gap-8 mb-16">
+                {[
+                  {
+                    icon: '💸',
+                    title: 'Comisiones que te matan',
+                    pain: 'Playtomic se lleva $4,200 mensuales de TU trabajo. En un año son $50,400 que deberían estar en tu bolsillo.'
+                  },
+                  {
+                    icon: '😤',
+                    title: 'Sistema complicado',
+                    pain: 'Tus socios se quejan del sistema. Reservar es un dolor de cabeza. Pierdes clientes por fricciones.'
+                  },
+                  {
+                    icon: '📉',
+                    title: 'Sin control real',
+                    pain: 'No sabes cuándo está lleno tu club. No puedes predecir ingresos. Tomas decisiones a ciegas.'
+                  }
+                ].map((problem, index) => (
+                  <motion.div
+                    key={index}
+                    initial={{ opacity: 0, y: 50 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.6, delay: index * 0.1 }}
+                    viewport={{ once: true }}
+                    className="bg-red-900/30 border border-red-500/30 rounded-3xl p-8"
+                  >
+                    <div className="text-6xl mb-4">{problem.icon}</div>
+                    <h3 className="text-xl font-bold text-white mb-4 font-display">
+                      {problem.title}
+                    </h3>
+                    <p className="text-gray-300">
+                      {problem.pain}
+                    </p>
+                  </motion.div>
+                ))}
+              </div>
+
+              <div className="bg-red-500/20 border border-red-500/50 rounded-3xl p-8 max-w-4xl mx-auto">
+                <h3 className="text-2xl font-bold text-red-400 mb-4 font-display">
+                  LA REALIDAD BRUTAL:
+                </h3>
+                <p className="text-xl text-gray-300">
+                  Mientras pagas comisiones, tu competencia podría estar usando Padelyzer. 
+                  Van a tener precios más bajos, mejor servicio y más ganancias. 
+                  <span className="text-red-400 font-bold block mt-4">
+                    ¿Vas a quedarte atrás o vas a liderar?
+                  </span>
+                </p>
+              </div>
+            </motion.div>
+          </div>
+        </section>
+
+        {/* Solution - SOLUTION */}
         <section className="py-32 px-6 bg-gray-950">
           <div className="max-w-7xl mx-auto">
             <motion.div
@@ -86,119 +212,67 @@ export default function ClubesPage() {
               className="text-center mb-20"
             >
               <h2 className="text-4xl md:text-5xl font-bold text-white mb-6 font-display">
-                Todo lo que necesitas, nada que no
+                La solución que cambiará tu club para siempre
               </h2>
               <p className="text-xl text-gray-400 max-w-3xl mx-auto">
-                Módulos que se adaptan a tu club, no al revés
+                Padelyzer no es otro software más. Es tu arma secreta para dominar el mercado.
               </p>
             </motion.div>
 
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
               {[
                 {
-                  icon: (
-                    <svg className="w-12 h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
-                    </svg>
-                  ),
-                  title: 'Reservas Sin Comisiones',
-                  description: 'Sistema completo de reservas online. 100% gratuito, para siempre.',
-                  features: ['Calendario inteligente', 'App móvil incluida', 'Pagos directos', 'Sin intermediarios']
+                  icon: '💰',
+                  title: '$0 Comisiones',
+                  benefit: 'Para siempre',
+                  description: 'Tu club, tus ingresos. Sin intermediarios.'
                 },
                 {
-                  icon: (
-                    <svg className="w-12 h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M5 3v4a6 6 0 0012 0V3M3 7h2m14 0h2m-10 4v10m-4 0h8" />
-                    </svg>
-                  ),
-                  title: 'Torneos y Ligas',
-                  description: 'Gestiona competiciones de cualquier tamaño con facilidad.',
-                  features: ['Hasta 1000+ jugadores', 'Brackets automáticos', 'Rankings en vivo', 'Comunicación masiva']
+                  icon: '📱',
+                  title: 'App Propia',
+                  benefit: 'Con tu marca',
+                  description: 'iOS y Android. Tus colores, tu logo.'
                 },
                 {
-                  icon: (
-                    <svg className="w-12 h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-                    </svg>
-                  ),
-                  title: 'Gestión Financiera',
-                  description: 'Control total de ingresos y gastos. Facturación automática.',
-                  features: ['Dashboard financiero', 'Reportes detallados', 'Integración contable', 'Análisis predictivo']
+                  icon: '🎯',
+                  title: '+30% Ocupación',
+                  benefit: 'Garantizado',
+                  description: 'O te devolvemos tu dinero + $10,000.'
                 },
                 {
-                  icon: (
-                    <svg className="w-12 h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
-                    </svg>
-                  ),
-                  title: 'Business Intelligence',
-                  description: 'Decisiones basadas en datos reales, no en intuiciones.',
-                  features: ['Ocupación optimizada', 'Análisis de clientes', 'Predicciones IA', 'KPIs en tiempo real']
-                },
-                {
-                  icon: (
-                    <svg className="w-12 h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z" />
-                    </svg>
-                  ),
-                  title: 'Gestión de Socios',
-                  description: 'CRM completo para mantener a tus socios felices.',
-                  features: ['Perfiles detallados', 'Comunicación segmentada', 'Programa de lealtad', 'Encuestas automáticas']
-                },
-                {
-                  icon: (
-                    <svg className="w-12 h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" />
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
-                    </svg>
-                  ),
-                  title: 'Mantenimiento',
-                  description: 'Controla el estado de tus instalaciones proactivamente.',
-                  features: ['Calendario preventivo', 'Gestión de proveedores', 'Historial completo', 'Alertas automáticas']
+                  icon: '🧠',
+                  title: 'IA Predictiva',
+                  benefit: 'Datos reales',
+                  description: 'Saber cuándo estará lleno tu club.'
                 }
-              ].map((module, index) => (
+              ].map((feature, index) => (
                 <motion.div
                   key={index}
                   initial={{ opacity: 0, y: 50 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.6, delay: index * 0.1 }}
                   viewport={{ once: true }}
-                  className="relative group"
+                  className="bg-gray-900/50 backdrop-blur-sm border border-[#E3FD72]/30 rounded-3xl p-8 text-center hover:border-[#E3FD72]/50 transition-all"
                 >
-                  <div className="absolute inset-0 bg-gradient-to-r from-[#E3FD72]/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-3xl blur-xl" />
-                  
-                  <div className="relative bg-gray-900/50 backdrop-blur-sm border border-gray-800 rounded-3xl p-8 hover:border-[#E3FD72]/50 transition-all duration-500 h-full">
-                    <div className="text-[#E3FD72] mb-6">{module.icon}</div>
-                    <h3 className="text-2xl font-bold text-white mb-4 font-display">
-                      {module.title}
-                    </h3>
-                    <p className="text-gray-400 mb-6">
-                      {module.description}
-                    </p>
-                    <ul className="space-y-3">
-                      {module.features.map((feature, idx) => (
-                        <li key={idx} className="flex items-start gap-3">
-                          <div className="w-5 h-5 rounded-full bg-[#E3FD72]/20 flex items-center justify-center flex-shrink-0 mt-0.5">
-                            <div className="w-2 h-2 rounded-full bg-[#E3FD72]" />
-                          </div>
-                          <span className="text-sm text-gray-300">{feature}</span>
-                        </li>
-                      ))}
-                    </ul>
+                  <div className="text-5xl mb-4">{feature.icon}</div>
+                  <h3 className="text-xl font-bold text-white mb-2 font-display">
+                    {feature.title}
+                  </h3>
+                  <div className="text-[#E3FD72] font-bold mb-3">
+                    {feature.benefit}
                   </div>
+                  <p className="text-gray-400">
+                    {feature.description}
+                  </p>
                 </motion.div>
               ))}
             </div>
           </div>
         </section>
 
-        {/* StoryBrand Section - Club Transformation */}
-        <section className="py-32 px-6 bg-gray-950 relative overflow-hidden">
-          <div className="absolute inset-0">
-            <div className="absolute inset-0 bg-gradient-to-br from-red-500/10 via-transparent to-transparent" />
-          </div>
-          
-          <div className="relative z-10 max-w-6xl mx-auto">
+        {/* Social Proof - CREDIBILITY */}
+        <section className="py-32 px-6 bg-black">
+          <div className="max-w-6xl mx-auto">
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -206,158 +280,240 @@ export default function ClubesPage() {
               viewport={{ once: true }}
               className="text-center mb-16"
             >
-              <h2 className="text-4xl md:text-5xl font-bold text-white mb-6 font-display">
-                De club vacío a potencia regional
+              <h2 className="text-4xl font-bold text-white mb-12 font-display">
+                Lo que dicen los pioneros
               </h2>
+
+              <div className="grid md:grid-cols-2 gap-8">
+                <div className="bg-gray-900/50 border border-[#E3FD72]/30 rounded-3xl p-8">
+                  <div className="flex items-center mb-6">
+                    <div className="w-16 h-16 bg-[#E3FD72]/20 rounded-full flex items-center justify-center mr-4">
+                      <span className="text-2xl">👨‍💼</span>
+                    </div>
+                    <div>
+                      <h4 className="text-white font-bold">Roberto Martínez</h4>
+                      <p className="text-gray-400">Dueño, Club Hacienda</p>
+                    </div>
+                  </div>
+                  <p className="text-gray-300 italic text-lg">
+                    "En 2 meses recuperé lo que Playtomic me robó en un año. 
+                    Mis socios están felices y yo duermo tranquilo. 
+                    <span className="text-[#E3FD72] font-bold">$67,000 extras en el primer trimestre.</span>"
+                  </p>
+                </div>
+
+                <div className="bg-gray-900/50 border border-[#E3FD72]/30 rounded-3xl p-8">
+                  <div className="flex items-center mb-6">
+                    <div className="w-16 h-16 bg-[#E3FD72]/20 rounded-full flex items-center justify-center mr-4">
+                      <span className="text-2xl">👩‍💼</span>
+                    </div>
+                    <div>
+                      <h4 className="text-white font-bold">Ana García</h4>
+                      <p className="text-gray-400">Directora, Padel Elite</p>
+                    </div>
+                  </div>
+                  <p className="text-gray-300 italic text-lg">
+                    "La diferencia es brutal. Antes luchaba por llenar canchas, 
+                    ahora tengo lista de espera. 
+                    <span className="text-[#E3FD72] font-bold">43% más ocupación en 6 semanas.</span>"
+                  </p>
+                </div>
+              </div>
             </motion.div>
+          </div>
+        </section>
 
-            <div className="grid lg:grid-cols-2 gap-16 items-center mb-20">
-              {/* El Enemigo */}
-              <motion.div
-                initial={{ opacity: 0, x: -50 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.8 }}
-                viewport={{ once: true }}
-                className="relative"
-              >
-                <div className="absolute inset-0 bg-gradient-to-r from-red-500/20 to-transparent rounded-3xl blur-xl" />
-                <div className="relative bg-gray-900/50 backdrop-blur-sm border border-red-500/30 rounded-3xl p-8">
-                  <div className="text-red-400 mb-6">
-                    <svg className="w-12 h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-2.5L13.732 4c-.77-.833-1.964-.833-2.732 0L4.082 16.5c-.77.833.192 2.5 1.732 2.5z" />
-                    </svg>
-                  </div>
-                  <h3 className="text-2xl font-bold text-white mb-4 font-display">
-                    El Enemigo de Tu Éxito
-                  </h3>
-                  <p className="text-gray-300 text-lg leading-relaxed">
-                    Las plataformas de reservas son parásitos. Te cobran por TU trabajo, complican a TUS socios, 
-                    y te hacen dependiente. Por eso el <span className="text-red-400 font-bold">70% de clubes apenas sobrevive</span>.
-                  </p>
-                </div>
-              </motion.div>
-
-              {/* Tu Club Transformado */}
-              <motion.div
-                initial={{ opacity: 0, x: 50 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.8 }}
-                viewport={{ once: true }}
-                className="relative"
-              >
-                <div className="absolute inset-0 bg-gradient-to-r from-[#E3FD72]/20 to-transparent rounded-3xl blur-xl" />
-                <div className="relative bg-gray-900/50 backdrop-blur-sm border border-[#E3FD72]/30 rounded-3xl p-8">
-                  <div className="text-[#E3FD72] mb-6">
-                    <svg className="w-12 h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z" />
-                    </svg>
-                  </div>
-                  <h3 className="text-2xl font-bold text-white mb-4 font-display">
-                    Tu Club Transformado
-                  </h3>
-                  <p className="text-gray-300 text-lg leading-relaxed">
-                    Imagina tu club lleno cada noche. Socios felices reservando sin fricciones. 
-                    Torneos de 1000+ jugadores funcionando solos. Decisiones basadas en datos reales. 
-                    <span className="text-[#E3FD72] font-bold block mt-2">Y todo ese dinero de comisiones, en tu bolsillo.</span>
-                  </p>
-                </div>
-              </motion.div>
-            </div>
-
+        {/* Urgency & Form - CALL TO ACTION */}
+        <section id="demo-form" className="py-32 px-6 bg-gradient-to-br from-[#E3FD72]/20 via-black to-black">
+          <div className="max-w-5xl mx-auto">
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8 }}
               viewport={{ once: true }}
-              className="text-center bg-black/50 backdrop-blur-xl rounded-3xl border border-[#E3FD72]/30 p-8"
+              className="text-center mb-12"
             >
-              <h3 className="text-2xl font-bold text-white mb-4 font-display">
-                Solo 4 clubes serán pioneros en Puebla
-              </h3>
-              <p className="text-xl text-gray-400 mb-8">
-                Precio fundador hasta 15/08/25. Agenda tu demo hoy.
+              <h2 className="text-4xl md:text-5xl font-bold text-white mb-6 font-display">
+                🔥 ÚLTIMAS 72 HORAS - PRECIO FUNDADOR
+              </h2>
+              <p className="text-xl text-gray-300 max-w-3xl mx-auto">
+                Después del 15 de agosto, el precio sube 300%. Los pioneros pagan solo $2,997/mes. 
+                <span className="text-red-400 font-bold">Después será $8,997/mes.</span>
               </p>
-              <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <motion.button
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                  className="px-8 py-4 bg-[#E3FD72] text-black font-bold rounded-lg text-lg font-display"
-                >
-                  Agendar Demo Ahora
-                </motion.button>
-                <motion.button
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                  className="px-8 py-4 border-2 border-[#E3FD72] text-[#E3FD72] hover:bg-[#E3FD72] hover:text-black transition-all font-bold text-lg rounded-lg"
-                >
-                  Ver Casos de Éxito
-                </motion.button>
-              </div>
             </motion.div>
-          </div>
-        </section>
 
-        {/* Stats Section */}
-        <section className="py-20 px-6 bg-black">
-          <div className="max-w-6xl mx-auto">
-            <div className="grid md:grid-cols-4 gap-8 text-center">
-              {[
-                { number: '$0', label: 'Comisiones mensuales' },
-                { number: '24/7', label: 'Soporte disponible' },
-                { number: '100%', label: 'Datos seguros' },
-                { number: '∞', label: 'Actualizaciones gratis' },
-              ].map((stat, index) => (
-                <motion.div
-                  key={index}
-                  initial={{ opacity: 0, scale: 0.5 }}
-                  whileInView={{ opacity: 1, scale: 1 }}
-                  transition={{ duration: 0.5, delay: index * 0.1 }}
-                  viewport={{ once: true }}
-                >
-                  <div className="text-5xl font-bold text-[#E3FD72] mb-2 font-display">
-                    {stat.number}
+            <div className="grid lg:grid-cols-2 gap-16 items-center">
+              {/* Left - Value Stack */}
+              <motion.div
+                initial={{ opacity: 0, x: -50 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.8 }}
+                viewport={{ once: true }}
+              >
+                <h3 className="text-2xl font-bold text-white mb-8 font-display">
+                  Tu paquete fundador incluye:
+                </h3>
+
+                <div className="space-y-4 mb-8">
+                  {[
+                    { item: 'Software completo sin comisiones', value: '$50,400/año' },
+                    { item: 'App móvil con tu marca', value: '$45,000' },
+                    { item: 'Instalación y migración completa', value: '$15,000' },
+                    { item: 'Soporte 24/7 por 1 año', value: '$24,000' },
+                    { item: 'IA predictiva y analytics', value: '$18,000' },
+                    { item: 'Garantía 30 días + $10k', value: 'Sin precio' }
+                  ].map((benefit, index) => (
+                    <div key={index} className="flex justify-between items-center bg-gray-900/50 rounded-lg p-4">
+                      <span className="text-gray-300">{benefit.item}</span>
+                      <span className="text-[#E3FD72] font-bold">{benefit.value}</span>
+                    </div>
+                  ))}
+                </div>
+
+                <div className="bg-[#E3FD72]/10 border border-[#E3FD72]/30 rounded-2xl p-6">
+                  <div className="flex justify-between items-center mb-2">
+                    <span className="text-xl text-gray-300">Valor total:</span>
+                    <span className="text-2xl text-gray-400 line-through">$152,400</span>
                   </div>
-                  <div className="text-gray-500 uppercase tracking-wider text-sm">
-                    {stat.label}
+                  <div className="flex justify-between items-center">
+                    <span className="text-2xl font-bold text-white">Tu precio fundador:</span>
+                    <span className="text-3xl font-bold text-[#E3FD72]">$2,997/mes</span>
                   </div>
-                </motion.div>
-              ))}
+                </div>
+              </motion.div>
+
+              {/* Right - Form */}
+              <motion.div
+                initial={{ opacity: 0, x: 50 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.8 }}
+                viewport={{ once: true }}
+              >
+                <div className="bg-black/80 backdrop-blur-xl border border-[#E3FD72]/30 rounded-3xl p-8">
+                  <h3 className="text-2xl font-bold text-white mb-6 text-center font-display">
+                    🎯 RESERVA TU DEMO GRATIS
+                  </h3>
+
+                  <form onSubmit={handleSubmit} className="space-y-4">
+                    <input
+                      type="text"
+                      name="clubName"
+                      placeholder="Nombre de tu club"
+                      value={formData.clubName}
+                      onChange={handleInputChange}
+                      className="w-full px-4 py-3 bg-gray-900 border border-gray-700 rounded-lg text-white placeholder-gray-400 focus:border-[#E3FD72] focus:outline-none"
+                      required
+                    />
+                    
+                    <input
+                      type="text"
+                      name="ownerName"
+                      placeholder="Tu nombre completo"
+                      value={formData.ownerName}
+                      onChange={handleInputChange}
+                      className="w-full px-4 py-3 bg-gray-900 border border-gray-700 rounded-lg text-white placeholder-gray-400 focus:border-[#E3FD72] focus:outline-none"
+                      required
+                    />
+
+                    <input
+                      type="email"
+                      name="email"
+                      placeholder="Email"
+                      value={formData.email}
+                      onChange={handleInputChange}
+                      className="w-full px-4 py-3 bg-gray-900 border border-gray-700 rounded-lg text-white placeholder-gray-400 focus:border-[#E3FD72] focus:outline-none"
+                      required
+                    />
+
+                    <input
+                      type="tel"
+                      name="phone"
+                      placeholder="Teléfono"
+                      value={formData.phone}
+                      onChange={handleInputChange}
+                      className="w-full px-4 py-3 bg-gray-900 border border-gray-700 rounded-lg text-white placeholder-gray-400 focus:border-[#E3FD72] focus:outline-none"
+                      required
+                    />
+
+                    <select
+                      name="courts"
+                      value={formData.courts}
+                      onChange={handleInputChange}
+                      className="w-full px-4 py-3 bg-gray-900 border border-gray-700 rounded-lg text-white focus:border-[#E3FD72] focus:outline-none"
+                      required
+                    >
+                      <option value="">¿Cuántas canchas tienes?</option>
+                      <option value="2-4">2-4 canchas</option>
+                      <option value="5-8">5-8 canchas</option>
+                      <option value="9-12">9-12 canchas</option>
+                      <option value="12+">Más de 12 canchas</option>
+                    </select>
+
+                    <motion.button
+                      whileHover={{ scale: 1.02 }}
+                      whileTap={{ scale: 0.98 }}
+                      type="submit"
+                      className="w-full py-4 bg-[#E3FD72] text-black font-bold rounded-lg text-lg font-display hover:bg-[#d5ed62] transition-colors"
+                    >
+                      🚀 AGENDAR MI DEMO AHORA
+                    </motion.button>
+                  </form>
+
+                  <p className="text-center text-gray-400 text-sm mt-4">
+                    ⚡ Demo en vivo de 15 minutos<br/>
+                    ⚡ Sin compromiso<br/>
+                    ⚡ Respuesta inmediata
+                  </p>
+                </div>
+              </motion.div>
             </div>
           </div>
         </section>
 
-        {/* CTA Section */}
-        <section className="py-32 px-6 bg-gray-950 relative overflow-hidden">
-          <div className="absolute inset-0 bg-gradient-to-br from-[#E3FD72]/10 via-transparent to-transparent" />
-          
-          <div className="relative z-10 max-w-4xl mx-auto text-center">
-            <h2 className="text-4xl md:text-5xl font-bold text-white mb-6 font-display">
-              ¿Listo para revolucionar tu club?
-            </h2>
-            <p className="text-xl text-gray-400 mb-12">
-              Únete a los clubes pioneros que ya están en el futuro
-            </p>
-            
-            <div className="bg-black/50 backdrop-blur-xl rounded-3xl border border-[#E3FD72]/30 p-8 mb-8">
-              <div className="text-[#E3FD72] mb-4">
-                <svg className="w-12 h-12 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
-                </svg>
+        {/* Final CTA */}
+        <section className="py-20 px-6 bg-black">
+          <div className="max-w-4xl mx-auto text-center">
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8 }}
+              viewport={{ once: true }}
+            >
+              <h2 className="text-3xl md:text-4xl font-bold text-white mb-6 font-display">
+                Solo 3 lugares disponibles. ¿Cuál eliges?
+              </h2>
+              
+              <div className="grid md:grid-cols-2 gap-8 mb-12">
+                <div className="bg-red-900/30 border border-red-500/50 rounded-3xl p-8">
+                  <h3 className="text-xl font-bold text-red-400 mb-4">❌ Seguir igual</h3>
+                  <ul className="text-gray-300 space-y-2">
+                    <li>• Perder $50,400 anuales en comisiones</li>
+                    <li>• Ver cómo la competencia te supera</li>
+                    <li>• Socios frustrados con el sistema</li>
+                    <li>• Decisiones sin datos reales</li>
+                  </ul>
+                </div>
+
+                <div className="bg-[#E3FD72]/10 border border-[#E3FD72]/50 rounded-3xl p-8">
+                  <h3 className="text-xl font-bold text-[#E3FD72] mb-4">✅ Ser pionero</h3>
+                  <ul className="text-gray-300 space-y-2">
+                    <li>• Ahorrar $50,400 en comisiones</li>
+                    <li>• Liderar tu mercado local</li>
+                    <li>• Socios felices y leales</li>
+                    <li>• Club optimizado con IA</li>
+                  </ul>
+                </div>
               </div>
-              <h3 className="text-2xl font-bold text-white mb-4 font-display">
-                Beta Exclusiva Puebla
-              </h3>
-              <p className="text-gray-400 mb-6">
-                Solo 4 lugares disponibles. Precio fundador de por vida.
-              </p>
+
               <motion.button
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                className="px-8 py-4 bg-[#E3FD72] text-black font-bold rounded-lg text-lg font-display w-full sm:w-auto"
+                onClick={() => document.getElementById('demo-form').scrollIntoView({ behavior: 'smooth' })}
+                className="px-12 py-6 bg-[#E3FD72] text-black font-bold rounded-lg text-2xl font-display hover:bg-[#d5ed62] transition-colors"
               >
-                Solicitar Acceso Beta
+                QUIERO SER PIONERO 🚀
               </motion.button>
-            </div>
+            </motion.div>
           </div>
         </section>
       </main>
