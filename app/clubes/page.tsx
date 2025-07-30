@@ -6,7 +6,7 @@ import Footer from '@/components/Footer';
 import { motion } from 'framer-motion';
 import { useState } from 'react';
 import { Canvas } from '@react-three/fiber';
-import { OrbitControls, Box, Sphere } from '@react-three/drei';
+import { OrbitControls, Box, Sphere, Cylinder } from '@react-three/drei';
 
 export default function ClubesLanding() {
   // Force deployment update
@@ -37,27 +37,58 @@ export default function ClubesLanding() {
       <main>
         {/* Hero Section with Three.js */}
         <section className="relative min-h-screen flex items-center justify-center px-6 overflow-hidden">
-          {/* 3D Background */}
+          {/* 3D Padel Courts Background */}
           <div className="absolute inset-0 z-0">
             <Canvas camera={{ position: [0, 0, 10], fov: 75 }}>
               <ambientLight intensity={0.4} />
               <pointLight position={[10, 10, 10]} intensity={1} />
               <pointLight position={[-10, -10, -10]} intensity={0.5} color="#E3FD72" />
               
-              {/* Multiple rotating cubes */}
-              <Box args={[2, 2, 2]} position={[3, 2, 0]} rotation={[0, 0, 0]}>
+              {/* Padel Court 1 - Main */}
+              <Box args={[6, 0.1, 4]} position={[0, 0, 0]}>
                 <meshStandardMaterial color="#E3FD72" wireframe />
               </Box>
               
-              <Box args={[1.5, 1.5, 1.5]} position={[-3, -1, 0]} rotation={[0, 0, 0]}>
-                <meshStandardMaterial color="#E3FD72" wireframe />
+              {/* Net */}
+              <Box args={[0.1, 1, 4]} position={[0, 0.5, 0]}>
+                <meshStandardMaterial color="#E3FD72" wireframe opacity={0.8} transparent />
               </Box>
-
-              <Box args={[3, 3, 3]} position={[0, 0, -5]} rotation={[0, 0, 0]}>
+              
+              {/* Side walls */}
+              <Box args={[0.1, 2, 4]} position={[3, 1, 0]}>
+                <meshStandardMaterial color="#E3FD72" wireframe opacity={0.3} transparent />
+              </Box>
+              <Box args={[0.1, 2, 4]} position={[-3, 1, 0]}>
                 <meshStandardMaterial color="#E3FD72" wireframe opacity={0.3} transparent />
               </Box>
               
-              <OrbitControls enableZoom={false} autoRotate autoRotateSpeed={1} enablePan={false} enableRotate={false} />
+              {/* Back walls */}
+              <Box args={[6, 2, 0.1]} position={[0, 1, 2]}>
+                <meshStandardMaterial color="#E3FD72" wireframe opacity={0.2} transparent />
+              </Box>
+              <Box args={[6, 2, 0.1]} position={[0, 1, -2]}>
+                <meshStandardMaterial color="#E3FD72" wireframe opacity={0.2} transparent />
+              </Box>
+              
+              {/* Padel Court 2 - Background */}
+              <Box args={[4, 0.1, 3]} position={[8, 0, -3]} rotation={[0, 0.3, 0]}>
+                <meshStandardMaterial color="#E3FD72" wireframe opacity={0.4} transparent />
+              </Box>
+              
+              {/* Padel Court 3 - Background */}
+              <Box args={[4, 0.1, 3]} position={[-8, 0, -2]} rotation={[0, -0.3, 0]}>
+                <meshStandardMaterial color="#E3FD72" wireframe opacity={0.4} transparent />
+              </Box>
+              
+              {/* Floating elements */}
+              <Sphere args={[0.3]} position={[4, 3, 1]}>
+                <meshStandardMaterial color="#E3FD72" wireframe />
+              </Sphere>
+              <Sphere args={[0.2]} position={[-4, 2, -1]}>
+                <meshStandardMaterial color="#E3FD72" wireframe opacity={0.6} transparent />
+              </Sphere>
+              
+              <OrbitControls enableZoom={false} autoRotate autoRotateSpeed={0.5} enablePan={false} enableRotate={false} />
               <fog attach="fog" args={['#000000', 8, 30]} />
             </Canvas>
           </div>
@@ -160,203 +191,359 @@ export default function ClubesLanding() {
           `}</style>
         </section>
 
-        {/* Landing Page - ATTENTION */}
-        <section className="relative min-h-screen flex items-center justify-center px-6 overflow-hidden">
-          <div className="absolute inset-0 bg-gradient-to-br from-[#E3FD72]/20 via-black to-black" />
+        {/* Alerta y Elimina Comisiones - Redesigned */}
+        <section className="relative py-24 px-6 bg-gradient-to-r from-red-900/20 via-black to-[#E3FD72]/10 overflow-hidden">
+          {/* Animated Background Elements */}
           <div className="absolute inset-0">
-            <div className="absolute top-20 left-10 w-32 h-32 bg-[#E3FD72]/10 rounded-full blur-xl animate-pulse" />
-            <div className="absolute bottom-20 right-10 w-48 h-48 bg-[#E3FD72]/5 rounded-full blur-2xl animate-pulse delay-1000" />
+            <div className="absolute top-10 left-10 w-40 h-40 bg-red-500/10 rounded-full blur-3xl animate-pulse" />
+            <div className="absolute bottom-10 right-10 w-60 h-60 bg-[#E3FD72]/10 rounded-full blur-3xl animate-pulse delay-1000" />
+            <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[400px] h-[400px] border border-red-500/20 rounded-full animate-ping" style={{animationDuration: '15s'}} />
           </div>
 
-          <div className="relative z-10 max-w-7xl mx-auto grid lg:grid-cols-2 gap-16 items-center">
-            {/* Left Side - Hook */}
+          <div className="relative z-10 max-w-7xl mx-auto">
+            {/* Alert Header */}
             <motion.div
-              initial={{ opacity: 0, x: -50 }}
-              animate={{ opacity: 1, x: 0 }}
+              initial={{ opacity: 0, scale: 0.9 }}
+              whileInView={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.8 }}
+              viewport={{ once: true }}
+              className="text-center mb-16"
             >
-              <div className="bg-red-500/20 border border-red-500/50 rounded-2xl p-6 mb-8">
-                <div className="flex items-center gap-3 mb-4">
-                  <svg className="w-8 h-8 text-red-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-2.5L13.732 4c-.77-.833-1.964-.833-2.732 0L4.082 16.5c-.77.833.192 2.5 1.732 2.5z" />
-                  </svg>
-                  <h2 className="text-2xl font-bold text-red-400 font-display">
-                    ALERTA: ¿Tu club está perdiendo $50,000+ al año?
-                  </h2>
-                </div>
-                <p className="text-gray-300 text-lg">
-                  Las plataformas como Playtomic te roban el 20% de cada reserva. 
-                  Un club promedio pierde <span className="text-red-400 font-bold">$4,200 mensuales</span> solo en comisiones.
-                </p>
-              </div>
-
-              <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold text-white mb-6 font-display">
-                ELIMINA las comisiones
-                <span className="block text-[#E3FD72]">
-                  PARA SIEMPRE
+              <div className="inline-flex items-center gap-3 px-8 py-4 bg-red-500/20 backdrop-blur-sm border border-red-500/50 rounded-full mb-8">
+                <div className="w-4 h-4 bg-red-400 rounded-full animate-pulse" />
+                <span className="text-red-400 font-bold text-lg uppercase tracking-wider">
+                  🚨 ALERTA CRÍTICA PARA DUEÑOS DE CLUBES
                 </span>
-              </h1>
-
-              <p className="text-xl text-gray-300 mb-8 leading-relaxed">
-                Oferta de lanzamiento: obtén el módulo de reservas completamente GRATIS para siempre. 
-                <span className="text-[#E3FD72] font-bold">Solo válido hasta el 15 de agosto.</span>
+                <div className="w-4 h-4 bg-red-400 rounded-full animate-pulse" />
+              </div>
+              
+              <h2 className="text-4xl sm:text-5xl md:text-6xl font-bold text-white mb-6 font-display leading-tight">
+                ¿Tu club está perdiendo
+                <span className="block text-red-400 mt-2">
+                  $50,000+ al año?
+                </span>
+              </h2>
+              
+              <p className="text-xl text-gray-300 max-w-4xl mx-auto leading-relaxed">
+                Las plataformas como Playtomic están <span className="text-red-400 font-bold">robándote el 20%</span> de cada reserva. 
+                Un club promedio pierde <span className="text-red-400 font-bold text-2xl">$4,200 mensuales</span> solo en comisiones.
               </p>
+            </motion.div>
 
-              <div className="bg-[#E3FD72]/10 border border-[#E3FD72]/30 rounded-2xl p-6 mb-8">
-                <div className="flex items-center gap-3 mb-3">
-                  <svg className="w-6 h-6 text-[#E3FD72]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
-                  </svg>
-                  <h3 className="text-xl font-bold text-[#E3FD72] font-display">GARANTÍA 30 DÍAS:</h3>
-                </div>
-                <p className="text-gray-300">
-                  Si no aumentas tu ocupación 30% en el primer mes, te devolvemos tu dinero + $10,000 por las molestias.
-                </p>
-              </div>
-
+            {/* Main Content Grid */}
+            <div className="grid lg:grid-cols-2 gap-16 items-center mb-16">
+              {/* Left Side - Problem & Solution */}
               <motion.div
-                whileHover={{ scale: 1.05 }}
-                className="inline-block"
+                initial={{ opacity: 0, x: -50 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.8 }}
+                viewport={{ once: true }}
+                className="space-y-8"
               >
-                <button 
-                  onClick={() => document.getElementById('demo-form')?.scrollIntoView({ behavior: 'smooth' })}
-                  className="px-8 py-4 bg-[#E3FD72] text-black font-bold rounded-lg text-xl font-display hover:bg-[#d5ed62] transition-colors"
-                >
-                  QUIERO MI DEMO GRATIS AHORA
-                </button>
+                {/* Pain Point */}
+                <div className="bg-red-900/30 backdrop-blur-sm border border-red-500/50 rounded-3xl p-8">
+                  <div className="flex items-center gap-4 mb-6">
+                    <div className="w-12 h-12 bg-red-500/20 rounded-full flex items-center justify-center">
+                      <svg className="w-6 h-6 text-red-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-2.5L13.732 4c-.77-.833-1.964-.833-2.732 0L4.082 16.5c-.77.833.192 2.5 1.732 2.5z" />
+                      </svg>
+                    </div>
+                    <h3 className="text-2xl font-bold text-red-400 font-display">El Problema Real</h3>
+                  </div>
+                  <div className="space-y-4">
+                    <div className="flex justify-between items-center p-4 bg-black/30 rounded-lg">
+                      <span className="text-gray-300">Comisiones anuales:</span>
+                      <span className="text-red-400 font-bold text-xl">-$50,400</span>
+                    </div>
+                    <div className="flex justify-between items-center p-4 bg-black/30 rounded-lg">
+                      <span className="text-gray-300">Clientes perdidos por fricción:</span>
+                      <span className="text-red-400 font-bold text-xl">-35%</span>
+                    </div>
+                    <div className="flex justify-between items-center p-4 bg-black/30 rounded-lg">
+                      <span className="text-gray-300">Control sobre tu negocio:</span>
+                      <span className="text-red-400 font-bold text-xl">0%</span>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Solution */}
+                <div className="bg-[#E3FD72]/10 backdrop-blur-sm border border-[#E3FD72]/50 rounded-3xl p-8">
+                  <div className="flex items-center gap-4 mb-6">
+                    <div className="w-12 h-12 bg-[#E3FD72]/20 rounded-full flex items-center justify-center">
+                      <svg className="w-6 h-6 text-[#E3FD72]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
+                      </svg>
+                    </div>
+                    <h3 className="text-2xl font-bold text-[#E3FD72] font-display">La Solución</h3>
+                  </div>
+                  <h4 className="text-3xl font-bold text-white mb-4 font-display">
+                    ELIMINA las comisiones
+                    <span className="block text-[#E3FD72]">PARA SIEMPRE</span>
+                  </h4>
+                  <p className="text-gray-300 text-lg leading-relaxed mb-6">
+                    Oferta de lanzamiento: obtén el módulo de reservas completamente GRATIS para siempre. 
+                    <span className="text-[#E3FD72] font-bold">Solo válido hasta el 15 de agosto.</span>
+                  </p>
+                  
+                  <motion.button
+                    whileHover={{ scale: 1.05 }}
+                    whileTap={{ scale: 0.95 }}
+                    onClick={() => document.getElementById('demo-form')?.scrollIntoView({ behavior: 'smooth' })}
+                    className="w-full py-4 bg-[#E3FD72] text-black font-bold rounded-lg text-xl font-display hover:bg-[#d5ed62] transition-colors"
+                  >
+                    QUIERO MI DEMO GRATIS AHORA
+                  </motion.button>
+                </div>
               </motion.div>
-            </motion.div>
 
-            {/* Right Side - Urgency Timer */}
-            <motion.div
-              initial={{ opacity: 0, x: 50 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.8, delay: 0.2 }}
-              className="lg:text-center"
-            >
-              <div className="bg-black/80 backdrop-blur-xl border border-[#E3FD72]/30 rounded-3xl p-8">
-                <div className="flex items-center justify-center gap-3 mb-6">
-                  <svg className="w-8 h-8 text-[#E3FD72]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v13m0-13V6a2 2 0 112 0v1m0 0V6a2 2 0 112 0v1m0 0V9a2 2 0 00-2 2v5a2 2 0 002 2v1M7 4V2a2 2 0 012-2h6a2 2 0 012 2v2" />
-                  </svg>
-                  <h3 className="text-2xl font-bold text-white font-display">
-                    OFERTA DE LANZAMIENTO
-                  </h3>
-                </div>
-                
-                <div className="text-center mb-6">
-                  <div className="text-5xl font-bold text-[#E3FD72] font-display mb-2">GRATIS</div>
-                  <p className="text-gray-300 text-lg">Módulo de Reservas</p>
-                  <p className="text-gray-400">Para siempre</p>
-                </div>
+              {/* Right Side - Offer Card */}
+              <motion.div
+                initial={{ opacity: 0, x: 50 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.8, delay: 0.2 }}
+                viewport={{ once: true }}
+              >
+                <div className="relative">
+                  {/* Glow effect */}
+                  <div className="absolute -inset-1 bg-gradient-to-r from-[#E3FD72] to-[#d5ed62] rounded-3xl blur-lg opacity-30" />
+                  
+                  <div className="relative bg-black/90 backdrop-blur-xl border border-[#E3FD72]/50 rounded-3xl p-8">
+                    {/* Countdown Header */}
+                    <div className="text-center mb-8">
+                      <div className="inline-flex items-center gap-2 px-4 py-2 bg-[#E3FD72]/20 rounded-full mb-4">
+                        <svg className="w-5 h-5 text-[#E3FD72]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                        </svg>
+                        <span className="text-[#E3FD72] font-bold text-sm uppercase tracking-wider">Oferta de Lanzamiento</span>
+                      </div>
+                      
+                      <div className="text-6xl font-bold text-[#E3FD72] font-display mb-2">GRATIS</div>
+                      <p className="text-gray-300 text-xl mb-2">Módulo de Reservas</p>
+                      <p className="text-gray-400">Para siempre • Sin letra pequeña</p>
+                    </div>
 
-                <div className="grid grid-cols-4 gap-4 mb-8">
-                  <div className="text-center">
-                    <div className="text-3xl font-bold text-[#E3FD72] font-display">15</div>
-                    <div className="text-gray-400 text-sm">DÍAS</div>
-                  </div>
-                  <div className="text-center">
-                    <div className="text-3xl font-bold text-[#E3FD72] font-display">08</div>
-                    <div className="text-gray-400 text-sm">HORAS</div>
-                  </div>
-                  <div className="text-center">
-                    <div className="text-3xl font-bold text-[#E3FD72] font-display">42</div>
-                    <div className="text-gray-400 text-sm">MIN</div>
-                  </div>
-                  <div className="text-center">
-                    <div className="text-3xl font-bold text-[#E3FD72] font-display">16</div>
-                    <div className="text-gray-400 text-sm">SEG</div>
-                  </div>
-                </div>
+                    {/* Timer */}
+                    <div className="grid grid-cols-4 gap-4 mb-8">
+                      {[
+                        { number: '15', label: 'DÍAS' },
+                        { number: '08', label: 'HORAS' },
+                        { number: '42', label: 'MIN' },
+                        { number: '16', label: 'SEG' },
+                      ].map((time, index) => (
+                        <div key={index} className="text-center bg-[#E3FD72]/10 border border-[#E3FD72]/30 rounded-lg p-3">
+                          <div className="text-2xl font-bold text-[#E3FD72] font-display">{time.number}</div>
+                          <div className="text-gray-400 text-xs uppercase tracking-wider">{time.label}</div>
+                        </div>
+                      ))}
+                    </div>
 
-                <div className="bg-[#E3FD72]/10 border border-[#E3FD72]/30 rounded-2xl p-4">
-                  <div className="flex items-center justify-between">
-                    <span className="text-gray-300">Valor normal:</span>
-                    <span className="text-2xl text-gray-400 line-through">$2,997/mes</span>
-                  </div>
-                  <div className="flex items-center justify-between mt-2">
-                    <span className="text-white font-bold">Tu precio:</span>
-                    <span className="text-3xl font-bold text-[#E3FD72]">$0</span>
+                    {/* Value Comparison */}
+                    <div className="bg-gray-900/50 border border-gray-700 rounded-2xl p-6 mb-6">
+                      <div className="flex items-center justify-between mb-3">
+                        <span className="text-gray-300">Valor normal:</span>
+                        <span className="text-2xl text-gray-400 line-through">$2,997/mes</span>
+                      </div>
+                      <div className="flex items-center justify-between mb-3">
+                        <span className="text-white font-bold">Tu precio beta:</span>
+                        <span className="text-4xl font-bold text-[#E3FD72]">$0</span>
+                      </div>
+                      <div className="text-center">
+                        <span className="text-[#E3FD72] font-bold text-sm">Ahorras $35,964 al año</span>
+                      </div>
+                    </div>
+
+                    {/* Guarantee */}
+                    <div className="bg-[#E3FD72]/10 border border-[#E3FD72]/30 rounded-2xl p-4">
+                      <div className="flex items-center gap-3 mb-2">
+                        <svg className="w-5 h-5 text-[#E3FD72]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                        </svg>
+                        <h4 className="text-lg font-bold text-[#E3FD72] font-display">Garantía 30 Días</h4>
+                      </div>
+                      <p className="text-gray-300 text-sm">
+                        Si no aumentas tu ocupación 30% en el primer mes, te devolvemos tu dinero + $10,000 por las molestias.
+                      </p>
+                    </div>
                   </div>
                 </div>
-              </div>
-            </motion.div>
+              </motion.div>
+            </div>
           </div>
         </section>
 
-        {/* Problem Agitation - PROBLEM */}
-        <section className="py-32 px-6 bg-red-950/20">
-          <div className="max-w-6xl mx-auto text-center">
+        {/* Te Suena Familiar - Redesigned */}
+        <section className="py-32 px-6 bg-gradient-to-br from-red-950/30 via-black to-gray-950 relative overflow-hidden">
+          {/* Background Effects */}
+          <div className="absolute inset-0">
+            <div className="absolute top-20 left-20 w-80 h-80 bg-red-500/5 rounded-full blur-3xl animate-pulse" />
+            <div className="absolute bottom-20 right-20 w-96 h-96 bg-red-500/3 rounded-full blur-3xl animate-pulse delay-1000" />
+            <div className="absolute top-1/2 left-1/4 w-px h-40 bg-gradient-to-b from-transparent via-red-500/20 to-transparent" />
+            <div className="absolute top-1/2 right-1/4 w-px h-60 bg-gradient-to-b from-transparent via-red-500/20 to-transparent" />
+          </div>
+
+          <div className="relative z-10 max-w-7xl mx-auto">
+            {/* Header */}
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8 }}
               viewport={{ once: true }}
+              className="text-center mb-20"
             >
-              <h2 className="text-4xl md:text-5xl font-bold text-white mb-12 font-display">
-                ¿Te suena familiar?
+              <div className="inline-flex items-center gap-3 px-8 py-3 bg-red-500/10 backdrop-blur-sm border border-red-500/30 rounded-full mb-8">
+                <svg className="w-6 h-6 text-red-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-2.5L13.732 4c-.77-.833-1.964-.833-2.732 0L4.082 16.5c-.77.833.192 2.5 1.732 2.5z" />
+                </svg>
+                <span className="text-red-400 font-bold text-lg uppercase tracking-wider">Situaciones que duelen</span>
+              </div>
+              
+              <h2 className="text-4xl sm:text-5xl md:text-6xl font-bold text-white mb-6 font-display">
+                ¿Te suena
+                <span className="block text-red-400 mt-2">
+                  familiar?
+                </span>
               </h2>
+              
+              <p className="text-xl text-gray-400 max-w-3xl mx-auto">
+                Si alguna de estas situaciones te ha pasado, no estás solo...
+              </p>
+            </motion.div>
 
-              <div className="grid md:grid-cols-3 gap-8 mb-16">
-                {[
-                  {
-                    icon: (
-                      <svg className="w-16 h-16" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-                      </svg>
-                    ),
-                    title: 'Comisiones que te matan',
-                    pain: 'Playtomic se lleva $4,200 mensuales de TU trabajo. En un año son $50,400 que deberían estar en tu bolsillo.'
-                  },
-                  {
-                    icon: (
-                      <svg className="w-16 h-16" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-                      </svg>
-                    ),
-                    title: 'Sistema complicado',
-                    pain: 'Tus socios se quejan del sistema. Reservar es un dolor de cabeza. Pierdes clientes por fricciones.'
-                  },
-                  {
-                    icon: (
-                      <svg className="w-16 h-16" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M13 17h8m0 0V9m0 8l-8-8-4 4-6-6" />
-                      </svg>
-                    ),
-                    title: 'Sin control real',
-                    pain: 'No sabes cuándo está lleno tu club. No puedes predecir ingresos. Tomas decisiones a ciegas.'
-                  }
-                ].map((problem, index) => (
-                  <motion.div
-                    key={index}
-                    initial={{ opacity: 0, y: 50 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.6, delay: index * 0.1 }}
-                    viewport={{ once: true }}
-                    className="bg-red-900/30 border border-red-500/30 rounded-3xl p-8"
-                  >
-                    <div className="text-red-400 mb-4 flex justify-center">{problem.icon}</div>
-                    <h3 className="text-xl font-bold text-white mb-4 font-display">
+            {/* Problems Grid */}
+            <div className="grid lg:grid-cols-3 gap-8 mb-20">
+              {[
+                {
+                  icon: (
+                    <svg className="w-12 h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>
+                  ),
+                  title: 'Comisiones que te matan',
+                  pain: 'Ves cómo Playtomic se lleva $4,200 mensuales de TU trabajo.',
+                  impact: '$50,400 al año que deberían estar en tu bolsillo',
+                  stat: '20% de comisión'
+                },
+                {
+                  icon: (
+                    <svg className="w-12 h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>
+                  ),
+                  title: 'Sistema complicado',
+                  pain: 'Tus socios se quejan del sistema. Reservar es un dolor de cabeza.',
+                  impact: 'Pierdes clientes por fricciones en la experiencia',
+                  stat: '35% abandono'
+                },
+                {
+                  icon: (
+                    <svg className="w-12 h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M13 17h8m0 0V9m0 8l-8-8-4 4-6-6" />
+                    </svg>
+                  ),
+                  title: 'Sin control real',
+                  pain: 'No sabes cuándo estará lleno tu club. No puedes predecir ingresos.',
+                  impact: 'Tomas decisiones importantes completamente a ciegas',
+                  stat: '0% visibilidad'
+                }
+              ].map((problem, index) => (
+                <motion.div
+                  key={index}
+                  initial={{ opacity: 0, y: 50 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.6, delay: index * 0.2 }}
+                  viewport={{ once: true }}
+                  className="group relative"
+                >
+                  {/* Hover glow effect */}
+                  <div className="absolute -inset-1 bg-gradient-to-r from-red-500/20 to-red-600/20 rounded-3xl blur-lg opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                  
+                  <div className="relative bg-red-900/20 backdrop-blur-sm border border-red-500/30 rounded-3xl p-8 h-full hover:border-red-500/50 transition-all duration-500">
+                    {/* Icon with animated background */}
+                    <div className="relative mb-6">
+                      <div className="w-16 h-16 bg-red-500/20 rounded-2xl flex items-center justify-center mb-4 group-hover:bg-red-500/30 transition-colors">
+                        <div className="text-red-400 group-hover:text-red-300 transition-colors">{problem.icon}</div>
+                      </div>
+                      <div className="absolute top-0 right-0 bg-red-500/90 text-white text-xs font-bold px-3 py-1 rounded-full">
+                        {problem.stat}
+                      </div>
+                    </div>
+                    
+                    <h3 className="text-2xl font-bold text-white mb-4 font-display group-hover:text-red-100 transition-colors">
                       {problem.title}
                     </h3>
-                    <p className="text-gray-300">
+                    
+                    <p className="text-gray-300 text-lg mb-4 leading-relaxed">
                       {problem.pain}
                     </p>
-                  </motion.div>
-                ))}
-              </div>
+                    
+                    <div className="bg-red-500/10 border border-red-500/20 rounded-xl p-4">
+                      <p className="text-red-300 font-medium text-sm">
+                        💸 {problem.impact}
+                      </p>
+                    </div>
+                  </div>
+                </motion.div>
+              ))}
+            </div>
 
-              <div className="bg-red-500/20 border border-red-500/50 rounded-3xl p-8 max-w-4xl mx-auto">
-                <h3 className="text-2xl font-bold text-red-400 mb-4 font-display">
+            {/* Brutal Reality Section */}
+            <motion.div
+              initial={{ opacity: 0, scale: 0.9 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.8, delay: 0.3 }}
+              viewport={{ once: true }}
+              className="relative"
+            >
+              {/* Dramatic background */}
+              <div className="absolute -inset-4 bg-gradient-to-r from-red-500/20 via-red-600/20 to-red-500/20 rounded-3xl blur-xl" />
+              
+              <div className="relative bg-red-900/40 backdrop-blur-xl border border-red-500/50 rounded-3xl p-12 max-w-5xl mx-auto text-center">
+                {/* Skull emoji or warning icon */}
+                <div className="w-20 h-20 bg-red-500/20 rounded-full flex items-center justify-center mx-auto mb-8">
+                  <svg className="w-10 h-10 text-red-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-2.5L13.732 4c-.77-.833-1.964-.833-2.732 0L4.082 16.5c-.77.833.192 2.5 1.732 2.5z" />
+                  </svg>
+                </div>
+                
+                <h3 className="text-3xl md:text-4xl font-bold text-red-400 mb-6 font-display">
                   LA REALIDAD BRUTAL:
                 </h3>
-                <p className="text-xl text-gray-300">
-                  Mientras pagas comisiones, tu competencia podría estar usando Padelyzer. 
-                  Van a tener precios más bajos, mejor servicio y más ganancias. 
-                  <span className="text-red-400 font-bold block mt-4">
-                    ¿Vas a quedarte atrás o vas a liderar?
-                  </span>
+                
+                <p className="text-xl md:text-2xl text-gray-200 leading-relaxed mb-8">
+                  Mientras tú pagas comisiones y peleas con sistemas obsoletos, 
+                  <span className="text-white font-bold"> tu competencia podría estar usando Padelyzer</span>.
                 </p>
+                
+                <div className="grid md:grid-cols-2 gap-8 mb-8">
+                  <div className="bg-black/30 border border-red-500/30 rounded-2xl p-6">
+                    <h4 className="text-lg font-bold text-red-400 mb-3">Tu competencia con Padelyzer:</h4>
+                    <ul className="text-gray-300 space-y-2 text-left">
+                      <li>✅ Precios 20% más bajos (sin comisiones)</li>
+                      <li>✅ Sistema súper fácil de usar</li>
+                      <li>✅ Datos en tiempo real</li>
+                      <li>✅ Más ganancias cada mes</li>
+                    </ul>
+                  </div>
+                  
+                  <div className="bg-black/30 border border-red-500/30 rounded-2xl p-6">
+                    <h4 className="text-lg font-bold text-red-400 mb-3">Tú sin Padelyzer:</h4>
+                    <ul className="text-gray-300 space-y-2 text-left">
+                      <li>❌ Pagando comisiones eternas</li>
+                      <li>❌ Clientes frustrados</li>
+                      <li>❌ Volando a ciegas</li>
+                      <li>❌ Perdiendo mercado</li>
+                    </ul>
+                  </div>
+                </div>
+                
+                <div className="bg-gradient-to-r from-red-500/20 to-red-600/20 border border-red-400/50 rounded-2xl p-6">
+                  <p className="text-2xl md:text-3xl font-bold text-white leading-tight">
+                    ¿Vas a quedarte atrás
+                    <span className="block text-red-400 mt-2">
+                      o vas a liderar?
+                    </span>
+                  </p>
+                </div>
               </div>
             </motion.div>
           </div>
