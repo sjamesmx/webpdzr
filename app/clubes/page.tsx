@@ -39,73 +39,56 @@ export default function ClubesLanding() {
         <section className="relative min-h-screen flex items-center justify-center px-6 overflow-hidden">
           {/* 3D Padel Courts Background */}
           <div className="absolute inset-0 z-0">
-            <Canvas camera={{ position: [0, 8, 0], fov: 60, up: [0, 0, -1] }}>
+            <Canvas camera={{ position: [0, 0, 7], fov: 75 }}>
               <ambientLight intensity={0.4} />
               <pointLight position={[10, 10, 10]} intensity={1} />
               <pointLight position={[-10, -10, -10]} intensity={0.5} color="#E3FD72" />
               
-              {/* Padel Court 1 - Top View */}
-              <Box args={[6, 0.05, 4]} position={[0, 0, 0]}>
+              {/* Padel Court 1 - Main */}
+              <Box args={[6, 0.1, 4]} position={[0, 0, 0]}>
                 <meshStandardMaterial color="#E3FD72" wireframe />
               </Box>
               
-              {/* Court lines - Service boxes */}
-              <Box args={[6, 0.02, 0.05]} position={[0, 0.02, 0]}>
-                <meshStandardMaterial color="#E3FD72" />
+              {/* Net */}
+              <Box args={[0.1, 1, 4]} position={[0, 0.5, 0]}>
+                <meshStandardMaterial color="#E3FD72" wireframe opacity={0.8} transparent />
               </Box>
               
-              {/* Side lines */}
-              <Box args={[0.05, 0.02, 4]} position={[3, 0.02, 0]}>
-                <meshStandardMaterial color="#E3FD72" />
+              {/* Side walls */}
+              <Box args={[0.1, 2, 4]} position={[3, 1, 0]}>
+                <meshStandardMaterial color="#E3FD72" wireframe opacity={0.3} transparent />
               </Box>
-              <Box args={[0.05, 0.02, 4]} position={[-3, 0.02, 0]}>
-                <meshStandardMaterial color="#E3FD72" />
-              </Box>
-              
-              {/* Back lines */}
-              <Box args={[6, 0.02, 0.05]} position={[0, 0.02, 2]}>
-                <meshStandardMaterial color="#E3FD72" />
-              </Box>
-              <Box args={[6, 0.02, 0.05]} position={[0, 0.02, -2]}>
-                <meshStandardMaterial color="#E3FD72" />
+              <Box args={[0.1, 2, 4]} position={[-3, 1, 0]}>
+                <meshStandardMaterial color="#E3FD72" wireframe opacity={0.3} transparent />
               </Box>
               
-              {/* Service lines */}
-              <Box args={[3, 0.02, 0.05]} position={[1.5, 0.02, 1]}>
-                <meshStandardMaterial color="#E3FD72" opacity={0.8} transparent />
+              {/* Back walls */}
+              <Box args={[6, 2, 0.1]} position={[0, 1, 2]}>
+                <meshStandardMaterial color="#E3FD72" wireframe opacity={0.2} transparent />
               </Box>
-              <Box args={[3, 0.02, 0.05]} position={[-1.5, 0.02, 1]}>
-                <meshStandardMaterial color="#E3FD72" opacity={0.8} transparent />
-              </Box>
-              <Box args={[3, 0.02, 0.05]} position={[1.5, 0.02, -1]}>
-                <meshStandardMaterial color="#E3FD72" opacity={0.8} transparent />
-              </Box>
-              <Box args={[3, 0.02, 0.05]} position={[-1.5, 0.02, -1]}>
-                <meshStandardMaterial color="#E3FD72" opacity={0.8} transparent />
+              <Box args={[6, 2, 0.1]} position={[0, 1, -2]}>
+                <meshStandardMaterial color="#E3FD72" wireframe opacity={0.2} transparent />
               </Box>
               
-              {/* Padel Court 2 - Background smaller */}
-              <Box args={[3, 0.03, 2]} position={[6, 0, -4]} rotation={[0, 0.2, 0]}>
+              {/* Padel Court 2 - Background */}
+              <Box args={[4, 0.1, 3]} position={[8, 0, -3]} rotation={[0, 0.3, 0]}>
                 <meshStandardMaterial color="#E3FD72" wireframe opacity={0.4} transparent />
               </Box>
               
-              {/* Padel Court 3 - Background smaller */}
-              <Box args={[3, 0.03, 2]} position={[-6, 0, -4]} rotation={[0, -0.2, 0]}>
+              {/* Padel Court 3 - Background */}
+              <Box args={[4, 0.1, 3]} position={[-8, 0, -2]} rotation={[0, -0.3, 0]}>
                 <meshStandardMaterial color="#E3FD72" wireframe opacity={0.4} transparent />
               </Box>
               
-              {/* Floating padel balls */}
-              <Sphere args={[0.15]} position={[2, 1, 0.5]}>
-                <meshStandardMaterial color="#E3FD72" />
+              {/* Floating elements */}
+              <Sphere args={[0.3]} position={[4, 3, 1]}>
+                <meshStandardMaterial color="#E3FD72" wireframe />
               </Sphere>
-              <Sphere args={[0.15]} position={[-2, 1.5, -0.5]}>
-                <meshStandardMaterial color="#E3FD72" opacity={0.8} transparent />
-              </Sphere>
-              <Sphere args={[0.12]} position={[0, 2, 1]}>
-                <meshStandardMaterial color="#E3FD72" opacity={0.6} transparent />
+              <Sphere args={[0.2]} position={[-4, 2, -1]}>
+                <meshStandardMaterial color="#E3FD72" wireframe opacity={0.6} transparent />
               </Sphere>
               
-              <OrbitControls enableZoom={false} autoRotate autoRotateSpeed={0.3} enablePan={false} enableRotate={false} />
+              <OrbitControls enableZoom={false} autoRotate autoRotateSpeed={0.5} enablePan={false} enableRotate={false} />
               <fog attach="fog" args={['#000000', 8, 30]} />
             </Canvas>
           </div>
