@@ -42,166 +42,148 @@ export default function Features() {
   ];
 
   return (
-    <section className="relative py-32 bg-white dark:bg-black overflow-hidden">
-      {/* Background pattern */}
-      <div className="absolute inset-0 opacity-5">
-        <div className="absolute inset-0" style={{
-          backgroundImage: `repeating-linear-gradient(45deg, transparent, transparent 35px, rgba(227, 253, 114, 0.1) 35px, rgba(227, 253, 114, 0.1) 70px)`
-        }}></div>
-      </div>
-      
-      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section className="py-20 px-6 bg-gray-50 dark:bg-gray-950">
+      <div className="max-w-6xl mx-auto">
         {/* Section Header */}
-        <div className="text-center mb-20">
-          <div className="inline-flex items-center gap-2 px-4 py-2 bg-[#E3FD72]/10 backdrop-blur-sm rounded-full border border-[#E3FD72]/20 mb-6">
-            <span className="text-[#E3FD72] text-sm font-medium">¿Por qué elegirnos?</span>
-          </div>
-          <h2 className="text-5xl md:text-6xl lg:text-7xl font-black text-black dark:text-white mb-6 tracking-tight">
-            La diferencia está en
-            <span className="block text-[#E3FD72]">los detalles</span>
+        <div className="text-center mb-16">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-medium text-gray-900 dark:text-white mb-4">
+            Características que marcan la diferencia
           </h2>
-          <p className="text-xl md:text-2xl text-gray-600 dark:text-gray-400 max-w-3xl mx-auto font-light">
-            Tecnología de vanguardia, transparencia total y un modelo justo.
+          <p className="text-lg text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
+            Tecnología avanzada diseñada para clubes y jugadores exigentes
           </p>
         </div>
 
-        {/* Features Grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {features.map((feature, index) => (
-            <Card
-              key={index}
-              icon={feature.icon}
-              title={feature.title}
-              description={feature.description}
-              highlight={feature.highlight}
-              className="animate-fade-in"
-              style={{ animationDelay: `${index * 100}ms` }}
-            />
-          ))}
-        </div>
-
-        {/* Comparison Section */}
-        <div className="mt-32">
-          <div className="text-center mb-16">
-            <h3 className="text-4xl md:text-5xl font-black text-black dark:text-white mb-4">
-              La comparación habla por
-              <span className="text-[#E3FD72]"> sí sola</span>
-            </h3>
-            <p className="text-xl text-gray-600 dark:text-gray-400">
-              No más fees ocultos. No más promesas vacías.
-            </p>
+        {/* Two Column Feature Layout */}
+        <div className="space-y-24">
+          {/* Feature 1 - AI Analysis */}
+          <div className="grid md:grid-cols-2 gap-12 items-center">
+            <div>
+              <h3 className="text-2xl sm:text-3xl font-semibold text-gray-900 dark:text-white mb-4">
+                Análisis con IA de última generación
+              </h3>
+              <p className="text-gray-600 dark:text-gray-400 mb-6">
+                Nuestro Coach IA analiza más de 15 tipos de golpes con precisión biomecánica. 
+                Detecta patrones que los coaches humanos no pueden ver y te da recomendaciones 
+                personalizadas para mejorar tu técnica.
+              </p>
+              <ul className="space-y-3">
+                <li className="flex items-start">
+                  <svg className="w-5 h-5 text-green-500 mt-0.5 mr-3" fill="currentColor" viewBox="0 0 20 20">
+                    <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                  </svg>
+                  <span className="text-gray-700 dark:text-gray-300">Análisis biomecánico en tiempo real</span>
+                </li>
+                <li className="flex items-start">
+                  <svg className="w-5 h-5 text-green-500 mt-0.5 mr-3" fill="currentColor" viewBox="0 0 20 20">
+                    <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                  </svg>
+                  <span className="text-gray-700 dark:text-gray-300">Padel IQ preciso basado en ciencia</span>
+                </li>
+                <li className="flex items-start">
+                  <svg className="w-5 h-5 text-green-500 mt-0.5 mr-3" fill="currentColor" viewBox="0 0 20 20">
+                    <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                  </svg>
+                  <span className="text-gray-700 dark:text-gray-300">Planes de entrenamiento personalizados</span>
+                </li>
+              </ul>
+            </div>
+            <div className="relative">
+              <div className="rounded-2xl overflow-hidden bg-gradient-to-br from-blue-100 to-cyan-100 dark:from-blue-900 dark:to-cyan-900 p-8">
+                <div className="text-center">
+                  <div className="text-6xl mb-4">🤖</div>
+                  <div className="text-4xl font-bold text-gray-900 dark:text-white mb-2">15+</div>
+                  <div className="text-gray-600 dark:text-gray-400">Golpes analizados con IA</div>
+                </div>
+              </div>
+            </div>
           </div>
-          
-          <div className="bg-white dark:bg-gray-900 rounded-3xl overflow-hidden border border-gray-100 dark:border-gray-800 shadow-xl">
-            <div className="overflow-x-auto">
-              <table className="w-full">
-                <thead>
-                  <tr className="bg-gray-50 dark:bg-gray-800/50">
-                    <th className="text-left py-6 px-8 font-bold text-gray-900 dark:text-white">Característica</th>
-                    <th className="text-center py-6 px-8">
-                      <div className="inline-flex items-center gap-2">
-                        <div className="w-2 h-2 bg-[#E3FD72] rounded-full animate-pulse"></div>
-                        <span className="text-[#E3FD72] font-black text-xl">Padelyzer</span>
-                      </div>
-                    </th>
-                    <th className="text-center py-6 px-8 text-gray-500 dark:text-gray-500 font-medium">Playtomic</th>
-                    <th className="text-center py-6 px-8 text-gray-500 dark:text-gray-500 font-medium">Otros</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr className="border-t border-gray-100 dark:border-gray-800 hover:bg-gray-50 dark:hover:bg-gray-800/30 transition-colors">
-                    <td className="py-6 px-8 font-medium text-gray-700 dark:text-gray-300">Módulo de reservas</td>
-                    <td className="text-center py-6 px-8">
-                      <span className="inline-flex items-center gap-2 px-4 py-2 bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-400 rounded-full font-bold">
-                        <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
-                          <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
-                        </svg>
-                        100% Gratis
-                      </span>
-                    </td>
-                    <td className="text-center py-6 px-8 text-gray-500">€250/mes + fees</td>
-                    <td className="text-center py-6 px-8 text-gray-500">€150-300/mes</td>
-                  </tr>
-                  <tr className="border-t border-gray-100 dark:border-gray-800 hover:bg-gray-50 dark:hover:bg-gray-800/30 transition-colors">
-                    <td className="py-6 px-8 font-medium text-gray-700 dark:text-gray-300">Análisis con IA</td>
-                    <td className="text-center py-6 px-8">
-                      <div className="inline-flex w-10 h-10 bg-[#E3FD72] rounded-full items-center justify-center">
-                        <svg className="w-6 h-6 text-black" fill="currentColor" viewBox="0 0 20 20">
-                          <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
-                        </svg>
-                      </div>
-                    </td>
-                    <td className="text-center py-6 px-8">
-                      <span className="text-gray-400">✗</span>
-                    </td>
-                    <td className="text-center py-6 px-8">
-                      <span className="text-gray-400">✗</span>
-                    </td>
-                  </tr>
-                  <tr className="border-t border-gray-100 dark:border-gray-800 hover:bg-gray-50 dark:hover:bg-gray-800/30 transition-colors">
-                    <td className="py-6 px-8 font-medium text-gray-700 dark:text-gray-300">Gestión financiera</td>
-                    <td className="text-center py-6 px-8">
-                      <div className="inline-flex w-10 h-10 bg-[#E3FD72] rounded-full items-center justify-center">
-                        <svg className="w-6 h-6 text-black" fill="currentColor" viewBox="0 0 20 20">
-                          <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
-                        </svg>
-                      </div>
-                    </td>
-                    <td className="text-center py-6 px-8 text-gray-500">Limitado</td>
-                    <td className="text-center py-6 px-8">
-                      <span className="text-gray-400">✗</span>
-                    </td>
-                  </tr>
-                  <tr className="border-t border-gray-100 dark:border-gray-800 hover:bg-gray-50 dark:hover:bg-gray-800/30 transition-colors">
-                    <td className="py-6 px-8 font-medium text-gray-700 dark:text-gray-300">Business Intelligence</td>
-                    <td className="text-center py-6 px-8">
-                      <div className="inline-flex w-10 h-10 bg-[#E3FD72] rounded-full items-center justify-center">
-                        <svg className="w-6 h-6 text-black" fill="currentColor" viewBox="0 0 20 20">
-                          <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
-                        </svg>
-                      </div>
-                    </td>
-                    <td className="text-center py-6 px-8">
-                      <span className="text-gray-400">✗</span>
-                    </td>
-                    <td className="text-center py-6 px-8">
-                      <span className="text-gray-400">✗</span>
-                    </td>
-                  </tr>
-                  <tr className="border-t border-gray-100 dark:border-gray-800 hover:bg-gray-50 dark:hover:bg-gray-800/30 transition-colors">
-                    <td className="py-6 px-8 font-medium text-gray-700 dark:text-gray-300">Coach IA personal</td>
-                    <td className="text-center py-6 px-8">
-                      <div className="inline-flex w-10 h-10 bg-[#E3FD72] rounded-full items-center justify-center">
-                        <svg className="w-6 h-6 text-black" fill="currentColor" viewBox="0 0 20 20">
-                          <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
-                        </svg>
-                      </div>
-                    </td>
-                    <td className="text-center py-6 px-8">
-                      <span className="text-gray-400">✗</span>
-                    </td>
-                    <td className="text-center py-6 px-8">
-                      <span className="text-gray-400">✗</span>
-                    </td>
-                  </tr>
-                  <tr className="border-t border-gray-100 dark:border-gray-800 hover:bg-gray-50 dark:hover:bg-gray-800/30 transition-colors">
-                    <td className="py-6 px-8 font-medium text-gray-700 dark:text-gray-300">Verificación de nivel</td>
-                    <td className="text-center py-6 px-8">
-                      <span className="inline-flex items-center gap-2 px-4 py-2 bg-[#E3FD72]/20 text-[#E3FD72] dark:text-[#E3FD72] rounded-full font-bold">
-                        <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
-                          <path d="M11 3a1 1 0 10-2 0v1a1 1 0 102 0V3zM15.657 5.757a1 1 0 00-1.414-1.414l-.707.707a1 1 0 001.414 1.414l.707-.707zM18 10a1 1 0 01-1 1h-1a1 1 0 110-2h1a1 1 0 011 1zM5.05 6.464A1 1 0 106.464 5.05l-.707-.707a1 1 0 00-1.414 1.414l.707.707zM5 10a1 1 0 01-1 1H3a1 1 0 110-2h1a1 1 0 011 1zM8 16v-1h4v1a2 2 0 11-4 0zM12 14c.015-.34.208-.646.477-.859a4 4 0 10-4.954 0c.27.213.462.519.476.859h4.002z" />
-                        </svg>
-                        Con IA
-                      </span>
-                    </td>
-                    <td className="text-center py-6 px-8 text-gray-500">Autodeclarado</td>
-                    <td className="text-center py-6 px-8 text-gray-500">Autodeclarado</td>
-                  </tr>
-                </tbody>
-              </table>
+
+          {/* Feature 2 - Zero Fees */}
+          <div className="grid md:grid-cols-2 gap-12 items-center">
+            <div className="order-2 md:order-1">
+              <div className="rounded-2xl overflow-hidden bg-gradient-to-br from-green-100 to-emerald-100 dark:from-green-900 dark:to-emerald-900 p-8">
+                <div className="text-center">
+                  <div className="text-6xl mb-4">💰</div>
+                  <div className="text-4xl font-bold text-gray-900 dark:text-white mb-2">0€</div>
+                  <div className="text-gray-600 dark:text-gray-400">Comisiones por reserva</div>
+                </div>
+              </div>
+            </div>
+            <div className="order-1 md:order-2">
+              <h3 className="text-2xl sm:text-3xl font-semibold text-gray-900 dark:text-white mb-4">
+                Gestión de clubes sin comisiones
+              </h3>
+              <p className="text-gray-600 dark:text-gray-400 mb-6">
+                Mientras otros cobran hasta 250€/mes + comisiones por transacción, nosotros 
+                ofrecemos el módulo de reservas completamente gratis. Activa solo los módulos 
+                que necesites y paga un precio justo.
+              </p>
+              <ul className="space-y-3">
+                <li className="flex items-start">
+                  <svg className="w-5 h-5 text-green-500 mt-0.5 mr-3" fill="currentColor" viewBox="0 0 20 20">
+                    <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                  </svg>
+                  <span className="text-gray-700 dark:text-gray-300">Sistema de reservas 100% gratuito</span>
+                </li>
+                <li className="flex items-start">
+                  <svg className="w-5 h-5 text-green-500 mt-0.5 mr-3" fill="currentColor" viewBox="0 0 20 20">
+                    <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                  </svg>
+                  <span className="text-gray-700 dark:text-gray-300">Módulos opcionales a precio justo</span>
+                </li>
+                <li className="flex items-start">
+                  <svg className="w-5 h-5 text-green-500 mt-0.5 mr-3" fill="currentColor" viewBox="0 0 20 20">
+                    <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                  </svg>
+                  <span className="text-gray-700 dark:text-gray-300">Sin contratos ni permanencia</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          {/* Feature 3 - Complete Suite */}
+          <div className="grid md:grid-cols-2 gap-12 items-center">
+            <div>
+              <h3 className="text-2xl sm:text-3xl font-semibold text-gray-900 dark:text-white mb-4">
+                Suite completa para profesionales
+              </h3>
+              <p className="text-gray-600 dark:text-gray-400 mb-6">
+                Desde torneos de 1000+ jugadores hasta Business Intelligence avanzado. 
+                Todo lo que necesitas para gestionar tu club o mejorar tu juego en una 
+                sola plataforma integrada.
+              </p>
+              <div className="grid grid-cols-2 gap-4">
+                <div className="text-center p-4 bg-gray-100 dark:bg-gray-800 rounded-lg">
+                  <div className="text-2xl font-bold text-gray-900 dark:text-white">1000+</div>
+                  <div className="text-sm text-gray-600 dark:text-gray-400">Jugadores en torneos</div>
+                </div>
+                <div className="text-center p-4 bg-gray-100 dark:bg-gray-800 rounded-lg">
+                  <div className="text-2xl font-bold text-gray-900 dark:text-white">200+</div>
+                  <div className="text-sm text-gray-600 dark:text-gray-400">Usuarios en ligas</div>
+                </div>
+                <div className="text-center p-4 bg-gray-100 dark:bg-gray-800 rounded-lg">
+                  <div className="text-2xl font-bold text-gray-900 dark:text-white">24/7</div>
+                  <div className="text-sm text-gray-600 dark:text-gray-400">Analytics en tiempo real</div>
+                </div>
+                <div className="text-center p-4 bg-gray-100 dark:bg-gray-800 rounded-lg">
+                  <div className="text-2xl font-bold text-gray-900 dark:text-white">100%</div>
+                  <div className="text-sm text-gray-600 dark:text-gray-400">Datos precisos</div>
+                </div>
+              </div>
+            </div>
+            <div className="relative">
+              <div className="rounded-2xl overflow-hidden bg-gradient-to-br from-purple-100 to-pink-100 dark:from-purple-900 dark:to-pink-900 p-8">
+                <div className="text-center">
+                  <div className="text-6xl mb-4">📊</div>
+                  <div className="text-lg font-semibold text-gray-900 dark:text-white mb-2">Business Intelligence</div>
+                  <div className="text-gray-600 dark:text-gray-400">Decisiones basadas en datos</div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
+
       </div>
     </section>
   );

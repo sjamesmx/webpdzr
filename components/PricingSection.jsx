@@ -109,48 +109,40 @@ export default function PricingSection() {
   ];
 
   return (
-    <section className="relative py-32 bg-gray-50 dark:bg-gray-950 overflow-hidden">
-      {/* Decorative elements */}
-      <div className="absolute top-0 left-0 w-96 h-96 bg-[#E3FD72]/10 rounded-full filter blur-3xl"></div>
-      <div className="absolute bottom-0 right-0 w-96 h-96 bg-[#E3FD72]/10 rounded-full filter blur-3xl"></div>
-      
-      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="pricing" className="py-20 px-6 bg-white dark:bg-gray-950">
+      <div className="max-w-6xl mx-auto">
         {/* Section Header */}
-        <div className="text-center mb-20">
-          <div className="inline-flex items-center gap-2 px-4 py-2 bg-[#E3FD72]/10 backdrop-blur-sm rounded-full border border-[#E3FD72]/20 mb-6">
-            <span className="text-[#E3FD72] text-sm font-medium">Precios justos</span>
-          </div>
-          <h2 className="text-5xl md:text-6xl lg:text-7xl font-black text-black dark:text-white mb-6 tracking-tight">
-            Sin letra pequeña.
-            <span className="block text-[#E3FD72]">Sin sorpresas.</span>
+        <div className="text-center mb-16">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-medium text-gray-900 dark:text-white mb-4">
+            Precios transparentes, sin sorpresas
           </h2>
-          <p className="text-xl md:text-2xl text-gray-600 dark:text-gray-400 max-w-3xl mx-auto font-light">
-            Empieza gratis, paga solo por lo que necesitas.
+          <p className="text-lg text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
+            Empieza gratis y paga solo por lo que necesitas. Sin letra pequeña.
           </p>
         </div>
 
         {/* Tab Switcher */}
-        <div className="flex justify-center mb-16">
-          <div className="bg-white dark:bg-black rounded-full p-1.5 inline-flex shadow-lg border border-gray-200 dark:border-gray-800">
+        <div className="flex justify-center mb-12">
+          <div className="bg-gray-100 dark:bg-gray-900 rounded-lg p-1 inline-flex">
             <button
               onClick={() => setActiveTab('jugadores')}
-              className={`px-8 py-4 rounded-full font-semibold transition-all duration-300 ${
+              className={`px-6 py-2 rounded-md font-medium transition-all ${
                 activeTab === 'jugadores'
-                  ? 'bg-gradient-to-r from-[#E3FD72] to-[#d5ed62] text-black shadow-lg scale-105'
-                  : 'text-gray-600 dark:text-gray-400 hover:text-black dark:hover:text-white'
+                  ? 'bg-white dark:bg-gray-800 text-gray-900 dark:text-white shadow-sm'
+                  : 'text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white'
               }`}
             >
-              🎾 Para Jugadores
+              Para Jugadores
             </button>
             <button
               onClick={() => setActiveTab('clubes')}
-              className={`px-8 py-4 rounded-full font-semibold transition-all duration-300 ${
+              className={`px-6 py-2 rounded-md font-medium transition-all ${
                 activeTab === 'clubes'
-                  ? 'bg-gradient-to-r from-[#E3FD72] to-[#d5ed62] text-black shadow-lg scale-105'
-                  : 'text-gray-600 dark:text-gray-400 hover:text-black dark:hover:text-white'
+                  ? 'bg-white dark:bg-gray-800 text-gray-900 dark:text-white shadow-sm'
+                  : 'text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white'
               }`}
             >
-              🏢 Para Clubes
+              Para Clubes
             </button>
           </div>
         </div>
@@ -161,24 +153,19 @@ export default function PricingSection() {
             {playerPlans.map((plan, index) => (
               <div
                 key={index}
-                className={`group relative overflow-hidden rounded-3xl p-8 transition-all duration-500 hover:scale-[1.03] ${
+                className={`relative rounded-2xl p-8 ${
                   plan.highlight
-                    ? 'bg-gradient-to-br from-[#E3FD72] to-[#d5ed62] text-black shadow-2xl'
-                    : 'bg-white dark:bg-gray-900 text-black dark:text-white border border-gray-200 dark:border-gray-800'
+                    ? 'bg-gray-900 dark:bg-white text-white dark:text-black border-2 border-gray-900 dark:border-white'
+                    : 'bg-gray-50 dark:bg-gray-900 text-gray-900 dark:text-white border border-gray-200 dark:border-gray-800'
                 }`}
               >
                 {plan.highlight && (
-                  <div className="absolute -top-5 left-1/2 transform -translate-x-1/2">
-                    <span className="bg-black text-white px-6 py-2 rounded-full text-sm font-bold shadow-lg flex items-center gap-2">
-                      ⭐ Más Popular
+                  <div className="absolute -top-3 left-1/2 transform -translate-x-1/2">
+                    <span className="bg-blue-600 text-white px-3 py-1 rounded-full text-xs font-medium">
+                      Más Popular
                     </span>
                   </div>
                 )}
-                
-                {/* Decorative gradient */}
-                <div className={`absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 ${
-                  plan.highlight ? 'bg-gradient-to-br from-white/20 to-transparent' : 'bg-gradient-to-br from-[#E3FD72]/10 to-transparent'
-                }`} />
                 
                 <h3 className="text-2xl font-bold mb-2">{plan.name}</h3>
                 <div className="mb-4">
@@ -200,25 +187,25 @@ export default function PricingSection() {
                   ))}
                 </ul>
                 
-                <Button
-                  variant={plan.highlight ? 'dark' : 'primary'}
-                  size="lg"
-                  className="w-full"
-                >
+                <button className={`w-full py-3 rounded-lg font-medium transition-colors ${
+                  plan.highlight 
+                    ? 'bg-white dark:bg-gray-900 text-gray-900 dark:text-white hover:bg-gray-100 dark:hover:bg-gray-800' 
+                    : 'bg-gray-900 dark:bg-white text-white dark:text-black hover:bg-gray-800 dark:hover:bg-gray-100'
+                }`}>
                   {plan.cta}
-                </Button>
+                </button>
               </div>
             ))}
           </div>
         ) : (
           <div>
             {/* Beta Badge for Clubs */}
-            <div className="text-center mb-12">
-              <div className="inline-flex items-center gap-3 px-8 py-4 rounded-full bg-gradient-to-r from-[#E3FD72]/20 to-[#E3FD72]/10 border border-[#E3FD72]/30 backdrop-blur-sm">
-                <div className="w-3 h-3 bg-red-500 rounded-full animate-pulse"></div>
-                <span className="text-lg font-bold text-black dark:text-white">
-                  Beta exclusiva: Solo 4 lugares disponibles en Puebla
-                </span>
+            <div className="text-center mb-8">
+              <div className="inline-flex items-center gap-2 px-4 py-2 bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-400 rounded-full">
+                <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                  <path fillRule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clipRule="evenodd" />
+                </svg>
+                <span className="text-sm font-medium">Beta exclusiva: Solo 4 lugares disponibles en Puebla</span>
               </div>
             </div>
 
@@ -226,16 +213,12 @@ export default function PricingSection() {
               {clubModules.map((module, index) => (
                 <div
                   key={index}
-                  className={`group relative overflow-hidden rounded-3xl p-6 transition-all duration-500 hover:scale-[1.02] hover:shadow-xl ${
+                  className={`rounded-2xl p-6 ${
                     module.price === 'GRATIS'
-                      ? 'bg-gradient-to-br from-[#E3FD72] to-[#d5ed62] text-black shadow-lg'
-                      : 'bg-white dark:bg-gray-900 text-black dark:text-white border border-gray-200 dark:border-gray-800'
+                      ? 'bg-green-100 dark:bg-green-900/30 text-gray-900 dark:text-white border-2 border-green-500'
+                      : 'bg-gray-50 dark:bg-gray-900 text-gray-900 dark:text-white border border-gray-200 dark:border-gray-800'
                   }`}
                 >
-                  {/* Decorative gradient */}
-                  <div className={`absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 ${
-                    module.price === 'GRATIS' ? 'bg-gradient-to-br from-white/20 to-transparent' : 'bg-gradient-to-br from-[#E3FD72]/10 to-transparent'
-                  }`} />
                   <h3 className="text-xl font-bold mb-2">{module.name}</h3>
                   <div className="mb-3">
                     <span className="text-3xl font-bold">{module.price}</span>
@@ -265,9 +248,9 @@ export default function PricingSection() {
               <p className="text-lg text-gray-600 dark:text-gray-400 mb-6">
                 Combina los módulos que necesites. Sin contratos, cancela cuando quieras.
               </p>
-              <Button variant="primary" size="lg">
+              <button className="px-8 py-3 bg-gray-900 dark:bg-white text-white dark:text-black rounded-lg hover:bg-gray-800 dark:hover:bg-gray-100 transition-colors font-medium">
                 Digitaliza tu club gratis
-              </Button>
+              </button>
             </div>
           </div>
         )}
