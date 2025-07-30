@@ -21,6 +21,7 @@ export default function Home2() {
     <div className="min-h-screen bg-black">
       <Header />
       <main>
+        <HeroNew />
         <Philosophy />
         <TransformYourGame />
         <TransformYourClub />
