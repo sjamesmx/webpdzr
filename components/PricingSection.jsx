@@ -109,8 +109,16 @@ export default function PricingSection() {
   ];
 
   return (
-    <section id="pricing" className="py-20 px-6 bg-white dark:bg-gray-950">
-      <div className="max-w-6xl mx-auto">
+    <section id="pricing" className="py-32 px-6 bg-black relative overflow-hidden">
+      {/* Grid Background */}
+      <div className="absolute inset-0 opacity-10">
+        <div className="absolute inset-0" style={{
+          backgroundImage: 'linear-gradient(#E3FD72 1px, transparent 1px), linear-gradient(90deg, #E3FD72 1px, transparent 1px)',
+          backgroundSize: '50px 50px'
+        }} />
+      </div>
+      
+      <div className="relative z-10 max-w-6xl mx-auto">
         {/* Section Header */}
         <div className="text-center mb-16">
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-4 font-display">

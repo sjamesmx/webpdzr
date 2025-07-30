@@ -1,20 +1,28 @@
 'use client';
 
+import dynamic from 'next/dynamic';
 import Header from '@/components/Header';
-import Hero from '@/components/Hero';
 import Philosophy from '@/components/Philosophy';
-import Features from '@/components/Features';
 import PricingSection from '@/components/PricingSection';
 import Footer from '@/components/Footer';
 
+// Dynamic imports for 3D components
+const HeroNew = dynamic(() => import('@/components/HeroNew'), { 
+  ssr: false,
+  loading: () => <div className="min-h-screen bg-black" />
+});
+const FeaturesNew = dynamic(() => import('@/components/FeaturesNew'), { ssr: false });
+const Comparison = dynamic(() => import('@/components/Comparison'), { ssr: false });
+
 export default function Home() {
   return (
-    <div className="min-h-screen bg-white dark:bg-gray-950">
+    <div className="min-h-screen bg-black">
       <Header />
       <main>
-        <Hero />
+        <HeroNew />
         <Philosophy />
-        <Features />
+        <FeaturesNew />
+        <Comparison />
         <PricingSection />
       </main>
       <Footer />
