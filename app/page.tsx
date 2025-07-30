@@ -19,8 +19,8 @@ export default function Home() {
     <div className="min-h-screen bg-black">
       <Header />
       <main>
-        <HeroNew />
         <Philosophy />
+        <HeroNew />
         <Vision />
         <FeaturesNew />
         <PricingSection />

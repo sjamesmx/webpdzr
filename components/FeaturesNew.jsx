@@ -20,8 +20,8 @@ function FeatureCard({ feature, index }) {
       <div className="absolute inset-0 bg-gradient-to-r from-[#E3FD72]/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-3xl blur-xl" />
       
       <div className="relative bg-gray-900/50 backdrop-blur-sm border border-gray-800 rounded-3xl p-8 hover:border-[#E3FD72]/50 transition-all duration-500">
-        <div className="mb-6">
-          <span className="text-5xl">{feature.icon}</span>
+        <div className="mb-6 text-[#E3FD72]">
+          {feature.icon}
         </div>
         
         <h3 className="text-2xl font-bold text-white mb-4 font-display">
@@ -62,7 +62,11 @@ export default function FeaturesNew() {
 
   const features = [
     {
-      icon: '🧬',
+      icon: (
+        <svg className="w-12 h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+        </svg>
+      ),
       title: 'IA Biomecánica',
       description: 'Análisis científico de cada movimiento con precisión milimétrica.',
       points: [
@@ -73,7 +77,11 @@ export default function FeaturesNew() {
       ]
     },
     {
-      icon: '🎯',
+      icon: (
+        <svg className="w-12 h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
+        </svg>
+      ),
       title: 'Padel IQ Real',
       description: 'Tu nivel basado en datos, no en opiniones.',
       points: [
@@ -84,7 +92,11 @@ export default function FeaturesNew() {
       ]
     },
     {
-      icon: '💎',
+      icon: (
+        <svg className="w-12 h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+        </svg>
+      ),
       title: 'Cero Comisiones',
       description: 'Reservas gratis para siempre. Sin letra pequeña.',
       points: [
@@ -95,7 +107,11 @@ export default function FeaturesNew() {
       ]
     },
     {
-      icon: '🚀',
+      icon: (
+        <svg className="w-12 h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" />
+        </svg>
+      ),
       title: 'Suite Completa',
       description: 'Todo lo que un club moderno necesita.',
       points: [
@@ -106,7 +122,11 @@ export default function FeaturesNew() {
       ]
     },
     {
-      icon: '🌍',
+      icon: (
+        <svg className="w-12 h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+        </svg>
+      ),
       title: 'Tecnología Abierta',
       description: 'Sin vendor lock-in. Tu data es tuya.',
       points: [
@@ -117,7 +137,11 @@ export default function FeaturesNew() {
       ]
     },
     {
-      icon: '⚡',
+      icon: (
+        <svg className="w-12 h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z" />
+        </svg>
+      ),
       title: 'Beta Exclusiva',
       description: 'Solo 4 clubes pioneros en Puebla.',
       points: [

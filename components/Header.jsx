@@ -14,9 +14,9 @@ export default function Header() {
   }, []);
 
   const navigation = [
+    { name: 'Inicio', href: '/' },
     { name: 'Para Clubes', href: '/clubes' },
     { name: 'Para Jugadores', href: '/jugadores' },
-    { name: 'Filosofía', href: '/#philosophy' },
     { name: 'Pricing', href: '/#pricing' }
   ];
 

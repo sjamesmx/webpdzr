@@ -184,7 +184,7 @@ export default function HeroNew() {
             className="mt-20 grid grid-cols-2 md:grid-cols-4 gap-8"
           >
             {[
-              { value: '0€', label: 'Comisiones' },
+              { value: '$0', label: 'Comisiones' },
               { value: '15+', label: 'Golpes IA' },
               { value: '99.9%', label: 'Precisión' },
               { value: '24/7', label: 'Analytics' },
