@@ -9,35 +9,43 @@ export default function Card({
 }) {
   return (
     <div className={`
-      relative p-8 rounded-2xl transition-all duration-300
+      group relative overflow-hidden
       ${highlight 
-        ? 'bg-[#E3FD72] text-black' 
-        : 'bg-gray-50 dark:bg-gray-900 text-black dark:text-white border border-gray-200 dark:border-gray-800'
+        ? 'bg-gradient-to-br from-[#E3FD72] to-[#d5ed62] text-black' 
+        : 'bg-white dark:bg-gray-900 text-black dark:text-white'
       }
-      hover:transform hover:-translate-y-2 hover:shadow-xl
+      rounded-3xl p-8 transition-all duration-500
+      hover:scale-[1.02] hover:shadow-2xl
+      ${!highlight && 'border border-gray-100 dark:border-gray-800'}
       ${className}
     `}>
+      {/* Animated background gradient */}
+      <div className={`absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 ${
+        highlight ? 'bg-gradient-to-br from-white/20 to-transparent' : 'bg-gradient-to-br from-[#E3FD72]/10 to-transparent'
+      }`} />
+      
       {/* Icon */}
       {icon && (
         <div className={`
-          w-14 h-14 rounded-lg flex items-center justify-center mb-6
+          relative w-16 h-16 rounded-2xl flex items-center justify-center mb-6
           ${highlight 
             ? 'bg-black/10' 
-            : 'bg-[#E3FD72]/10 dark:bg-[#E3FD72]/20'
+            : 'bg-gradient-to-br from-[#E3FD72]/20 to-[#E3FD72]/10 dark:from-[#E3FD72]/30 dark:to-[#E3FD72]/20'
           }
+          group-hover:scale-110 transition-transform duration-500
         `}>
-          <span className="text-2xl">{icon}</span>
+          <span className="text-3xl">{icon}</span>
         </div>
       )}
 
       {/* Title */}
-      <h3 className="text-2xl font-bold mb-3">
+      <h3 className={`text-2xl font-bold mb-4 ${highlight ? 'text-black' : ''}`}>
         {title}
       </h3>
 
       {/* Description */}
       <p className={`
-        text-lg leading-relaxed
+        text-base leading-relaxed
         ${highlight 
           ? 'text-black/80' 
           : 'text-gray-600 dark:text-gray-400'
@@ -46,10 +54,12 @@ export default function Card({
         {description}
       </p>
 
-      {/* Subtle gradient overlay for non-highlighted cards */}
-      {!highlight && (
-        <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-[#E3FD72]/0 to-[#E3FD72]/5 dark:to-[#E3FD72]/10 opacity-0 hover:opacity-100 transition-opacity pointer-events-none" />
-      )}
+      {/* Decorative element */}
+      <div className={`
+        absolute -bottom-8 -right-8 w-24 h-24 rounded-full
+        ${highlight ? 'bg-black/5' : 'bg-[#E3FD72]/5'}
+        group-hover:scale-150 transition-transform duration-700
+      `} />
     </div>
   );
 }

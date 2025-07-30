@@ -109,41 +109,48 @@ export default function PricingSection() {
   ];
 
   return (
-    <section className="py-20 bg-white dark:bg-black transition-colors duration-200">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section className="relative py-32 bg-gray-50 dark:bg-gray-950 overflow-hidden">
+      {/* Decorative elements */}
+      <div className="absolute top-0 left-0 w-96 h-96 bg-[#E3FD72]/10 rounded-full filter blur-3xl"></div>
+      <div className="absolute bottom-0 right-0 w-96 h-96 bg-[#E3FD72]/10 rounded-full filter blur-3xl"></div>
+      
+      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
-        <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold text-black dark:text-white mb-4">
-            Precios transparentes,
-            <span className="text-[#E3FD72]"> sin sorpresas</span>
+        <div className="text-center mb-20">
+          <div className="inline-flex items-center gap-2 px-4 py-2 bg-[#E3FD72]/10 backdrop-blur-sm rounded-full border border-[#E3FD72]/20 mb-6">
+            <span className="text-[#E3FD72] text-sm font-medium">Precios justos</span>
+          </div>
+          <h2 className="text-5xl md:text-6xl lg:text-7xl font-black text-black dark:text-white mb-6 tracking-tight">
+            Sin letra pequeña.
+            <span className="block text-[#E3FD72]">Sin sorpresas.</span>
           </h2>
-          <p className="text-xl text-gray-600 dark:text-gray-400 max-w-3xl mx-auto">
-            Empieza gratis, crece a tu ritmo. Sin costos ocultos ni comisiones abusivas.
+          <p className="text-xl md:text-2xl text-gray-600 dark:text-gray-400 max-w-3xl mx-auto font-light">
+            Empieza gratis, paga solo por lo que necesitas.
           </p>
         </div>
 
         {/* Tab Switcher */}
-        <div className="flex justify-center mb-12">
-          <div className="bg-gray-100 dark:bg-gray-900 rounded-lg p-1 inline-flex">
+        <div className="flex justify-center mb-16">
+          <div className="bg-white dark:bg-black rounded-full p-1.5 inline-flex shadow-lg border border-gray-200 dark:border-gray-800">
             <button
               onClick={() => setActiveTab('jugadores')}
-              className={`px-6 py-3 rounded-md font-medium transition-all ${
+              className={`px-8 py-4 rounded-full font-semibold transition-all duration-300 ${
                 activeTab === 'jugadores'
-                  ? 'bg-[#E3FD72] text-black'
+                  ? 'bg-gradient-to-r from-[#E3FD72] to-[#d5ed62] text-black shadow-lg scale-105'
                   : 'text-gray-600 dark:text-gray-400 hover:text-black dark:hover:text-white'
               }`}
             >
-              Para Jugadores
+              🎾 Para Jugadores
             </button>
             <button
               onClick={() => setActiveTab('clubes')}
-              className={`px-6 py-3 rounded-md font-medium transition-all ${
+              className={`px-8 py-4 rounded-full font-semibold transition-all duration-300 ${
                 activeTab === 'clubes'
-                  ? 'bg-[#E3FD72] text-black'
+                  ? 'bg-gradient-to-r from-[#E3FD72] to-[#d5ed62] text-black shadow-lg scale-105'
                   : 'text-gray-600 dark:text-gray-400 hover:text-black dark:hover:text-white'
               }`}
             >
-              Para Clubes
+              🏢 Para Clubes
             </button>
           </div>
         </div>
@@ -154,19 +161,24 @@ export default function PricingSection() {
             {playerPlans.map((plan, index) => (
               <div
                 key={index}
-                className={`relative rounded-2xl p-8 transition-all duration-300 ${
+                className={`group relative overflow-hidden rounded-3xl p-8 transition-all duration-500 hover:scale-[1.03] ${
                   plan.highlight
-                    ? 'bg-[#E3FD72] text-black scale-105 shadow-2xl'
-                    : 'bg-gray-50 dark:bg-gray-900 text-black dark:text-white'
+                    ? 'bg-gradient-to-br from-[#E3FD72] to-[#d5ed62] text-black shadow-2xl'
+                    : 'bg-white dark:bg-gray-900 text-black dark:text-white border border-gray-200 dark:border-gray-800'
                 }`}
               >
                 {plan.highlight && (
-                  <div className="absolute -top-4 left-1/2 transform -translate-x-1/2">
-                    <span className="bg-black text-white px-4 py-1 rounded-full text-sm font-medium">
-                      Más Popular
+                  <div className="absolute -top-5 left-1/2 transform -translate-x-1/2">
+                    <span className="bg-black text-white px-6 py-2 rounded-full text-sm font-bold shadow-lg flex items-center gap-2">
+                      ⭐ Más Popular
                     </span>
                   </div>
                 )}
+                
+                {/* Decorative gradient */}
+                <div className={`absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 ${
+                  plan.highlight ? 'bg-gradient-to-br from-white/20 to-transparent' : 'bg-gradient-to-br from-[#E3FD72]/10 to-transparent'
+                }`} />
                 
                 <h3 className="text-2xl font-bold mb-2">{plan.name}</h3>
                 <div className="mb-4">
@@ -201,10 +213,11 @@ export default function PricingSection() {
         ) : (
           <div>
             {/* Beta Badge for Clubs */}
-            <div className="text-center mb-8">
-              <div className="inline-flex items-center px-6 py-3 rounded-full bg-[#E3FD72]/10 dark:bg-[#E3FD72]/20">
-                <span className="text-lg font-medium text-black dark:text-white">
-                  🔥 Beta exclusiva: Solo 4 lugares disponibles en Puebla
+            <div className="text-center mb-12">
+              <div className="inline-flex items-center gap-3 px-8 py-4 rounded-full bg-gradient-to-r from-[#E3FD72]/20 to-[#E3FD72]/10 border border-[#E3FD72]/30 backdrop-blur-sm">
+                <div className="w-3 h-3 bg-red-500 rounded-full animate-pulse"></div>
+                <span className="text-lg font-bold text-black dark:text-white">
+                  Beta exclusiva: Solo 4 lugares disponibles en Puebla
                 </span>
               </div>
             </div>
@@ -213,12 +226,16 @@ export default function PricingSection() {
               {clubModules.map((module, index) => (
                 <div
                   key={index}
-                  className={`rounded-2xl p-6 transition-all duration-300 ${
+                  className={`group relative overflow-hidden rounded-3xl p-6 transition-all duration-500 hover:scale-[1.02] hover:shadow-xl ${
                     module.price === 'GRATIS'
-                      ? 'bg-[#E3FD72] text-black'
-                      : 'bg-gray-50 dark:bg-gray-900 text-black dark:text-white border border-gray-200 dark:border-gray-800'
+                      ? 'bg-gradient-to-br from-[#E3FD72] to-[#d5ed62] text-black shadow-lg'
+                      : 'bg-white dark:bg-gray-900 text-black dark:text-white border border-gray-200 dark:border-gray-800'
                   }`}
                 >
+                  {/* Decorative gradient */}
+                  <div className={`absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 ${
+                    module.price === 'GRATIS' ? 'bg-gradient-to-br from-white/20 to-transparent' : 'bg-gradient-to-br from-[#E3FD72]/10 to-transparent'
+                  }`} />
                   <h3 className="text-xl font-bold mb-2">{module.name}</h3>
                   <div className="mb-3">
                     <span className="text-3xl font-bold">{module.price}</span>
