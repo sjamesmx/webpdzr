@@ -2,7 +2,7 @@
   "name": "padelyzer-platform",
   "version": "2.0.0",
   "private": true,
-  "description": "Padelyzer Platform - Arquitectura Dual B2C/B2B",
+  "description": "Padelyzer Platform - Arquitectura Dual B2C/B2B - V2",
   "workspaces": [
     "apps/*",
     "packages/*"
