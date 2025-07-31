@@ -1,29 +1,30 @@
 {
-  "name": "padelyzer-website",
-  "version": "0.1.0",
+  "name": "padelyzer-platform",
+  "version": "2.0.0",
   "private": true,
+  "description": "Padelyzer Platform - Arquitectura Dual B2C/B2B",
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
   "scripts": {
-    "dev": "next dev",
-    "build": "next build",
-    "start": "next start",
-    "lint": "next lint"
-  },
-  "dependencies": {
-    "@react-three/drei": "^10.6.1",
-    "@react-three/fiber": "^9.3.0",
-    "framer-motion": "^12.23.11",
-    "next": "15.4.5",
-    "react": "19.1.0",
-    "react-dom": "19.1.0",
-    "three": "^0.178.0"
+    "dev": "turbo run dev",
+    "build": "turbo run build",
+    "lint": "turbo run lint",
+    "clean": "turbo run clean",
+    "dev:player": "npm run dev --workspace=@padelyzer/web-player",
+    "dev:club": "npm run dev --workspace=@padelyzer/web-club",
+    "dev:router": "npm run dev --workspace=@padelyzer/router"
   },
   "devDependencies": {
-    "@types/node": "^20",
-    "@types/react": "^19",
-    "@types/react-dom": "^19",
-    "autoprefixer": "^10.4.14",
-    "postcss": "^8.4.24",
-    "tailwindcss": "^3.3.0",
-    "typescript": "^5"
+    "turbo": "latest",
+    "@types/node": "^20.0.0",
+    "typescript": "^5.0.0",
+    "eslint": "^8.0.0",
+    "prettier": "^3.0.0"
+  },
+  "engines": {
+    "node": ">=18.0.0",
+    "npm": ">=9.0.0"
   }
 }
