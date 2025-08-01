@@ -14,7 +14,8 @@
     "clean": "turbo run clean",
     "dev:player": "npm run dev --workspace=@padelyzer/web-player",
     "dev:club": "npm run dev --workspace=@padelyzer/web-club",
-    "dev:router": "npm run dev --workspace=@padelyzer/router"
+    "dev:router": "npm run dev --workspace=@padelyzer/router",
+  "build:player": "npm run build --workspace=@padelyzer/web-player"
   },
   "devDependencies": {
     "turbo": "latest",
