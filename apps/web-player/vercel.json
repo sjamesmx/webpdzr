@@ -1,0 +1,12 @@
+{
+  "rewrites": [
+    {
+      "source": "/inicio",
+      "destination": "https://padelyzer-router.vercel.app/"
+    },
+    {
+      "source": "/pro",
+      "destination": "https://padelyzer-club.vercel.app/"
+    }
+  ]
+}

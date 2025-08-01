@@ -1,7 +1,6 @@
 {
   "$schema": "https://openapi.vercel.sh/vercel.json",
-  "buildCommand": "turbo run build --filter=@padelyzer/router",
+  "buildCommand": "npm run build",
   "installCommand": "npm install",
-  "outputDirectory": "apps/router/.next",
-  "ignoreCommand": "npx turbo-ignore"
+  "outputDirectory": "apps/web-player/.next"
 }

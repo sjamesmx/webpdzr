@@ -9,9 +9,9 @@ export default function RouterPage() {
     const userType = Cookies.get('padelyzer-user-type');
     
     if (userType === 'player') {
-      window.location.href = 'https://padelyzer.com';
+      window.location.href = '/';
     } else if (userType === 'club') {
-      window.location.href = 'https://pro.padelyzer.com';
+      window.location.href = '/pro';
     }
   }, []);
 
@@ -21,9 +21,9 @@ export default function RouterPage() {
     
     // Redirect based on selection
     if (type === 'player') {
-      window.location.href = 'https://padelyzer.com';
+      window.location.href = '/';
     } else {
-      window.location.href = 'https://pro.padelyzer.com';
+      window.location.href = '/pro';
     }
   };
 
