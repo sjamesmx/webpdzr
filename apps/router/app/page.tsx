@@ -10,21 +10,21 @@ export default function RouterPage() {
     const userType = Cookies.get('padelyzer-user-type');
     
     if (userType === 'player') {
-      window.location.href = '/';
+      window.location.href = 'https://play.padelyzer.com';
     } else if (userType === 'club') {
-      window.location.href = '/pro';
+      window.location.href = 'https://pro.padelyzer.com';
     }
   }, []);
 
   const handleSelection = (type: 'player' | 'club') => {
     // Save preference for 30 days
-    Cookies.set('padelyzer-user-type', type, { expires: 30 });
+    Cookies.set('padelyzer-user-type', type, { expires: 30, domain: '.padelyzer.com' });
     
     // Redirect based on selection
     if (type === 'player') {
-      window.location.href = '/';
+      window.location.href = 'https://play.padelyzer.com';
     } else {
-      window.location.href = '/pro';
+      window.location.href = 'https://pro.padelyzer.com';
     }
   };
 
@@ -46,11 +46,8 @@ export default function RouterPage() {
             />
           </div>
           <h1 className="text-4xl md:text-5xl font-bold text-black mb-4">
-            ¿Qué buscas?
+            El ecosistema digital del Padel
           </h1>
-          <p className="text-gray-600 text-lg">
-            Selecciona tu perfil para continuar
-          </p>
         </div>
 
         <div className="grid md:grid-cols-2 gap-8">

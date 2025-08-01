@@ -3,8 +3,15 @@ import './globals.css';
 import './fonts.css';
 
 export const metadata: Metadata = {
-  title: 'Padelyzer ROUTER - Selecciona tu perfil',
+  title: 'Padelyzer - El ecosistema digital del Padel',
   description: 'Plataforma integral de pádel: análisis con IA para jugadores y software de gestión para clubes',
+  icons: {
+    icon: [
+      { url: '/favicon.ico', sizes: '32x32' },
+      { url: '/favicon.png', type: 'image/png' }
+    ],
+    apple: '/favicon.png',
+  },
 };
 
 export default function RootLayout({
