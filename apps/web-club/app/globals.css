@@ -14,6 +14,7 @@
 
   body {
     @apply bg-club-bg-primary text-club-text-primary;
+    font-family: 'Clash Display', system-ui, -apple-system, sans-serif;
   }
 }
 
