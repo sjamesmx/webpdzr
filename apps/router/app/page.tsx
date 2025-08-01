@@ -32,6 +32,9 @@ export default function RouterPage() {
     <div className="min-h-screen bg-white flex items-center justify-center px-4">
       <div className="max-w-5xl w-full">
         <div className="text-center mb-16">
+          <div className="inline-block bg-gray-900 text-white text-sm font-bold px-3 py-1 rounded-full mb-4">
+            ROUTER APP
+          </div>
           <div className="mb-8 flex justify-center">
             <Image
               src="/Padelyzer-Logo-Negro.png"

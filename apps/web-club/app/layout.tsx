@@ -3,7 +3,7 @@ import './globals.css';
 import './fonts.css';
 
 export const metadata: Metadata = {
-  title: 'Padelyzer Pro - Software de Gestión para Clubes de Pádel',
+  title: 'Padelyzer CLUBES - Software de Gestión para Clubes de Pádel',
   description: 'El único sistema que GARANTIZA +30% más ingresos en 90 días. Sin comisiones ocultas. Con soporte 24/7 en español.',
   keywords: 'software, gestión, clubes, pádel, padel, reservas, torneos',
   openGraph: {

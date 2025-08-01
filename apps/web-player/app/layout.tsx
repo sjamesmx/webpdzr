@@ -3,7 +3,7 @@ import './globals.css';
 import './fonts.css';
 
 export const metadata: Metadata = {
-  title: 'Padelyzer - Tu juego apesta... y lo sabes',
+  title: 'Padelyzer JUGADORES - Tu juego apesta... y lo sabes',
   description: 'La IA que analiza tu pádel y te dice exactamente qué mejorar. Mejora tu ranking en 30 días o te devolvemos tu dinero.',
   keywords: 'padel, pádel, app, análisis, IA, inteligencia artificial, mejora, ranking',
   openGraph: {

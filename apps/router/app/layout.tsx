@@ -3,7 +3,7 @@ import './globals.css';
 import './fonts.css';
 
 export const metadata: Metadata = {
-  title: 'Padelyzer - Selecciona tu perfil',
+  title: 'Padelyzer ROUTER - Selecciona tu perfil',
   description: 'Plataforma integral de pádel: análisis con IA para jugadores y software de gestión para clubes',
 };
 

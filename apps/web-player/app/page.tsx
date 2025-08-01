@@ -38,6 +38,9 @@ export default function HomePage() {
       <section className="min-h-screen pt-16 flex items-center">
         <div className="container py-20">
           <div className="max-w-5xl">
+            <div className="inline-block bg-player-accent text-black text-sm font-bold px-3 py-1 rounded-full mb-4">
+              APP JUGADORES
+            </div>
             <h1 className="text-6xl md:text-7xl lg:text-8xl font-bold mb-6 leading-tight">
               Tu juego <span className="text-player-accent">apesta</span>...
               <br />y lo sabes
