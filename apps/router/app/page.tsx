@@ -2,6 +2,7 @@
 
 import { useEffect } from 'react';
 import Cookies from 'js-cookie';
+import Image from 'next/image';
 
 export default function RouterPage() {
   useEffect(() => {
@@ -31,7 +32,16 @@ export default function RouterPage() {
     <div className="min-h-screen bg-white flex items-center justify-center px-4">
       <div className="max-w-5xl w-full">
         <div className="text-center mb-16">
-          <div className="text-3xl font-bold mb-8">Padelyzer</div>
+          <div className="mb-8 flex justify-center">
+            <Image
+              src="/Padelyzer-Logo-Negro.png"
+              alt="Padelyzer"
+              width={200}
+              height={50}
+              className="h-12 w-auto object-contain"
+              priority
+            />
+          </div>
           <h1 className="text-4xl md:text-5xl font-bold text-black mb-4">
             ¿Qué buscas?
           </h1>
