@@ -17,11 +17,11 @@ export default function HomePage() {
             
             {/* Mobile Menu Button */}
             <button 
-              className="md:hidden p-2" 
+              className="md:hidden p-2 hover:bg-player-bg-secondary rounded-lg transition-colors" 
               aria-label="Menu"
               onClick={() => setIsMobileMenuOpen(true)}
             >
-              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <svg className="w-6 h-6 text-player-text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
               </svg>
             </button>
@@ -164,40 +164,100 @@ export default function HomePage() {
         </div>
       </footer>
 
-      {/* Mobile Menu */}
-      <div className={`fixed inset-0 bg-player-bg-primary/95 backdrop-blur-md z-50 md:hidden transition-opacity duration-300 ${isMobileMenuOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'}`}>
+      {/* Mobile Menu Overlay */}
+      <div 
+        className={`fixed inset-0 bg-black/60 z-50 md:hidden transition-opacity duration-300 ${isMobileMenuOpen ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}
+        onClick={() => setIsMobileMenuOpen(false)}
+      />
+      
+      {/* Mobile Menu Drawer */}
+      <div className={`fixed top-0 left-0 h-full w-80 bg-player-bg-primary z-50 md:hidden transform transition-transform duration-300 shadow-2xl ${isMobileMenuOpen ? 'translate-x-0' : '-translate-x-full'}`}>
         <div className="flex flex-col h-full">
-          <div className="flex items-center justify-between p-4 border-b border-player-border">
+          {/* Header */}
+          <div className="flex items-center justify-between p-4 border-b border-player-border bg-player-bg-secondary">
             <Logo variant="player" className="h-8" />
             <button 
-              className="p-2" 
+              className="p-2 hover:bg-player-bg-primary rounded-lg transition-colors" 
               aria-label="Cerrar menu"
               onClick={() => setIsMobileMenuOpen(false)}
             >
-              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <svg className="w-6 h-6 text-player-text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
               </svg>
             </button>
           </div>
           
-          <nav className="flex-1 p-6">
-            <a href="/caracteristicas" className="block py-3 text-lg hover:text-player-accent transition-colors">
-              Características
-            </a>
-            <a href="/precio" className="block py-3 text-lg hover:text-player-accent transition-colors">
-              Precio
-            </a>
-            <a href="/blog" className="block py-3 text-lg hover:text-player-accent transition-colors">
-              Blog
-            </a>
+          {/* Navigation */}
+          <nav className="flex-1 p-6 overflow-y-auto">
+            <div className="space-y-1">
+              <a 
+                href="/caracteristicas" 
+                className="block py-3 px-4 text-lg text-player-text-primary hover:text-player-accent hover:bg-player-bg-secondary rounded-lg transition-all"
+                onClick={() => setIsMobileMenuOpen(false)}
+              >
+                Características
+              </a>
+              <a 
+                href="/precio" 
+                className="block py-3 px-4 text-lg text-player-text-primary hover:text-player-accent hover:bg-player-bg-secondary rounded-lg transition-all"
+                onClick={() => setIsMobileMenuOpen(false)}
+              >
+                Precio
+              </a>
+              <a 
+                href="/blog" 
+                className="block py-3 px-4 text-lg text-player-text-primary hover:text-player-accent hover:bg-player-bg-secondary rounded-lg transition-all"
+                onClick={() => setIsMobileMenuOpen(false)}
+              >
+                Blog
+              </a>
+            </div>
+            
+            {/* Separator */}
+            <div className="my-6 border-t border-player-border"></div>
+            
+            {/* Footer Links */}
+            <div className="space-y-1">
+              <a 
+                href="/privacidad" 
+                className="block py-2 px-4 text-sm text-player-text-secondary hover:text-player-accent transition-colors"
+                onClick={() => setIsMobileMenuOpen(false)}
+              >
+                Privacidad
+              </a>
+              <a 
+                href="/terminos" 
+                className="block py-2 px-4 text-sm text-player-text-secondary hover:text-player-accent transition-colors"
+                onClick={() => setIsMobileMenuOpen(false)}
+              >
+                Términos
+              </a>
+              <a 
+                href="https://pro.padelyzer.com" 
+                className="block py-2 px-4 text-sm text-player-text-secondary hover:text-player-accent transition-colors"
+                onClick={() => setIsMobileMenuOpen(false)}
+              >
+                ¿Tienes un club?
+              </a>
+            </div>
           </nav>
           
-          <div className="p-6 border-t border-player-border">
-            <PlayerButton variant="ghost" size="lg" className="w-full mb-3">
+          {/* CTA Buttons */}
+          <div className="p-6 border-t border-player-border bg-player-bg-secondary">
+            <PlayerButton 
+              variant="ghost" 
+              size="lg" 
+              className="w-full mb-3"
+              onClick={() => setIsMobileMenuOpen(false)}
+            >
               Iniciar Sesión
             </PlayerButton>
-            <PlayerButton size="lg" className="w-full">
-              Descargar
+            <PlayerButton 
+              size="lg" 
+              className="w-full"
+              onClick={() => setIsMobileMenuOpen(false)}
+            >
+              Descargar App
             </PlayerButton>
           </div>
         </div>

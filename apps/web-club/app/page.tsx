@@ -17,7 +17,7 @@ export default function HomePage() {
             
             {/* Mobile Menu Button */}
             <button 
-              className="md:hidden p-2" 
+              className="md:hidden p-2 hover:bg-gray-100 rounded-lg transition-colors" 
               aria-label="Menu"
               onClick={() => setIsMobileMenuOpen(true)}
             >
@@ -128,39 +128,99 @@ export default function HomePage() {
         </div>
       </footer>
 
-      {/* Mobile Menu */}
-      <div className={`fixed inset-0 bg-white z-50 md:hidden transition-opacity duration-300 ${isMobileMenuOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'}`}>
+      {/* Mobile Menu Overlay */}
+      <div 
+        className={`fixed inset-0 bg-black/60 z-50 md:hidden transition-opacity duration-300 ${isMobileMenuOpen ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}
+        onClick={() => setIsMobileMenuOpen(false)}
+      />
+      
+      {/* Mobile Menu Drawer */}
+      <div className={`fixed top-0 left-0 h-full w-80 bg-white z-50 md:hidden transform transition-transform duration-300 shadow-2xl ${isMobileMenuOpen ? 'translate-x-0' : '-translate-x-full'}`}>
         <div className="flex flex-col h-full">
-          <div className="flex items-center justify-between p-4 border-b border-club-border">
+          {/* Header */}
+          <div className="flex items-center justify-between p-4 border-b border-club-border bg-club-bg-secondary">
             <Logo variant="club" className="h-8" />
             <button 
-              className="p-2" 
+              className="p-2 hover:bg-gray-100 rounded-lg transition-colors" 
               aria-label="Cerrar menu"
               onClick={() => setIsMobileMenuOpen(false)}
             >
-              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <svg className="w-6 h-6 text-club-text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
               </svg>
             </button>
           </div>
           
-          <nav className="flex-1 p-6">
-            <a href="/soluciones" className="block py-3 text-lg text-club-text-primary hover:text-club-accent transition-colors">
-              Soluciones
-            </a>
-            <a href="/precios" className="block py-3 text-lg text-club-text-primary hover:text-club-accent transition-colors">
-              Precios
-            </a>
-            <a href="/casos-de-exito" className="block py-3 text-lg text-club-text-primary hover:text-club-accent transition-colors">
-              Casos de Éxito
-            </a>
+          {/* Navigation */}
+          <nav className="flex-1 p-6 overflow-y-auto bg-white">
+            <div className="space-y-1">
+              <a 
+                href="/soluciones" 
+                className="block py-3 px-4 text-lg text-club-text-primary hover:text-club-accent hover:bg-club-bg-secondary rounded-lg transition-all"
+                onClick={() => setIsMobileMenuOpen(false)}
+              >
+                Soluciones
+              </a>
+              <a 
+                href="/precios" 
+                className="block py-3 px-4 text-lg text-club-text-primary hover:text-club-accent hover:bg-club-bg-secondary rounded-lg transition-all"
+                onClick={() => setIsMobileMenuOpen(false)}
+              >
+                Precios
+              </a>
+              <a 
+                href="/casos-de-exito" 
+                className="block py-3 px-4 text-lg text-club-text-primary hover:text-club-accent hover:bg-club-bg-secondary rounded-lg transition-all"
+                onClick={() => setIsMobileMenuOpen(false)}
+              >
+                Casos de Éxito
+              </a>
+            </div>
+            
+            {/* Separator */}
+            <div className="my-6 border-t border-club-border"></div>
+            
+            {/* Footer Links */}
+            <div className="space-y-1">
+              <a 
+                href="/privacidad" 
+                className="block py-2 px-4 text-sm text-club-text-secondary hover:text-club-accent transition-colors"
+                onClick={() => setIsMobileMenuOpen(false)}
+              >
+                Privacidad
+              </a>
+              <a 
+                href="/terminos" 
+                className="block py-2 px-4 text-sm text-club-text-secondary hover:text-club-accent transition-colors"
+                onClick={() => setIsMobileMenuOpen(false)}
+              >
+                Términos
+              </a>
+              <a 
+                href="https://padelyzer.com" 
+                className="block py-2 px-4 text-sm text-club-text-secondary hover:text-club-accent transition-colors"
+                onClick={() => setIsMobileMenuOpen(false)}
+              >
+                App para jugadores
+              </a>
+            </div>
           </nav>
           
-          <div className="p-6 border-t border-club-border">
-            <ClubButton variant="ghost" size="lg" className="w-full mb-3">
+          {/* CTA Buttons */}
+          <div className="p-6 border-t border-club-border bg-club-bg-secondary">
+            <ClubButton 
+              variant="ghost" 
+              size="lg" 
+              className="w-full mb-3"
+              onClick={() => setIsMobileMenuOpen(false)}
+            >
               Iniciar Sesión
             </ClubButton>
-            <ClubButton size="lg" className="w-full">
+            <ClubButton 
+              size="lg" 
+              className="w-full"
+              onClick={() => setIsMobileMenuOpen(false)}
+            >
               Agenda Demo
             </ClubButton>
           </div>
