@@ -1,6 +1,7 @@
 {
   "$schema": "https://openapi.vercel.sh/vercel.json",
-  "buildCommand": "npm run build --workspace=@padelyzer/router",
+  "framework": "nextjs",
+  "buildCommand": "cd apps/router && npm run build",
   "installCommand": "npm install",
   "outputDirectory": "apps/router/.next",
   "headers": [
