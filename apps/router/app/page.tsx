@@ -71,11 +71,12 @@ export default function RouterPage() {
         <div className="text-center mb-8 sm:mb-12">
           <Image
             src="/Padelyzer-Logo-Blanco.png"
-            alt="Padelyzer"
+            alt="Padelyzer - Plataforma Digital de Pádel en México"
             width={200}
             height={50}
             className="h-12 sm:h-16 w-auto mx-auto mb-4 sm:mb-6"
             priority
+            loading="eager"
           />
           <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-4 px-4">
             El ecosistema digital del <span className="text-transparent bg-clip-text bg-gradient-to-r from-green-400 to-blue-400">Padel</span>
@@ -92,10 +93,11 @@ export default function RouterPage() {
             <div className="w-16 h-16 sm:w-20 sm:h-20 bg-gradient-to-br from-[#C6FF00] to-[#B8E600] rounded-xl sm:rounded-2xl flex items-center justify-center mb-4 sm:mb-6 group-hover:scale-110 transition-transform duration-500 shadow-lg">
               <Image
                 src="/Padelyzer-Isotipo-Blanco.png"
-                alt="Padelyzer"
+                alt="Padelyzer App Jugadores - Mejora tu pádel con IA"
                 width={48}
                 height={48}
                 className="w-10 h-10 sm:w-12 sm:h-12"
+                loading="lazy"
               />
             </div>
             <h2 className="text-2xl sm:text-3xl font-bold text-white mb-3 sm:mb-4 group-hover:text-[#C6FF00] transition-colors">
@@ -148,10 +150,11 @@ export default function RouterPage() {
             <div className="w-16 h-16 sm:w-20 sm:h-20 bg-gradient-to-br from-blue-500 to-blue-600 rounded-xl sm:rounded-2xl flex items-center justify-center mb-4 sm:mb-6 group-hover:scale-110 transition-transform duration-500 shadow-lg">
               <Image
                 src="/Padelyzer-Isotipo-Blanco.png"
-                alt="Padelyzer"
+                alt="Padelyzer Pro - Software gestión clubes pádel"
                 width={48}
                 height={48}
                 className="w-10 h-10 sm:w-12 sm:h-12"
+                loading="lazy"
               />
             </div>
             <h2 className="text-2xl sm:text-3xl font-bold text-white mb-3 sm:mb-4 group-hover:text-blue-400 transition-colors">

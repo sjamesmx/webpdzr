@@ -1,0 +1,23 @@
+# Padelyzer Club Software Robots.txt
+User-agent: *
+Allow: /
+Disallow: /api/
+Disallow: /_next/
+Disallow: /admin/
+Disallow: /dashboard/
+Disallow: /club/
+
+# Main sitemap
+Sitemap: https://pro.padelyzer.com/sitemap.xml
+
+# Crawl-delay
+Crawl-delay: 1
+
+# Allow all images
+User-agent: Googlebot-Image
+Allow: /
+
+# Business crawlers priority
+User-agent: Googlebot
+Allow: /
+Crawl-delay: 0.5

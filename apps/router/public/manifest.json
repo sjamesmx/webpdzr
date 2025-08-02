@@ -1,0 +1,26 @@
+{
+  "name": "Padelyzer - Ecosistema Digital del Padel",
+  "short_name": "Padelyzer",
+  "description": "Plataforma integral de pádel: App con IA para jugadores y software de gestión para clubes",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#000000",
+  "theme_color": "#C6FF00",
+  "orientation": "portrait",
+  "icons": [
+    {
+      "src": "/favicon.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/favicon.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "categories": ["sports", "lifestyle"],
+  "lang": "es-MX"
+}
