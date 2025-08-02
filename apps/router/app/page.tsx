@@ -18,22 +18,21 @@ export default function RouterPage() {
     }, 100);
 
     // Check if user already has a preference
-    const userType = Cookies.get('padelyzer-user-type');
-    
-    if (userType === 'player') {
-      window.location.href = 'https://play.padelyzer.com';
-    } else if (userType === 'club') {
-      window.location.href = 'https://pro.padelyzer.com';
-    }
+    // Commented out automatic redirect to always show router first
+    // const userType = Cookies.get('padelyzer-user-type');
+    // 
+    // if (userType === 'player') {
+    //   window.location.href = 'https://play.padelyzer.com';
+    // } else if (userType === 'club') {
+    //   window.location.href = 'https://pro.padelyzer.com';
+    // }
 
     return () => clearTimeout(timer);
   }, []);
 
   const handleSelection = (type: 'player' | 'club') => {
-    // Save preference for 30 days
-    Cookies.set('padelyzer-user-type', type, { expires: 30, domain: '.padelyzer.com' });
-    
-    // Redirect based on selection
+    // Removed cookie saving to avoid automatic redirects
+    // Just redirect based on selection
     if (type === 'player') {
       window.location.href = 'https://play.padelyzer.com';
     } else {
