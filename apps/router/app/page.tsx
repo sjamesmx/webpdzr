@@ -68,40 +68,40 @@ export default function RouterPage() {
       }}></div>
 
       <div className="relative z-10 max-w-6xl mx-auto animate-in transition-all duration-1000 opacity-0 translate-y-10">
-        <div className="text-center mb-12">
+        <div className="text-center mb-8 sm:mb-12">
           <Image
             src="/Padelyzer-Logo-Blanco.png"
             alt="Padelyzer"
             width={200}
             height={50}
-            className="h-16 w-auto mx-auto mb-6"
+            className="h-12 sm:h-16 w-auto mx-auto mb-4 sm:mb-6"
             priority
           />
-          <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-4 px-4">
             El ecosistema digital del <span className="text-transparent bg-clip-text bg-gradient-to-r from-green-400 to-blue-400">Padel</span>
           </h1>
         </div>
 
-        <div className="grid md:grid-cols-2 gap-8">
+        <div className="grid md:grid-cols-2 gap-4 sm:gap-6 lg:gap-8">
           {/* Player Card */}
           <div 
             onClick={() => handleSelection('player')}
-            className="animate-in group bg-gray-800/50 backdrop-blur-xl border border-gray-700 rounded-3xl p-8 hover:border-[#C6FF00]/50 hover:shadow-2xl hover:shadow-[#C6FF00]/20 transition-all duration-500 hover:-translate-y-2 h-full flex flex-col opacity-0 -translate-x-10 cursor-pointer"
+            className="animate-in group bg-gray-800/50 backdrop-blur-xl border border-gray-700 rounded-2xl sm:rounded-3xl p-4 sm:p-6 lg:p-8 hover:border-[#C6FF00]/50 hover:shadow-2xl hover:shadow-[#C6FF00]/20 transition-all duration-500 hover:-translate-y-2 h-full flex flex-col opacity-0 -translate-x-10 cursor-pointer"
             style={{ transitionDelay: '200ms' }}
           >
-            <div className="w-20 h-20 bg-gradient-to-br from-[#C6FF00] to-[#B8E600] rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-500 shadow-lg">
+            <div className="w-16 h-16 sm:w-20 sm:h-20 bg-gradient-to-br from-[#C6FF00] to-[#B8E600] rounded-xl sm:rounded-2xl flex items-center justify-center mb-4 sm:mb-6 group-hover:scale-110 transition-transform duration-500 shadow-lg">
               <Image
                 src="/Padelyzer-Isotipo-Blanco.png"
                 alt="Padelyzer"
                 width={48}
                 height={48}
-                className="w-12 h-12"
+                className="w-10 h-10 sm:w-12 sm:h-12"
               />
             </div>
-            <h2 className="text-3xl font-bold text-white mb-4 group-hover:text-[#C6FF00] transition-colors">
+            <h2 className="text-2xl sm:text-3xl font-bold text-white mb-3 sm:mb-4 group-hover:text-[#C6FF00] transition-colors">
               Soy Jugador
             </h2>
-            <p className="text-gray-300 mb-6 text-lg">
+            <p className="text-gray-300 mb-4 sm:mb-6 text-base sm:text-lg">
               Encuentra canchas, organiza partidos, únete a torneos y mejora tu juego con nuestra app.
             </p>
             <ul className="space-y-3 mb-8">
@@ -131,33 +131,33 @@ export default function RouterPage() {
               </li>
             </ul>
             <div className="flex-grow"></div>
-            <div className="flex items-center justify-between mt-6">
-              <button className="bg-[#C6FF00] hover:bg-[#B8E600] text-black font-bold py-3 px-6 rounded-lg transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-[#C6FF00]/50">
+            <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between mt-6 gap-3">
+              <button className="bg-[#C6FF00] hover:bg-[#B8E600] text-black font-bold py-2.5 px-5 sm:py-3 sm:px-6 rounded-lg transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-[#C6FF00]/50 text-sm sm:text-base">
                 Ir a la app
               </button>
-              <div className="text-sm text-gray-400">+50,000 jugadores activos</div>
+              <div className="text-xs sm:text-sm text-gray-400">+50,000 jugadores activos</div>
             </div>
           </div>
 
           {/* Club Card */}
           <div 
             onClick={() => handleSelection('club')}
-            className="animate-in group bg-gray-800/50 backdrop-blur-xl border border-gray-700 rounded-3xl p-8 hover:border-blue-500/50 hover:shadow-2xl hover:shadow-blue-500/20 transition-all duration-500 hover:-translate-y-2 h-full flex flex-col opacity-0 translate-x-10 cursor-pointer"
+            className="animate-in group bg-gray-800/50 backdrop-blur-xl border border-gray-700 rounded-2xl sm:rounded-3xl p-4 sm:p-6 lg:p-8 hover:border-blue-500/50 hover:shadow-2xl hover:shadow-blue-500/20 transition-all duration-500 hover:-translate-y-2 h-full flex flex-col opacity-0 translate-x-10 cursor-pointer"
             style={{ transitionDelay: '400ms' }}
           >
-            <div className="w-20 h-20 bg-gradient-to-br from-blue-500 to-blue-600 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-500 shadow-lg">
+            <div className="w-16 h-16 sm:w-20 sm:h-20 bg-gradient-to-br from-blue-500 to-blue-600 rounded-xl sm:rounded-2xl flex items-center justify-center mb-4 sm:mb-6 group-hover:scale-110 transition-transform duration-500 shadow-lg">
               <Image
                 src="/Padelyzer-Isotipo-Blanco.png"
                 alt="Padelyzer"
                 width={48}
                 height={48}
-                className="w-12 h-12"
+                className="w-10 h-10 sm:w-12 sm:h-12"
               />
             </div>
-            <h2 className="text-3xl font-bold text-white mb-4 group-hover:text-blue-400 transition-colors">
+            <h2 className="text-2xl sm:text-3xl font-bold text-white mb-3 sm:mb-4 group-hover:text-blue-400 transition-colors">
               Tengo un Club
             </h2>
-            <p className="text-gray-300 mb-6 text-lg">
+            <p className="text-gray-300 mb-4 sm:mb-6 text-base sm:text-lg">
               Software completo para gestionar tu club, aumentar ingresos y automatizar operaciones.
             </p>
             <ul className="space-y-3 mb-8">
@@ -187,16 +187,16 @@ export default function RouterPage() {
               </li>
             </ul>
             <div className="flex-grow"></div>
-            <div className="flex items-center justify-between mt-6">
-              <button className="bg-blue-500 hover:bg-blue-600 text-white font-bold py-3 px-6 rounded-lg transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-blue-500/50">
+            <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between mt-6 gap-3">
+              <button className="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2.5 px-5 sm:py-3 sm:px-6 rounded-lg transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-blue-500/50 text-sm sm:text-base">
                 Ver soluciones
               </button>
-              <div className="text-sm text-gray-400">Garantía ROI 25%</div>
+              <div className="text-xs sm:text-sm text-gray-400">Garantía ROI 25%</div>
             </div>
           </div>
         </div>
 
-        <div className="text-center mt-12 text-gray-400 animate-in transition-all duration-1000 opacity-0" style={{ transitionDelay: '600ms' }}>
+        <div className="text-center mt-8 sm:mt-12 text-gray-400 animate-in transition-all duration-1000 opacity-0 text-sm sm:text-base" style={{ transitionDelay: '600ms' }}>
           <p>¿Necesitas ayuda? Contáctanos en <a href="mailto:info@padelyzer.com" className="text-white hover:text-[#C6FF00] transition-colors">info@padelyzer.com</a></p>
         </div>
       </div>

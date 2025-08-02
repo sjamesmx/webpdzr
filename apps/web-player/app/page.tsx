@@ -1,15 +1,32 @@
+'use client';
+
 import { PlayerButton } from '@padelyzer/ui';
 import { Logo } from '@padelyzer/ui';
+import { useState } from 'react';
 
 export default function HomePage() {
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  
   return (
     <>
-      {/* Navigation */}
-      <nav className="fixed top-0 left-0 right-0 z-50 bg-player-bg-primary/80 backdrop-blur-md border-b border-player-border">
-        <div className="container">
-          <div className="flex items-center justify-between h-16">
-            <Logo variant="player" />
+      {/* Mobile-Optimized Navigation */}
+      <nav className="fixed top-0 left-0 right-0 z-50 bg-player-bg-primary/95 backdrop-blur-md border-b border-player-border">
+        <div className="px-4 sm:container">
+          <div className="flex items-center justify-between h-14 sm:h-16">
+            <Logo variant="player" className="h-8 sm:h-10" />
             
+            {/* Mobile Menu Button */}
+            <button 
+              className="md:hidden p-2" 
+              aria-label="Menu"
+              onClick={() => setIsMobileMenuOpen(true)}
+            >
+              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+              </svg>
+            </button>
+            
+            {/* Desktop Navigation */}
             <div className="hidden md:flex items-center gap-8">
               <a href="/caracteristicas" className="text-player-text-secondary hover:text-player-accent transition-colors">
                 Características
@@ -22,7 +39,7 @@ export default function HomePage() {
               </a>
             </div>
 
-            <div className="flex items-center gap-4">
+            <div className="hidden md:flex items-center gap-4">
               <PlayerButton variant="ghost" size="sm">
                 Iniciar Sesión
               </PlayerButton>
@@ -34,33 +51,33 @@ export default function HomePage() {
         </div>
       </nav>
 
-      {/* Hero Section */}
-      <section className="min-h-screen pt-16 flex items-center">
-        <div className="container py-20">
+      {/* Hero Section - Mobile Optimized */}
+      <section className="min-h-screen pt-14 sm:pt-16 flex items-center">
+        <div className="px-4 sm:container py-12 sm:py-20">
           <div className="max-w-5xl">
-            <div className="inline-block bg-player-accent text-black text-sm font-bold px-3 py-1 rounded-full mb-4">
+            <div className="inline-block bg-player-accent text-black text-xs sm:text-sm font-bold px-3 py-1 rounded-full mb-4">
               APP JUGADORES
             </div>
-            <h1 className="text-6xl md:text-7xl lg:text-8xl font-bold mb-6 leading-tight">
+            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold mb-4 sm:mb-6 leading-tight">
               Tu juego <span className="text-player-accent">apesta</span>...
               <br />y lo sabes
             </h1>
             
-            <p className="text-xl md:text-2xl text-player-text-secondary mb-8 max-w-3xl">
+            <p className="text-lg sm:text-xl md:text-2xl text-player-text-secondary mb-6 sm:mb-8 max-w-3xl">
               La IA que analiza tu pádel y te dice exactamente qué mejorar. 
               Mejora tu ranking en 30 días o te devolvemos tu dinero.
             </p>
 
-            <div className="flex flex-col sm:flex-row gap-4 mb-12">
-              <PlayerButton size="lg" className="text-lg">
+            <div className="flex flex-col gap-3 sm:flex-row sm:gap-4 mb-8 sm:mb-12">
+              <PlayerButton size="lg" className="w-full sm:w-auto text-base sm:text-lg py-4 sm:py-3">
                 Prueba 14 días gratis
               </PlayerButton>
-              <PlayerButton variant="secondary" size="lg" className="text-lg">
+              <PlayerButton variant="secondary" size="lg" className="w-full sm:w-auto text-base sm:text-lg py-4 sm:py-3">
                 Ver demo 2 min
               </PlayerButton>
             </div>
 
-            <div className="flex items-center gap-6 text-sm text-player-text-secondary">
+            <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4 sm:gap-6 text-xs sm:text-sm text-player-text-secondary">
               <div className="flex items-center gap-2">
                 <div className="w-2 h-2 bg-player-accent rounded-full animate-pulse"></div>
                 <span>+15,000 jugadores activos</span>
@@ -74,14 +91,14 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Problem Section */}
-      <section className="py-20">
-        <div className="container">
-          <h2 className="text-4xl md:text-5xl font-bold text-center mb-16">
+      {/* Problem Section - Mobile Optimized */}
+      <section className="py-12 sm:py-20">
+        <div className="px-4 sm:container">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-center mb-8 sm:mb-16">
             ¿Te suena familiar?
           </h2>
 
-          <div className="grid md:grid-cols-3 gap-8">
+          <div className="grid gap-6 sm:gap-8 md:grid-cols-3">
             {[
               {
                 title: "Llevas 2 años jugando igual",
@@ -101,38 +118,38 @@ export default function HomePage() {
             ].map((problem, index) => (
               <div 
                 key={index}
-                className="bg-player-bg-secondary border border-player-border rounded-2xl p-8 hover:border-player-accent/50 transition-all"
+                className="bg-player-bg-secondary border border-player-border rounded-2xl p-6 sm:p-8 hover:border-player-accent/50 transition-all"
               >
-                <div className="text-4xl mb-4">{problem.icon}</div>
-                <h3 className="text-xl font-bold mb-3">{problem.title}</h3>
-                <p className="text-player-text-secondary">{problem.description}</p>
+                <div className="text-3xl sm:text-4xl mb-3 sm:mb-4">{problem.icon}</div>
+                <h3 className="text-lg sm:text-xl font-bold mb-2 sm:mb-3">{problem.title}</h3>
+                <p className="text-sm sm:text-base text-player-text-secondary">{problem.description}</p>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* CTA Section */}
-      <section className="py-20 bg-gradient-to-b from-player-bg-secondary to-player-bg-primary">
-        <div className="container text-center">
-          <h2 className="text-4xl md:text-5xl font-bold mb-6">
+      {/* CTA Section - Mobile Optimized */}
+      <section className="py-12 sm:py-20 bg-gradient-to-b from-player-bg-secondary to-player-bg-primary">
+        <div className="px-4 sm:container text-center">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 sm:mb-6">
             8 de cada 10 usuarios mejoran su ranking en 30 días
           </h2>
-          <p className="text-xl text-player-text-secondary mb-8 max-w-2xl mx-auto">
+          <p className="text-base sm:text-xl text-player-text-secondary mb-6 sm:mb-8 max-w-2xl mx-auto">
             Únete a miles de jugadores que ya están mejorando con datos reales, no opiniones.
           </p>
-          <PlayerButton size="lg" className="text-lg">
+          <PlayerButton size="lg" className="w-full sm:w-auto text-base sm:text-lg py-4 sm:py-3">
             Empieza ahora - 14 días gratis
           </PlayerButton>
         </div>
       </section>
 
-      {/* Footer */}
-      <footer className="py-12 border-t border-player-border">
-        <div className="container">
-          <div className="flex flex-col md:flex-row justify-between items-center gap-6">
-            <Logo variant="player" />
-            <div className="flex gap-6 text-sm">
+      {/* Mobile-Optimized Footer */}
+      <footer className="py-8 sm:py-12 border-t border-player-border">
+        <div className="px-4 sm:container">
+          <div className="flex flex-col items-center gap-6 md:flex-row md:justify-between">
+            <Logo variant="player" className="h-8 sm:h-10" />
+            <div className="flex flex-wrap justify-center gap-4 sm:gap-6 text-xs sm:text-sm">
               <a href="/privacidad" className="text-player-text-secondary hover:text-player-accent">
                 Privacidad
               </a>
@@ -146,6 +163,45 @@ export default function HomePage() {
           </div>
         </div>
       </footer>
+
+      {/* Mobile Menu */}
+      <div className={`fixed inset-0 bg-player-bg-primary/95 backdrop-blur-md z-50 md:hidden transition-opacity duration-300 ${isMobileMenuOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'}`}>
+        <div className="flex flex-col h-full">
+          <div className="flex items-center justify-between p-4 border-b border-player-border">
+            <Logo variant="player" className="h-8" />
+            <button 
+              className="p-2" 
+              aria-label="Cerrar menu"
+              onClick={() => setIsMobileMenuOpen(false)}
+            >
+              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+              </svg>
+            </button>
+          </div>
+          
+          <nav className="flex-1 p-6">
+            <a href="/caracteristicas" className="block py-3 text-lg hover:text-player-accent transition-colors">
+              Características
+            </a>
+            <a href="/precio" className="block py-3 text-lg hover:text-player-accent transition-colors">
+              Precio
+            </a>
+            <a href="/blog" className="block py-3 text-lg hover:text-player-accent transition-colors">
+              Blog
+            </a>
+          </nav>
+          
+          <div className="p-6 border-t border-player-border">
+            <PlayerButton variant="ghost" size="lg" className="w-full mb-3">
+              Iniciar Sesión
+            </PlayerButton>
+            <PlayerButton size="lg" className="w-full">
+              Descargar
+            </PlayerButton>
+          </div>
+        </div>
+      </div>
     </>
   );
 }
