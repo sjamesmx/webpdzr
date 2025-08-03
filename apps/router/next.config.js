@@ -1,4 +1,5 @@
 /** @type {import('next').NextConfig} */
+// Force rebuild - removed experimental CSS optimization
 const nextConfig = {
   transpilePackages: ['@padelyzer/ui', '@padelyzer/config'],
   images: {
