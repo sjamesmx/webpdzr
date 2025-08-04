@@ -1,11 +1,8 @@
 {
   "$schema": "https://openapi.vercel.sh/vercel.json",
   "framework": "nextjs",
-  "buildCommand": "npm run build:unified",
+  "buildCommand": "npm install && next build",
   "installCommand": "npm install",
-  "env": {
-    "ENABLE_EXPERIMENTAL_COREPACK": "1"
-  },
   "headers": [
     {
       "source": "/(.*)",
