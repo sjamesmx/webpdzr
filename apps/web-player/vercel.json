@@ -1,12 +1,6 @@
 {
-  "rewrites": [
-    {
-      "source": "/inicio",
-      "destination": "https://padelyzer-router.vercel.app/"
-    },
-    {
-      "source": "/pro",
-      "destination": "https://padelyzer-club.vercel.app/"
-    }
-  ]
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "framework": "nextjs",
+  "buildCommand": "cd ../.. && npm install && cd apps/web-player && npm run build",
+  "outputDirectory": ".next"
 }
