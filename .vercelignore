@@ -1,0 +1,7 @@
+# Ignore cache directories
+.next/cache
+apps/*/.next/cache
+node_modules/.cache
+
+# Force fresh builds
+*.cache

@@ -1,0 +1,22 @@
+# Padelyzer Player App Robots.txt
+User-agent: *
+Allow: /
+Disallow: /api/
+Disallow: /_next/
+Disallow: /user/
+Disallow: /dashboard/
+
+# Main sitemap
+Sitemap: https://play.padelyzer.com/sitemap.xml
+
+# Crawl-delay
+Crawl-delay: 1
+
+# Allow all images
+User-agent: Googlebot-Image
+Allow: /
+
+# Mobile crawlers priority
+User-agent: Googlebot-Mobile
+Allow: /
+Crawl-delay: 0.5
