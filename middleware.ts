@@ -3,39 +3,32 @@ import type { NextRequest } from 'next/server';
 
 export function middleware(request: NextRequest) {
   const hostname = request.headers.get('host') || '';
-  const url = request.nextUrl;
+  
+  // En desarrollo, usa localhost
+  if (hostname.includes('localhost')) {
+    return NextResponse.next();
+  }
 
-  // Determinar qué app servir basado en el dominio
-  let appPath = '';
+  // Redireccionar basado en el dominio
+  const url = request.nextUrl.clone();
   
   if (hostname.includes('play.padelyzer.com')) {
-    appPath = '/apps/web-player';
-  } else if (hostname.includes('pro.padelyzer.com')) {
-    appPath = '/apps/web-club';
-  } else {
-    // Default to router for www.padelyzer.com or padelyzer.com
-    appPath = '/apps/router';
-  }
-
-  // Rewrite the request to the correct app
-  if (appPath) {
-    url.pathname = `${appPath}${url.pathname}`;
+    // Servir app de jugadores
+    url.pathname = `/player${url.pathname}`;
+    return NextResponse.rewrite(url);
+  } 
+  
+  if (hostname.includes('pro.padelyzer.com')) {
+    // Servir app de clubes
+    url.pathname = `/club${url.pathname}`;
     return NextResponse.rewrite(url);
   }
-
-  return NextResponse.next();
+  
+  // Default: servir router
+  url.pathname = `/router${url.pathname}`;
+  return NextResponse.rewrite(url);
 }
 
 export const config = {
-  matcher: [
-    /*
-     * Match all request paths except for the ones starting with:
-     * - api (API routes)
-     * - _next/static (static files)
-     * - _next/image (image optimization files)
-     * - favicon.ico (favicon file)
-     * - public files
-     */
-    '/((?!api|_next/static|_next/image|favicon.ico|public).*)',
-  ],
+  matcher: '/((?!api|_next/static|_next/image|favicon.ico).*)',
 };
