@@ -1,7 +1,7 @@
 {
   "$schema": "https://openapi.vercel.sh/vercel.json",
   "framework": "nextjs",
-  "buildCommand": "npm run build:club",
+  "buildCommand": "npm run build --workspace=@padelyzer/web-club",
   "installCommand": "npm install",
   "outputDirectory": "apps/web-club/.next"
 }
