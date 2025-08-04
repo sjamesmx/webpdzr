@@ -1,9 +1,11 @@
 {
   "$schema": "https://openapi.vercel.sh/vercel.json",
   "framework": "nextjs",
-  "buildCommand": "npm run build --workspace=apps/router",
+  "buildCommand": "npm run build:unified",
   "installCommand": "npm install",
-  "outputDirectory": "apps/router/.next",
+  "env": {
+    "ENABLE_EXPERIMENTAL_COREPACK": "1"
+  },
   "headers": [
     {
       "source": "/(.*)",
@@ -13,7 +15,7 @@
           "value": "nosniff"
         },
         {
-          "key": "X-Frame-Options",
+          "key": "X-Frame-Options", 
           "value": "DENY"
         },
         {
