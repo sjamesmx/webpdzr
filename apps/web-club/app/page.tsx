@@ -138,7 +138,7 @@ export default function HomePage() {
       <div className={`fixed top-0 left-0 h-full w-80 bg-white z-50 md:hidden transform transition-transform duration-300 shadow-2xl ${isMobileMenuOpen ? 'translate-x-0' : '-translate-x-full'}`}>
         <div className="flex flex-col h-full">
           {/* Header */}
-          <div className="flex items-center justify-between p-4 border-b border-club-border bg-club-bg-secondary">
+          <div className="flex items-center justify-between p-4 border-b border-gray-200 bg-gray-50">
             <Logo variant="club" className="h-8" />
             <button 
               className="p-2 hover:bg-gray-100 rounded-lg transition-colors" 
@@ -156,21 +156,21 @@ export default function HomePage() {
             <div className="space-y-1">
               <a 
                 href="/soluciones" 
-                className="block py-3 px-4 text-lg text-club-text-primary hover:text-club-accent hover:bg-club-bg-secondary rounded-lg transition-all"
+                className="block py-3 px-4 text-lg text-gray-900 hover:text-club-accent hover:bg-gray-100 rounded-lg transition-all"
                 onClick={() => setIsMobileMenuOpen(false)}
               >
                 Soluciones
               </a>
               <a 
                 href="/precios" 
-                className="block py-3 px-4 text-lg text-club-text-primary hover:text-club-accent hover:bg-club-bg-secondary rounded-lg transition-all"
+                className="block py-3 px-4 text-lg text-gray-900 hover:text-club-accent hover:bg-gray-100 rounded-lg transition-all"
                 onClick={() => setIsMobileMenuOpen(false)}
               >
                 Precios
               </a>
               <a 
                 href="/casos-de-exito" 
-                className="block py-3 px-4 text-lg text-club-text-primary hover:text-club-accent hover:bg-club-bg-secondary rounded-lg transition-all"
+                className="block py-3 px-4 text-lg text-gray-900 hover:text-club-accent hover:bg-gray-100 rounded-lg transition-all"
                 onClick={() => setIsMobileMenuOpen(false)}
               >
                 Casos de Éxito
@@ -207,7 +207,7 @@ export default function HomePage() {
           </nav>
           
           {/* CTA Buttons */}
-          <div className="p-6 border-t border-club-border bg-club-bg-secondary">
+          <div className="p-6 border-t border-gray-200 bg-gray-50">
             <ClubButton 
               variant="ghost" 
               size="lg" 
