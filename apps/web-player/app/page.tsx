@@ -65,7 +65,7 @@ export default function HomePage() {
             
             <p className="text-lg sm:text-xl md:text-2xl text-player-text-secondary mb-6 sm:mb-8 max-w-3xl">
               La IA que analiza tu pádel y te dice exactamente qué mejorar. 
-              Mejora tu ranking en 30 días o te devolvemos tu dinero.
+              Mejora tu ranking en 30 días o te devolvemos tu dinero. 
             </p>
 
             <div className="flex flex-col gap-3 sm:flex-row sm:gap-4 mb-8 sm:mb-12">
