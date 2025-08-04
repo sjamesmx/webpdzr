@@ -135,42 +135,42 @@ export default function HomePage() {
       />
       
       {/* Mobile Menu Drawer */}
-      <div className={`fixed top-0 left-0 h-full w-80 bg-white z-50 md:hidden transform transition-transform duration-300 shadow-2xl ${isMobileMenuOpen ? 'translate-x-0' : '-translate-x-full'}`}>
+      <div className={`fixed top-0 left-0 h-full w-80 bg-gray-900 z-50 md:hidden transform transition-transform duration-300 shadow-2xl ${isMobileMenuOpen ? 'translate-x-0' : '-translate-x-full'}`}>
         <div className="flex flex-col h-full">
           {/* Header */}
-          <div className="flex items-center justify-between p-4 border-b border-gray-200 bg-gray-50">
+          <div className="flex items-center justify-between p-4 border-b border-gray-800 bg-gray-800">
             <Logo variant="club" className="h-8" />
             <button 
-              className="p-2 hover:bg-gray-100 rounded-lg transition-colors" 
+              className="p-2 hover:bg-gray-700 rounded-lg transition-colors" 
               aria-label="Cerrar menu"
               onClick={() => setIsMobileMenuOpen(false)}
             >
-              <svg className="w-6 h-6 text-club-text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
               </svg>
             </button>
           </div>
           
           {/* Navigation */}
-          <nav className="flex-1 p-6 overflow-y-auto bg-white">
+          <nav className="flex-1 p-6 overflow-y-auto bg-gray-900">
             <div className="space-y-1">
               <a 
                 href="/soluciones" 
-                className="block py-3 px-4 text-lg text-gray-900 hover:text-club-accent hover:bg-gray-100 rounded-lg transition-all"
+                className="block py-3 px-4 text-lg text-white hover:text-club-accent hover:bg-gray-800 rounded-lg transition-all"
                 onClick={() => setIsMobileMenuOpen(false)}
               >
                 Soluciones
               </a>
               <a 
                 href="/precios" 
-                className="block py-3 px-4 text-lg text-gray-900 hover:text-club-accent hover:bg-gray-100 rounded-lg transition-all"
+                className="block py-3 px-4 text-lg text-white hover:text-club-accent hover:bg-gray-800 rounded-lg transition-all"
                 onClick={() => setIsMobileMenuOpen(false)}
               >
                 Precios
               </a>
               <a 
                 href="/casos-de-exito" 
-                className="block py-3 px-4 text-lg text-gray-900 hover:text-club-accent hover:bg-gray-100 rounded-lg transition-all"
+                className="block py-3 px-4 text-lg text-white hover:text-club-accent hover:bg-gray-800 rounded-lg transition-all"
                 onClick={() => setIsMobileMenuOpen(false)}
               >
                 Casos de Éxito
@@ -178,27 +178,27 @@ export default function HomePage() {
             </div>
             
             {/* Separator */}
-            <div className="my-6 border-t border-club-border"></div>
+            <div className="my-6 border-t border-gray-700"></div>
             
             {/* Footer Links */}
             <div className="space-y-1">
               <a 
                 href="/privacidad" 
-                className="block py-2 px-4 text-sm text-club-text-secondary hover:text-club-accent transition-colors"
+                className="block py-2 px-4 text-sm text-gray-400 hover:text-club-accent transition-colors"
                 onClick={() => setIsMobileMenuOpen(false)}
               >
                 Privacidad
               </a>
               <a 
                 href="/terminos" 
-                className="block py-2 px-4 text-sm text-club-text-secondary hover:text-club-accent transition-colors"
+                className="block py-2 px-4 text-sm text-gray-400 hover:text-club-accent transition-colors"
                 onClick={() => setIsMobileMenuOpen(false)}
               >
                 Términos
               </a>
               <a 
                 href="https://padelyzer.com" 
-                className="block py-2 px-4 text-sm text-club-text-secondary hover:text-club-accent transition-colors"
+                className="block py-2 px-4 text-sm text-gray-400 hover:text-club-accent transition-colors"
                 onClick={() => setIsMobileMenuOpen(false)}
               >
                 App para jugadores
@@ -207,7 +207,7 @@ export default function HomePage() {
           </nav>
           
           {/* CTA Buttons */}
-          <div className="p-6 border-t border-gray-200 bg-gray-50">
+          <div className="p-6 border-t border-gray-800 bg-gray-800">
             <ClubButton 
               variant="ghost" 
               size="lg" 
