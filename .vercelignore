@@ -1,7 +1,15 @@
-# Ignore cache directories
-.next/cache
-apps/*/.next/cache
-node_modules/.cache
-
-# Force fresh builds
-*.cache
+# Ignore all apps except web-player when deploying from deploy-jugadores branch
+apps/web-club
+apps/router
+scripts
+docs
+README.md
+DEPLOYMENT-GUIDE.md
+*.log
+.git
+.github
+node_modules
+.next
+.turbo
+dist
+build

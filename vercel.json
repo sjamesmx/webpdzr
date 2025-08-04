@@ -1,7 +1,17 @@
 {
   "$schema": "https://openapi.vercel.sh/vercel.json",
   "framework": "nextjs",
-  "buildCommand": "npm run build:player",
+  "buildCommand": "cd apps/web-player && npm run build",
   "installCommand": "npm install",
-  "outputDirectory": "apps/web-player/.next"
+  "outputDirectory": "apps/web-player/.next",
+  "ignoreCommand": "git diff --quiet HEAD^ HEAD .",
+  "functions": {
+    "apps/web-player/app/**/*.{js,jsx,ts,tsx}": {
+      "memory": 1024
+    }
+  },
+  "env": {
+    "NEXT_PUBLIC_APP_TYPE": "PLAYER",
+    "NODE_ENV": "production"
+  }
 }
