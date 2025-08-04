@@ -68,7 +68,7 @@ export default function HomePage() {
             
             <p className="text-base sm:text-lg md:text-xl text-club-text-secondary mb-6 sm:mb-8 max-w-3xl">
               El único sistema que GARANTIZA +30% más ingresos en 90 días. 
-              Sin comisiones ocultas. Con soporte 24/7 en español. 
+              Sin comisiones ocultas. Con soporte 24/7 en español.
             </p>
 
             <div className="flex flex-col gap-3 sm:flex-row sm:gap-4 mb-8 sm:mb-12">
